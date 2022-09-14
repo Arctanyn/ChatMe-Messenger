@@ -11,6 +11,8 @@ final class ApplicationCoordinator: BaseCoordinator {
     
     //MARK: Properties
     
+    private var isLogin = true
+    
     private let coordinatorFactory: CoordinatorFactory
     private let assemblyBuilder: AssemblyBuilder
     private let router: Router
@@ -26,21 +28,34 @@ final class ApplicationCoordinator: BaseCoordinator {
     //MARK: - Methods
     
     override func start() {
-        runOverviewFlow()
+        if isLogin {
+            runCMFlow()
+        } else {
+            runLoginFlow()
+        }
     }
+}
 
-    //MARK: - Private methods
-    private func runOverviewFlow() {
-        let coordinator = setupOverviewCoordinator()
+//MARK: - Private methods
+
+private extension ApplicationCoordinator {
+    func runLoginFlow() {
+        let coordinator = coordinatorFactory.createLoginCoordinator(router: router)
+        coordinator.finishFlow = { [weak self] in
+            self?.runCMFlow()
+            self?.isLogin = true
+            self?.childDidFinish(coordinator)
+            self?.start()
+        }
+        
         addChild(coordinator)
         coordinator.start()
     }
     
-    private func setupOverviewCoordinator() -> OverviewCoordinator {
-        let coordinator = coordinatorFactory.createOverviewCoordinator(router: router)
-        coordinator.finishFlow = { [weak self] in
-            self?.childDidFinish(coordinator)
-        }
-        return coordinator
+    func runCMFlow() {
+        let coordinator = coordinatorFactory.createCMCoordinator(router: router)
+        coordinator.isAlreadyLoggedIn = isLogin
+        addChild(coordinator)
+        coordinator.start()
     }
 }

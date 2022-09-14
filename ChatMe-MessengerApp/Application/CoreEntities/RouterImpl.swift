@@ -26,15 +26,24 @@ final class RouterImpl: Router {
     func toPresent() -> UIViewController? {
         return rootController
     }
-
+    
     func setRootModule(_ module: Presentable?) {
         setRootModule(module, hideBar: false)
     }
     
     func setRootModule(_ module: Presentable?, hideBar: Bool) {
         guard let controller = module?.toPresent() else { return }
-        rootController?.setViewControllers([controller], animated: false)
+        rootController?.viewControllers = [controller]
         rootController?.isNavigationBarHidden = hideBar
+    }
+    
+    func present(_ module: Presentable?) {
+        present(module, animated: true)
+    }
+    
+    func present(_ module: Presentable?, animated: Bool) {
+        guard let controller = module?.toPresent() else { return }
+        rootController?.present(controller, animated: animated, completion: nil)
     }
 }
 

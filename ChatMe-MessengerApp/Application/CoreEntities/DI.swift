@@ -33,20 +33,3 @@ extension DI: AppFactory {
         return (window, coordinator)
     }
 }
-
-//MARK: - AssemblyBuilder
-final class AssemblyBuilderImpl: AssemblyBuilder {
-    fileprivate weak var di: DI?
-
-    func createOverviewModule() -> UIViewController {
-        let view = OverviewController()
-        
-        return view
-    }
-    
-    func createLoginModule() -> UIViewController {
-        let view = OverviewController()
-        
-        return view
-    }
-}

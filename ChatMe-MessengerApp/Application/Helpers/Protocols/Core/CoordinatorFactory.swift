@@ -9,6 +9,8 @@ import Foundation
 
 protocol CoordinatorFactory {
     func createApplicationCoordinator(router: Router) -> ApplicationCoordinator
-    func createOverviewCoordinator(router: Router) -> OverviewCoordinator
     func createLoginCoordinator(router: Router) -> LoginCoordinator
+    func createCMCoordinator(router: Router) -> CMCoordinator
+    func createChatsCoordinator(router: Router) -> ChatsCoordinator
+    func createUserCoordinator(router: Router) -> UserCoordinator
 }

@@ -9,7 +9,11 @@ import UIKit
 
 class BaseCoordinator: Coordinator {
     
-    private var childCoordinators: [Coordinator] = []
+    //MARK: Properties
+    
+    var childCoordinators: [Coordinator] = []
+    
+    //MARK: - Methods
     
     func start() {
         fatalError("No implementation")

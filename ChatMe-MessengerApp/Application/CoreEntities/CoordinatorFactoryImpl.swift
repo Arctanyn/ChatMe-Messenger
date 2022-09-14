@@ -25,11 +25,20 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
         return ApplicationCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }
     
-    func createOverviewCoordinator(router: Router) -> OverviewCoordinator {
-        return OverviewCoordinator(assemblyBuilder: assemblyBuilder, router: router)
+    func createLoginCoordinator(router: Router) -> LoginCoordinator {
+        return LoginCoordinator(coordinatorsFactory: self, assemblyBuilder: assemblyBuilder, router: router)
+    }
+
+    
+    func createCMCoordinator(router: Router) -> CMCoordinator {
+        return CMCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }
     
-    func createLoginCoordinator(router: Router) -> LoginCoordinator {
-        return LoginCoordinator(assemblyBuilder: assemblyBuilder, router: router)
+    func createUserCoordinator(router: Router) -> UserCoordinator {
+        return UserCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
+    }
+    
+    func createChatsCoordinator(router: Router) -> ChatsCoordinator {
+        return ChatsCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }
 }
