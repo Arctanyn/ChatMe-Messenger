@@ -8,6 +8,9 @@
 import UIKit
 
 class CMBaseView: UIView {
+    
+    //MARK: Initialization
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureAppearance()
@@ -19,6 +22,8 @@ class CMBaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+//MARK: - BaseViewSetup
 
 @objc extension CMBaseView: BaseViewSetup {
     func configureAppearance() { }

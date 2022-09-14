@@ -11,6 +11,6 @@ final class UserController: CMBaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "User"
+        title = Resources.Strings.TabBar.user
     }
 }

@@ -8,6 +8,9 @@
 import UIKit
 
 class CMBaseController: UIViewController {
+    
+    //MARK: - View Controller Lyfecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAppearance()
@@ -16,9 +19,11 @@ class CMBaseController: UIViewController {
     }
 }
 
+//MARK: - BaseViewSetup
+
 @objc extension CMBaseController: BaseViewSetup {
     func configureAppearance() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .secondarySystemGroupedBackground
     }
     
     func setupViews() { }

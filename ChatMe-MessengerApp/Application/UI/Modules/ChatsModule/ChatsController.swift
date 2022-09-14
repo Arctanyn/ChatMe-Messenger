@@ -11,6 +11,6 @@ final class ChatsController: CMBaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Chats"
+        title = Resources.Strings.TabBar.chats
     }
 }

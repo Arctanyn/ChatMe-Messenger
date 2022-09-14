@@ -12,7 +12,7 @@ final class CMCoordinator: BaseCoordinator {
     var finishFlow: VoidClosure?
     var isAlreadyLoggedIn = false
     
-    private var tabs: [Tabs: UINavigationController] = [:]
+    private var navigationControllers: [UINavigationController] = []
     
     private let router: Router
     private let coordinatorFactory: CoordinatorFactory
@@ -32,7 +32,7 @@ final class CMCoordinator: BaseCoordinator {
         prepareTabs()
         
         let mainTabBarController = CMTabBarController()
-        mainTabBarController.configureViewControllers(with: tabs)
+        mainTabBarController.configureViewControllers(with: navigationControllers)
 
         mainTabBarController.modalPresentationStyle = .fullScreen
         
@@ -54,7 +54,8 @@ private extension CMCoordinator {
     
     func setupCoordinator(for tab: Tabs) {
         let navController = UINavigationController()
-        tabs[tab] = navController
+        navController.tabBarItem.tag = tab.rawValue
+        navigationControllers.append(navController)
         
         let router = RouterImpl(rootController: navController)
         

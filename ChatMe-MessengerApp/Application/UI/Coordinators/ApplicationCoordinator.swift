@@ -11,7 +11,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     
     //MARK: Properties
     
-    private var isLogin = true
+    private var isLogin = false
     
     private let coordinatorFactory: CoordinatorFactory
     private let assemblyBuilder: AssemblyBuilder
