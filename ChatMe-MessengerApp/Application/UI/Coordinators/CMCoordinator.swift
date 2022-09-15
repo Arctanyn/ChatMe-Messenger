@@ -9,6 +9,8 @@ import UIKit
 
 final class CMCoordinator: BaseCoordinator {
     
+    //MARK: Properties
+    
     var finishFlow: VoidClosure?
     var isAlreadyLoggedIn = false
     
@@ -53,7 +55,7 @@ private extension CMCoordinator {
     }
     
     func setupCoordinator(for tab: Tabs) {
-        let navController = UINavigationController()
+        let navController = CMBaseNavigationController()
         navController.tabBarItem.tag = tab.rawValue
         navigationControllers.append(navController)
         

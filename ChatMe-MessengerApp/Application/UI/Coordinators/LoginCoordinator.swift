@@ -31,4 +31,13 @@ final class LoginCoordinator: BaseCoordinator {
         let viewController = assemblyBuilder.createLoginModule(coordinator: self)
         router.setRootModule(viewController, hideBar: true)
     }
+    
+    func runRegisterFlow() {
+        let coordinator = coordinatorsFactory.createRegisterCoordinator(router: router)
+        coordinator.finishFlow = { [weak self] in
+            self?.childDidFinish(coordinator)
+        }
+        addChild(coordinator)
+        coordinator.start()
+    }
 }

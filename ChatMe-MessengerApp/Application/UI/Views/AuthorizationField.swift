@@ -66,7 +66,7 @@ final class AuthorizationField: CMBaseView {
     }
     
     override func configureAppearance() {
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = Resources.Colors.secondary
     }
     
     override func setupViews() {

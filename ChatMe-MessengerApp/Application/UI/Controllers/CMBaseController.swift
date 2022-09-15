@@ -23,7 +23,7 @@ class CMBaseController: UIViewController {
 
 @objc extension CMBaseController: BaseViewSetup {
     func configureAppearance() {
-        view.backgroundColor = .secondarySystemGroupedBackground
+        view.backgroundColor = Resources.Colors.background
     }
     
     func setupViews() { }

@@ -13,15 +13,19 @@ enum Resources {
     
     enum Colors {
         static var active: UIColor {
-            return UIColor("#437BFE")
+            UIColor("#437BFE")
         }
         
         static var inactive: UIColor {
-            return UIColor("#929DA5")
+            UIColor("#929DA5")
+        }
+
+        static var background: UIColor {
+            .secondarySystemGroupedBackground
         }
         
-        static var separator: UIColor {
-            return UIColor("#E8ECEF")
+        static var secondary: UIColor {
+            .tertiarySystemGroupedBackground
         }
     }
     
@@ -55,7 +59,12 @@ enum Resources {
         }
         
         static var overviewBackground: UIImage {
-            return UIImage(named: "overview_background_image")!
+            UIImage(named: "overview_background_image")!
+        }
+        
+        static var xMark: UIImage {
+            UIImage(systemName: "xmark")!
+                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 16, weight: .bold))
         }
     }
     
@@ -75,20 +84,20 @@ enum Resources {
         
         enum TabBar {
             static var user: String {
-                return "User"
+                "User"
             }
             
             static var chats: String {
-                return "Chats"
+                "Chats"
             }
         }
         
         static var logIn: String {
-            return "Log in"
+            "Log in"
         }
         
         static var signUp: String {
-            return "Sign up"
+            "Sign up"
         }
     }
 }

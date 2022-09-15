@@ -1,5 +1,5 @@
 //
-//  ChatsController.swift
+//  UserViewController.swift
 //  ChatMe-MessengerApp
 //
 //  Created by Малиль Дугулюбгов on 14.09.2022.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class ChatsController: CMBaseController {
+final class UserViewController: CMBaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Resources.Strings.TabBar.chats
+        title = Resources.Strings.TabBar.user
     }
 }

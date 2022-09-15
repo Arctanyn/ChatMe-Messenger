@@ -8,25 +8,33 @@
 import UIKit
 
 final class AssemblyBuilderImpl: AssemblyBuilder {
+    
+    //MARK: Properties
+    
     weak var di: DI?
+    
+    //MARK: - Methods
 
     func createLoginModule(coordinator: Coordinator) -> UIViewController {
-        let view = LoginController()
-        
-        let viewModel = LoginViewModelImpl(coordinator: coordinator)
-        view.configure(viewModel: viewModel)
-        
+        let view = LoginViewController()
+        view.viewModel = LoginViewModelImpl(coordinator: coordinator)
+        return view
+    }
+    
+    func createRegisterModule(coordinator: Coordinator) -> UIViewController {
+        let view = RegisterViewController()
+        view.viewModel = RegisterViewModelImpl(coordinator: coordinator)
         return view
     }
     
     func createChatsModule(coordinator: Coordinator) -> UIViewController {
-        let view = ChatsController()
+        let view = ChatsViewController()
         
         return view
     }
     
     func createUserModule(coordinator: Coordinator) -> UIViewController {
-        let view = UserController()
+        let view = UserViewController()
         
         return view
     }

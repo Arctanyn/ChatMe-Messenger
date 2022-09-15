@@ -21,7 +21,7 @@ final class DI {
 
 extension DI: AppFactory {
     func makeKeyWindowAndCoordinator(with windowScene: UIWindowScene) -> (UIWindow, Coordinator) {
-        let rootNavController = UINavigationController()
+        let rootNavController = CMBaseNavigationController()
         let router = RouterImpl(rootController: rootNavController)
 
         let window = UIWindow(windowScene: windowScene)

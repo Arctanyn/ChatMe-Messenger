@@ -9,6 +9,7 @@ import UIKit
 
 protocol AssemblyBuilder {
     func createLoginModule(coordinator: Coordinator) -> UIViewController
+    func createRegisterModule(coordinator: Coordinator) -> UIViewController
     func createChatsModule(coordinator: Coordinator) -> UIViewController
     func createUserModule(coordinator: Coordinator) -> UIViewController
 }

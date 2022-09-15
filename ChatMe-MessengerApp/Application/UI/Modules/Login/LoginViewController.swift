@@ -7,11 +7,13 @@
 
 import UIKit
 
-final class LoginController: CMBaseController {
+final class LoginViewController: CMBaseController, ViewModelable {
+
+    typealias ViewModel = LoginViewModel
     
     //MARK: Properties
     
-    private var viewModel: LoginViewModel!
+    var viewModel: ViewModel!
     
     //MARK: - Views
     
@@ -49,7 +51,7 @@ final class LoginController: CMBaseController {
         button.setTitle(Resources.Strings.logIn, for: .normal)
         button.titleLabel?.font = Resources.Fonts.system(size: 17, weight: .medium)
         button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -59,14 +61,11 @@ final class LoginController: CMBaseController {
         button.setTitle(Resources.Strings.signUp, for: .normal)
         button.titleLabel?.font = Resources.Fonts.system(size: 17, weight: .medium)
         button.tintColor = .label
+        button.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)
         return button
     }()
     
     //MARK: - Methods
-    
-    func configure(viewModel: LoginViewModel) {
-        self.viewModel = viewModel
-    }
     
     override func setupViews() {
         setupAuthFieldsStack()
@@ -99,7 +98,7 @@ final class LoginController: CMBaseController {
 
 //MARK: - Actions
 
-@objc private extension LoginController {
+@objc private extension LoginViewController {
     func loginButtonPressed() {
         let email = emailField.textField.text ?? ""
         let password = emailField.textField.text ?? ""
@@ -112,20 +111,19 @@ final class LoginController: CMBaseController {
         }
     }
     
-    func authFieldDidChange(_ sender: UITextField) {
-        
+    func signUpButtonPressed() {
+        viewModel.showSingUpPage()
     }
 }
 
 //MARK: - Private methods
 
-private extension LoginController {
+private extension LoginViewController {
     func setupAuthFieldsStack() {
         [
             emailField,
             passwordField
         ].forEach { authField in
-            authField.addTextFieldAction(sender: self, action: #selector(authFieldDidChange(_:)), for: .editingChanged)
             authField.textField.delegate = self
             authFieldsStack.addArrangedSubview(authField)
         }
@@ -155,7 +153,7 @@ private extension LoginController {
 
 //MARK: - UITableViewDelegate
 
-extension LoginController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         

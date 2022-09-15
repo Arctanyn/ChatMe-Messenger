@@ -29,6 +29,9 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
         return LoginCoordinator(coordinatorsFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }
 
+    func createRegisterCoordinator(router: Router) -> RegisterCoordinator {
+        return RegisterCoordinator(assemblyBuilder: assemblyBuilder, router: router)
+    }
     
     func createCMCoordinator(router: Router) -> CMCoordinator {
         return CMCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)

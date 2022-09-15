@@ -11,8 +11,16 @@ final class ApplicationCoordinator: BaseCoordinator {
     
     //MARK: Properties
     
-    private var isLogin = false
+    private var isLogin: Bool {
+        get {
+            userDefaults.bool(forKey: "LoggedIn")
+        }
+        set {
+            userDefaults.set(newValue, forKey: "LoggedIn")
+        }
+    }
     
+    private let userDefaults = UserDefaults.standard
     private let coordinatorFactory: CoordinatorFactory
     private let assemblyBuilder: AssemblyBuilder
     private let router: Router
@@ -54,6 +62,9 @@ private extension ApplicationCoordinator {
     
     func runCMFlow() {
         let coordinator = coordinatorFactory.createCMCoordinator(router: router)
+        coordinator.finishFlow = { [weak self] in
+            self?.childDidFinish(coordinator)
+        }
         coordinator.isAlreadyLoggedIn = isLogin
         addChild(coordinator)
         coordinator.start()
