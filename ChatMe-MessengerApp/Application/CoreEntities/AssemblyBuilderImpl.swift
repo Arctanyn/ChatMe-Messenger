@@ -23,7 +23,13 @@ final class AssemblyBuilderImpl: AssemblyBuilder {
     
     func createRegisterModule(coordinator: Coordinator) -> UIViewController {
         let view = RegisterViewController()
-        view.viewModel = RegisterViewModelImpl(coordinator: coordinator)
+        view.viewModel = RegisterViewModelImpl(user: User(), coordinator: coordinator)
+        return view
+    }
+    
+    func createProfileRegistrationProfile(user: User, coordinator: Coordinator) -> UIViewController {
+        let view = ProfileRegisterViewController()
+        view.viewModel = ProfileRegisterViewModelImpl(user: user, coordinator: coordinator)
         return view
     }
     

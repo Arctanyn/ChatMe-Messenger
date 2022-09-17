@@ -10,6 +10,8 @@ import Foundation
 enum LoginError: LocalizedError {
     case emptyField
     case invalidUserData
+    case differentPasswords
+    case missingName
     
     var errorDescription: String? {
         switch self {
@@ -17,6 +19,10 @@ enum LoginError: LocalizedError {
             return "All fields must be filled in"
         case .invalidUserData:
             return "Incorrect email or password"
+        case .differentPasswords:
+            return "Passwords must match"
+        case .missingName:
+            return "You need to set the profile name"
         }
     }
 }

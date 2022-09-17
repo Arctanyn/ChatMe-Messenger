@@ -8,7 +8,7 @@
 import UIKit
 
 final class RouterImpl: Router {
-
+    
     //MARK: Properties
     
     private weak var rootController: UINavigationController?
@@ -47,11 +47,11 @@ final class RouterImpl: Router {
     }
     
     func dismissModule() {
-      dismissModule(animated: true, completion: nil)
+        dismissModule(animated: true, completion: nil)
     }
     
     func dismissModule(animated: Bool, completion: (() -> Void)?) {
-      rootController?.dismiss(animated: animated, completion: completion)
+        rootController?.dismiss(animated: animated, completion: completion)
     }
     
     func push(_ module: Presentable?) {
@@ -76,6 +76,30 @@ final class RouterImpl: Router {
         
         rootController?.pushViewController(controller, animated: animated)
     }
-
+    
+    func popModule()  {
+        popModule(animated: true)
+    }
+    
+    func popModule(animated: Bool)  {
+        if let controller = rootController?.popViewController(animated: animated) {
+            runCompletion(for: controller)
+        }
+    }
+    
+    func popToRootModule(animated: Bool) {
+        if let controllers = rootController?.popToRootViewController(animated: animated) {
+            controllers.forEach { controller in
+                runCompletion(for: controller)
+            }
+        }
+    }
+    
+    private func runCompletion(for controller: UIViewController) {
+        guard let completion = completions[controller] else { return }
+        completion()
+        completions.removeValue(forKey: controller)
+    }
+    
 }
 

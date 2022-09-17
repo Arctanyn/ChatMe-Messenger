@@ -28,8 +28,8 @@ final class LoginCoordinator: BaseCoordinator {
     //MARK: - Methods
     
     override func start() {
-        let viewController = assemblyBuilder.createLoginModule(coordinator: self)
-        router.setRootModule(viewController, hideBar: true)
+        let module = assemblyBuilder.createLoginModule(coordinator: self)
+        router.setRootModule(module, hideBar: true)
     }
     
     func runRegisterFlow() {

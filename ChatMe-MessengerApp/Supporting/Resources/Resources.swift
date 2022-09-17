@@ -66,6 +66,14 @@ enum Resources {
             UIImage(systemName: "xmark")!
                 .withConfiguration(UIImage.SymbolConfiguration(pointSize: 16, weight: .bold))
         }
+        
+        static var circlePhoto: UIImage {
+            UIImage(systemName: "photo.circle")!
+        }
+        
+        static var backArrow: UIImage {
+            UIImage(systemName: "chevron.backward")!
+        }
     }
     
     //MARK: - Fonts
@@ -90,6 +98,30 @@ enum Resources {
             static var chats: String {
                 "Chats"
             }
+        }
+        
+        //MARK: - Registration
+        
+        enum Registration {
+            static var accountRegistrationTitle: String {
+                "Create a new account"
+            }
+            
+            static var accountRegistrationInfo: String {
+                "To create an account, you will need to specify your email address and come up with a password"
+            }
+            
+            static var profileRegistrationTitle: String {
+                "Enter your name and upload a photo"
+            }
+            
+            static var profileRegistrationInfo: String {
+                "Enter a name and optionally select a profile picture"
+            }
+        }
+        
+        static var applicationName: String {
+            "ChatMe"
         }
         
         static var logIn: String {

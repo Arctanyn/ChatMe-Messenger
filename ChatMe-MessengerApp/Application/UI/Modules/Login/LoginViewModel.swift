@@ -9,9 +9,10 @@ import Foundation
 
 //MARK: LoginViewModel
 
-protocol LoginViewModel: Authentication {
+protocol LoginViewModel {
     func login()
-    func showSingUpPage()
+    func showSignUpPage()
+    func checkToValid(email: String, password: String) -> LoginError?
 }
 
 //MARK: - LoginViewModelImpl
@@ -35,7 +36,7 @@ final class LoginViewModelImpl: LoginViewModel {
         loginCoordinator.finishFlow?()
     }
     
-    func showSingUpPage() {
+    func showSignUpPage() {
         guard let loginCoordinator = coordinator as? LoginCoordinator else { return }
         loginCoordinator.runRegisterFlow()
     }

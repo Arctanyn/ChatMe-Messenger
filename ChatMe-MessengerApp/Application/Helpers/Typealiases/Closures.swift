@@ -8,3 +8,4 @@
 import Foundation
 
 typealias VoidClosure = () -> Void
+typealias BooleanClosure = (Bool) -> Void

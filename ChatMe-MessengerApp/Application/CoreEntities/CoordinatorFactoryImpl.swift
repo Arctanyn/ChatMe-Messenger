@@ -30,7 +30,11 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
     }
 
     func createRegisterCoordinator(router: Router) -> RegisterCoordinator {
-        return RegisterCoordinator(assemblyBuilder: assemblyBuilder, router: router)
+        return RegisterCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
+    }
+    
+    func createProfileRegisterCoordinator(user: User, router: Router) -> ProfileRegisterCoordinator {
+        return ProfileRegisterCoordinator(user: user, assemblyBuilder: assemblyBuilder, router: router)
     }
     
     func createCMCoordinator(router: Router) -> CMCoordinator {

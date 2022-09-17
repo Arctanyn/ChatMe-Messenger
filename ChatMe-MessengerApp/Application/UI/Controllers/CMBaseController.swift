@@ -17,6 +17,15 @@ class CMBaseController: UIViewController {
         setupViews()
         constraintViews()
     }
+    
+    func setNewBackButton(target: Any?, action: Selector?) {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: Resources.Images.backArrow,
+            style: .done,
+            target: target,
+            action: action
+        )
+    }
 }
 
 //MARK: - BaseViewSetup

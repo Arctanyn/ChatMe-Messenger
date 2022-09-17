@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1330F528D475A3006C078F /* CMRoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1330F428D475A3006C078F /* CMRoundedRectButton.swift */; };
+		3B1330F728D4772F006C078F /* UIButton + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1330F628D4772F006C078F /* UIButton + Ext.swift */; };
+		3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F740B28D49A3400E4705A /* ProfileRegisterCoordinator.swift */; };
+		3B1F741028D49B3800E4705A /* ProfileRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F740F28D49B3800E4705A /* ProfileRegisterViewController.swift */; };
+		3B1F741228D4B70000E4705A /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F741128D4B70000E4705A /* ProfileImageView.swift */; };
 		3B302E3F28CC8CE700844468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B302E3E28CC8CE700844468 /* AppDelegate.swift */; };
 		3B302E4128CC8CE700844468 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B302E4028CC8CE700844468 /* SceneDelegate.swift */; };
 		3B302E4328CC8CE700844468 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B302E4228CC8CE700844468 /* LoginViewController.swift */; };
@@ -39,18 +44,27 @@
 		3BA62D1428D1840500741288 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA62D1328D1840500741288 /* UserViewController.swift */; };
 		3BA77BED28CF105E009F1366 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA77BEC28CF105E009F1366 /* LoginError.swift */; };
 		3BA77BEF28CF16CB009F1366 /* AssemblyBuilderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA77BEE28CF16CB009F1366 /* AssemblyBuilderImpl.swift */; };
-		3BA77BF128CF1790009F1366 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA77BF028CF1790009F1366 /* Authentication.swift */; };
 		3BAC64E328D3737D00A6BE77 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E228D3737D00A6BE77 /* RegisterCoordinator.swift */; };
 		3BAC64E628D376F700A6BE77 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E528D376F700A6BE77 /* RegisterViewController.swift */; };
 		3BAC64E828D3772B00A6BE77 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E728D3772B00A6BE77 /* RegisterViewModel.swift */; };
 		3BAC64EA28D3791E00A6BE77 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */; };
 		3BAC64EC28D384E900A6BE77 /* CMBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64EB28D384E900A6BE77 /* CMBaseNavigationController.swift */; };
+		3BD2B89928D5D621009CF754 /* CMTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89828D5D621009CF754 /* CMTitleLabel.swift */; };
+		3BD2B89B28D5D6EC009CF754 /* CMInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89A28D5D6EC009CF754 /* CMInfoLabel.swift */; };
+		3BD2B89D28D5D7D1009CF754 /* LoginErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89C28D5D7D1009CF754 /* LoginErrorLabel.swift */; };
+		3BD2B89F28D5DABF009CF754 /* ProfileRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89E28D5DABF009CF754 /* ProfileRegisterViewModel.swift */; };
+		3BD2B8A128D5DCA8009CF754 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B8A028D5DCA8009CF754 /* User.swift */; };
 		3BFDF5C528D1AA3D00A452F5 /* CMCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */; };
 		3BFDF5C728D1B80C00A452F5 /* ChatsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */; };
 		3BFDF5C928D1B96F00A452F5 /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B1330F428D475A3006C078F /* CMRoundedRectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMRoundedRectButton.swift; sourceTree = "<group>"; };
+		3B1330F628D4772F006C078F /* UIButton + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Ext.swift"; sourceTree = "<group>"; };
+		3B1F740B28D49A3400E4705A /* ProfileRegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterCoordinator.swift; sourceTree = "<group>"; };
+		3B1F740F28D49B3800E4705A /* ProfileRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterViewController.swift; sourceTree = "<group>"; };
+		3B1F741128D4B70000E4705A /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		3B302E3B28CC8CE700844468 /* ChatMe-MessengerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ChatMe-MessengerApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B302E3E28CC8CE700844468 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B302E4028CC8CE700844468 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,12 +99,16 @@
 		3BA62D1328D1840500741288 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		3BA77BEC28CF105E009F1366 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 		3BA77BEE28CF16CB009F1366 /* AssemblyBuilderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilderImpl.swift; sourceTree = "<group>"; };
-		3BA77BF028CF1790009F1366 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		3BAC64E228D3737D00A6BE77 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 		3BAC64E528D376F700A6BE77 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3BAC64E728D3772B00A6BE77 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		3BAC64EB28D384E900A6BE77 /* CMBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMBaseNavigationController.swift; sourceTree = "<group>"; };
+		3BD2B89828D5D621009CF754 /* CMTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTitleLabel.swift; sourceTree = "<group>"; };
+		3BD2B89A28D5D6EC009CF754 /* CMInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMInfoLabel.swift; sourceTree = "<group>"; };
+		3BD2B89C28D5D7D1009CF754 /* LoginErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrorLabel.swift; sourceTree = "<group>"; };
+		3BD2B89E28D5DABF009CF754 /* ProfileRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterViewModel.swift; sourceTree = "<group>"; };
+		3BD2B8A028D5DCA8009CF754 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMCoordinator.swift; sourceTree = "<group>"; };
 		3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsCoordinator.swift; sourceTree = "<group>"; };
 		3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
@@ -107,6 +125,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B1330F828D47FDC006C078F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3B1F740728D496F500E4705A /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				3B302E9A28CCC1A100844468 /* LoginCoordinator.swift */,
+				3B1F740828D4973100E4705A /* Register */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		3B1F740828D4973100E4705A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				3BAC64E228D3737D00A6BE77 /* RegisterCoordinator.swift */,
+				3B1F740B28D49A3400E4705A /* ProfileRegisterCoordinator.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		3B1F740D28D49B1800E4705A /* AccountRegister */ = {
+			isa = PBXGroup;
+			children = (
+				3BAC64E528D376F700A6BE77 /* RegisterViewController.swift */,
+				3BAC64E728D3772B00A6BE77 /* RegisterViewModel.swift */,
+			);
+			path = AccountRegister;
+			sourceTree = "<group>";
+		};
+		3B1F740E28D49B2100E4705A /* ProfileRegister */ = {
+			isa = PBXGroup;
+			children = (
+				3B1F740F28D49B3800E4705A /* ProfileRegisterViewController.swift */,
+				3BD2B89E28D5DABF009CF754 /* ProfileRegisterViewModel.swift */,
+			);
+			path = ProfileRegister;
+			sourceTree = "<group>";
+		};
 		3B302E3228CC8CE700844468 = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +198,9 @@
 			children = (
 				3BA77BEB28CF1046009F1366 /* Enums */,
 				3B302E8028CCAAB300844468 /* CoreEntities */,
+				3B302E7B28CCAA2D00844468 /* Helpers */,
 				3B302E7528CCA97B00844468 /* Models */,
 				3B302E7428CCA96D00844468 /* UI */,
-				3B302E7B28CCAA2D00844468 /* Helpers */,
 				3B302E7328CCA96100844468 /* AppFiles */,
 			);
 			path = Application;
@@ -168,6 +229,7 @@
 		3B302E7528CCA97B00844468 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3BD2B8A028D5DCA8009CF754 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				3B302E9728CCBEDE00844468 /* Login */,
-				3BAC64E428D376BD00A6BE77 /* Regisrer */,
+				3BAC64E428D376BD00A6BE77 /* SignUp */,
 				3BA62D0928D17D2100741288 /* Chats */,
 				3BA62D1228D183F000741288 /* User */,
 			);
@@ -206,8 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				3B302E8E28CCB5FF00844468 /* ApplicationCoordinator.swift */,
-				3B302E9A28CCC1A100844468 /* LoginCoordinator.swift */,
-				3BAC64E228D3737D00A6BE77 /* RegisterCoordinator.swift */,
+				3B1F740728D496F500E4705A /* Authorization */,
 				3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */,
 				3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */,
 				3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */,
@@ -219,7 +280,9 @@
 			isa = PBXGroup;
 			children = (
 				3B8D570B28CE29000004BDAD /* Base */,
+				3BD2B89C28D5D7D1009CF754 /* LoginErrorLabel.swift */,
 				3B8D570728CE28E60004BDAD /* AuthorizationField.swift */,
+				3B1F741128D4B70000E4705A /* ProfileImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,6 +290,7 @@
 		3B302E7B28CCAA2D00844468 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3B1330F828D47FDC006C078F /* Services */,
 				3B30432728D23A6C0067E301 /* Typealiases */,
 				3B302E7D28CCAA4300844468 /* Protocols */,
 				3B302E7C28CCAA3400844468 /* Extensions */,
@@ -247,7 +311,6 @@
 			children = (
 				3B302E8528CCAFE300844468 /* Core */,
 				3B8D570C28CE29340004BDAD /* BaseViewSetup.swift */,
-				3BA77BF028CF1790009F1366 /* Authentication.swift */,
 				3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */,
 			);
 			path = Protocols;
@@ -311,6 +374,7 @@
 				3B8D570228CE07F90004BDAD /* UIView + Ext.swift */,
 				3B8D571428CE55BA0004BDAD /* UIStackView + Ext.swift */,
 				3BA62D0C28D182E400741288 /* UIColor + Ext.swift */,
+				3B1330F628D4772F006C078F /* UIButton + Ext.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -319,6 +383,9 @@
 			isa = PBXGroup;
 			children = (
 				3B8D570928CE28FD0004BDAD /* CMBaseView.swift */,
+				3B1330F428D475A3006C078F /* CMRoundedRectButton.swift */,
+				3BD2B89828D5D621009CF754 /* CMTitleLabel.swift */,
+				3BD2B89A28D5D6EC009CF754 /* CMInfoLabel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -347,13 +414,13 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		3BAC64E428D376BD00A6BE77 /* Regisrer */ = {
+		3BAC64E428D376BD00A6BE77 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				3BAC64E528D376F700A6BE77 /* RegisterViewController.swift */,
-				3BAC64E728D3772B00A6BE77 /* RegisterViewModel.swift */,
+				3B1F740D28D49B1800E4705A /* AccountRegister */,
+				3B1F740E28D49B2100E4705A /* ProfileRegister */,
 			);
-			path = Regisrer;
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,31 +495,40 @@
 			files = (
 				3BFDF5C728D1B80C00A452F5 /* ChatsCoordinator.swift in Sources */,
 				3B302E9D28CCCB8D00844468 /* Coordinator.swift in Sources */,
+				3BD2B89B28D5D6EC009CF754 /* CMInfoLabel.swift in Sources */,
 				3B302E8928CCB03100844468 /* Router.swift in Sources */,
 				3BFDF5C528D1AA3D00A452F5 /* CMCoordinator.swift in Sources */,
 				3BAC64E828D3772B00A6BE77 /* RegisterViewModel.swift in Sources */,
+				3B1F741028D49B3800E4705A /* ProfileRegisterViewController.swift in Sources */,
 				3BA77BED28CF105E009F1366 /* LoginError.swift in Sources */,
 				3B8D570328CE07F90004BDAD /* UIView + Ext.swift in Sources */,
 				3B302E8728CCAFF300844468 /* CoordinatorFactory.swift in Sources */,
 				3BAC64EC28D384E900A6BE77 /* CMBaseNavigationController.swift in Sources */,
 				3B8D571328CE4E210004BDAD /* LoginViewModel.swift in Sources */,
 				3BAC64E628D376F700A6BE77 /* RegisterViewController.swift in Sources */,
-				3BA77BF128CF1790009F1366 /* Authentication.swift in Sources */,
+				3BD2B89F28D5DABF009CF754 /* ProfileRegisterViewModel.swift in Sources */,
 				3B302E8B28CCB13200844468 /* RouterImpl.swift in Sources */,
+				3B1F741228D4B70000E4705A /* ProfileImageView.swift in Sources */,
 				3BFDF5C928D1B96F00A452F5 /* UserCoordinator.swift in Sources */,
 				3BA77BEF28CF16CB009F1366 /* AssemblyBuilderImpl.swift in Sources */,
+				3B1330F528D475A3006C078F /* CMRoundedRectButton.swift in Sources */,
+				3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */,
+				3BD2B8A128D5DCA8009CF754 /* User.swift in Sources */,
 				3BA62D0B28D17D6300741288 /* CMTabBarController.swift in Sources */,
 				3B302E9128CCB64500844468 /* AssemblyBuilder.swift in Sources */,
 				3B8D570828CE28E60004BDAD /* AuthorizationField.swift in Sources */,
 				3BA62D1428D1840500741288 /* UserViewController.swift in Sources */,
+				3B1330F728D4772F006C078F /* UIButton + Ext.swift in Sources */,
 				3B8D570A28CE28FD0004BDAD /* CMBaseView.swift in Sources */,
 				3B302E9B28CCC1A100844468 /* LoginCoordinator.swift in Sources */,
 				3B302E7F28CCAA8600844468 /* DI.swift in Sources */,
 				3BA62D0D28D182E400741288 /* UIColor + Ext.swift in Sources */,
 				3B302E4328CC8CE700844468 /* LoginViewController.swift in Sources */,
+				3BD2B89D28D5D7D1009CF754 /* LoginErrorLabel.swift in Sources */,
 				3B8D570128CE072B0004BDAD /* CMBaseController.swift in Sources */,
 				3BAC64EA28D3791E00A6BE77 /* ViewModelable.swift in Sources */,
 				3B8D570D28CE29340004BDAD /* BaseViewSetup.swift in Sources */,
+				3BD2B89928D5D621009CF754 /* CMTitleLabel.swift in Sources */,
 				3B302E8D28CCB5CA00844468 /* CoordinatorFactoryImpl.swift in Sources */,
 				3BAC64E328D3737D00A6BE77 /* RegisterCoordinator.swift in Sources */,
 				3B8D570628CE08F80004BDAD /* Resources.swift in Sources */,
