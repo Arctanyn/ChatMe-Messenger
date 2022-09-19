@@ -147,5 +147,9 @@ enum Resources {
         static var processing: String {
             "Processing..."
         }
+        
+        static var createNewAccount: String {
+            "Create new account"
+        }
     }
 }
