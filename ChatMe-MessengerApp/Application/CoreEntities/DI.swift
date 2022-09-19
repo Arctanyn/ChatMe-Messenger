@@ -10,10 +10,12 @@ import UIKit
 final class DI {
     fileprivate let assemblyBuilder: AssemblyBuilderImpl
     fileprivate let coordinatorsFactory: CoordinatorFactoryImpl
+    private(set) var authService: AuthService
     
     init() {
         assemblyBuilder = AssemblyBuilderImpl()
         coordinatorsFactory = CoordinatorFactoryImpl(assemblyBuilder: assemblyBuilder)
+        authService = AuthServiceImpl()
         
         assemblyBuilder.di = self
     }

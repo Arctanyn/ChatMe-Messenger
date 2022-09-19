@@ -6,14 +6,39 @@
 //
 
 import UIKit
+import SPAlert
 
-final class ProfileRegisterViewController: CMBaseController, ViewModelable {
+final class ProfileRegisterViewController: CMBaseController, ViewModelable, AlertPresenter {
     
     typealias ViewModel = ProfileRegisterViewModel
 
     //MARK: Properties
     
-    var viewModel: ViewModel!
+    var viewModel: ViewModel! {
+        didSet {
+            viewModel.newAccountDidCreate = { [weak self] in
+                self?.showDoneAlert(
+                    withTitle: Resources.Strings.Register.completed,
+                    message: Resources.Strings.Register.newAccountCreated,
+                    duration: 2.5,
+                    completion: {
+                        self?.viewModel.completeRegistration()
+                    }
+                )
+            }
+            
+            viewModel.displayError = { [weak self] error in
+                self?.showAuthErrorAlert(
+                    withTitle: Resources.Strings.somethingWentWrong,
+                    message: error.errorDescription!,
+                    duration: 2,
+                    completion: {
+                        self?.changeUIInteraction(to: .active)
+                    }
+                )
+            }
+        }
+    }
     
     //MARK: - Views
     
@@ -25,13 +50,13 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable {
     
     private lazy var titleLabel: CMTitleLabel = {
         let label = CMTitleLabel()
-        label.text = Resources.Strings.Registration.profileRegistrationTitle
+        label.text = Resources.Strings.Register.profileRegistrationTitle
         return label
     }()
     
     private lazy var infoLabel: CMInfoLabel = {
         let label = CMInfoLabel()
-        label.text = Resources.Strings.Registration.profileRegistrationInfo
+        label.text = Resources.Strings.Register.profileRegistrationInfo
         return label
     }()
     
@@ -56,7 +81,8 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNewBackButton(target: self, action: #selector(back))
+        title = Resources.Strings.applicationName
+        setNewBackButton(target: self, action: #selector(goBack))
     }
 
     //MARK: - Methods
@@ -98,8 +124,17 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable {
             errorLabel.text = error.errorDescription
             errorLabel.isHidden = false
         } else {
+            errorLabel.isHidden = true
+            
+            changeUIInteraction(to: .inactive)
+            
+            let alertView = SPAlertView(title: Resources.Strings.processing, preset: .spinner)
+            alertView.present()
+            
             let imageData = profileImageView.image?.pngData()
-            viewModel.createNewAccount(withName: username, lastName: lastName, profileImage: imageData)
+            viewModel.createNewAccount(withName: username, lastName: lastName, profileImage: imageData) {
+                alertView.dismiss()
+            }
         }
     }
     
@@ -107,7 +142,7 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable {
         present(imagePicker, animated: true)
     }
     
-    func back() {
+    func goBack() {
         viewModel.backToAccountRegister()
     }
 }

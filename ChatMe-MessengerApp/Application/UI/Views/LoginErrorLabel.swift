@@ -12,6 +12,7 @@ final class LoginErrorLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         font = Resources.Fonts.system(size: 17, weight: .medium)
+        numberOfLines = 0
         textColor = .systemRed
         textAlignment = .center
     }

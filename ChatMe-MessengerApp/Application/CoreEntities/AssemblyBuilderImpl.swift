@@ -11,25 +11,25 @@ final class AssemblyBuilderImpl: AssemblyBuilder {
     
     //MARK: Properties
     
-    weak var di: DI?
+    weak var di: DI!
     
     //MARK: - Methods
 
     func createLoginModule(coordinator: Coordinator) -> UIViewController {
         let view = LoginViewController()
-        view.viewModel = LoginViewModelImpl(coordinator: coordinator)
+        view.viewModel = LoginViewModelImpl(authService: di.authService, coordinator: coordinator)
         return view
     }
     
     func createRegisterModule(coordinator: Coordinator) -> UIViewController {
-        let view = RegisterViewController()
-        view.viewModel = RegisterViewModelImpl(user: User(), coordinator: coordinator)
+        let view = AccountRegisterViewController()
+        view.viewModel = AccountRegisterViewModelImpl(user: PiecemealUser(), coordinator: coordinator)
         return view
     }
     
-    func createProfileRegistrationProfile(user: User, coordinator: Coordinator) -> UIViewController {
+    func createProfileRegistrationProfile(user: PiecemealUser, coordinator: Coordinator) -> UIViewController {
         let view = ProfileRegisterViewController()
-        view.viewModel = ProfileRegisterViewModelImpl(user: user, coordinator: coordinator)
+        view.viewModel = ProfileRegisterViewModelImpl(user: user, authService: di.authService, coordinator: coordinator)
         return view
     }
     

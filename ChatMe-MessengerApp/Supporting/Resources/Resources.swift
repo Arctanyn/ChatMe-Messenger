@@ -102,7 +102,7 @@ enum Resources {
         
         //MARK: - Registration
         
-        enum Registration {
+        enum Register {
             static var accountRegistrationTitle: String {
                 "Create a new account"
             }
@@ -118,6 +118,14 @@ enum Resources {
             static var profileRegistrationInfo: String {
                 "Enter a name and optionally select a profile picture"
             }
+            
+            static var completed: String {
+                "Registration completed"
+            }
+            
+            static var newAccountCreated: String {
+                "You have successfully created a new account"
+            }
         }
         
         static var applicationName: String {
@@ -130,6 +138,14 @@ enum Resources {
         
         static var signUp: String {
             "Sign up"
+        }
+        
+        static var somethingWentWrong: String {
+            "Something went wrong"
+        }
+        
+        static var processing: String {
+            "Processing..."
         }
     }
 }

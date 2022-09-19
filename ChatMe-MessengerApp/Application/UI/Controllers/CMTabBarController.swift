@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 enum Tabs: Int, CaseIterable {
     case chats

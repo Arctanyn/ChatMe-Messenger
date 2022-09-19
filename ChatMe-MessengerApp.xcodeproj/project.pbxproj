@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2269760BAE4612187F18CAE6 /* Pods_ChatMe_MessengerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF00C9B08AE9D2CC2B3D2B0 /* Pods_ChatMe_MessengerApp.framework */; };
+		3B02C85228D6DD040080F1C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B02C85128D6DD030080F1C0 /* GoogleService-Info.plist */; };
+		3B02C85428D6E5DD0080F1C0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B02C85328D6E5DD0080F1C0 /* AuthService.swift */; };
+		3B02C85728D6E7950080F1C0 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B02C85628D6E7950080F1C0 /* AuthServiceImpl.swift */; };
+		3B02C85928D6E8130080F1C0 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B02C85828D6E8130080F1C0 /* AuthError.swift */; };
+		3B02C85B28D6EDB80080F1C0 /* AuthErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B02C85A28D6EDB80080F1C0 /* AuthErrorPresenter.swift */; };
+		3B02C85D28D6F6B80080F1C0 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B02C85C28D6F6B80080F1C0 /* AlertPresenter.swift */; };
 		3B1330F528D475A3006C078F /* CMRoundedRectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1330F428D475A3006C078F /* CMRoundedRectButton.swift */; };
 		3B1330F728D4772F006C078F /* UIButton + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1330F628D4772F006C078F /* UIButton + Ext.swift */; };
 		3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F740B28D49A3400E4705A /* ProfileRegisterCoordinator.swift */; };
@@ -45,21 +52,30 @@
 		3BA77BED28CF105E009F1366 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA77BEC28CF105E009F1366 /* LoginError.swift */; };
 		3BA77BEF28CF16CB009F1366 /* AssemblyBuilderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA77BEE28CF16CB009F1366 /* AssemblyBuilderImpl.swift */; };
 		3BAC64E328D3737D00A6BE77 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E228D3737D00A6BE77 /* RegisterCoordinator.swift */; };
-		3BAC64E628D376F700A6BE77 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E528D376F700A6BE77 /* RegisterViewController.swift */; };
-		3BAC64E828D3772B00A6BE77 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E728D3772B00A6BE77 /* RegisterViewModel.swift */; };
+		3BAC64E628D376F700A6BE77 /* AccountRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E528D376F700A6BE77 /* AccountRegisterViewController.swift */; };
+		3BAC64E828D3772B00A6BE77 /* AccountRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E728D3772B00A6BE77 /* AccountRegisterViewModel.swift */; };
 		3BAC64EA28D3791E00A6BE77 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */; };
 		3BAC64EC28D384E900A6BE77 /* CMBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64EB28D384E900A6BE77 /* CMBaseNavigationController.swift */; };
 		3BD2B89928D5D621009CF754 /* CMTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89828D5D621009CF754 /* CMTitleLabel.swift */; };
 		3BD2B89B28D5D6EC009CF754 /* CMInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89A28D5D6EC009CF754 /* CMInfoLabel.swift */; };
 		3BD2B89D28D5D7D1009CF754 /* LoginErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89C28D5D7D1009CF754 /* LoginErrorLabel.swift */; };
 		3BD2B89F28D5DABF009CF754 /* ProfileRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89E28D5DABF009CF754 /* ProfileRegisterViewModel.swift */; };
-		3BD2B8A128D5DCA8009CF754 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B8A028D5DCA8009CF754 /* User.swift */; };
+		3BD2B8A128D5DCA8009CF754 /* PiecemealUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B8A028D5DCA8009CF754 /* PiecemealUser.swift */; };
+		3BE7E1E328D84966004AB284 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7E1E228D84966004AB284 /* String + Ext.swift */; };
+		3BE7E1E528D85685004AB284 /* ActiveStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7E1E428D85685004AB284 /* ActiveStatus.swift */; };
 		3BFDF5C528D1AA3D00A452F5 /* CMCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */; };
 		3BFDF5C728D1B80C00A452F5 /* ChatsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */; };
 		3BFDF5C928D1B96F00A452F5 /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F8DCCA6C800E34EB4D66768 /* Pods-ChatMe-MessengerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatMe-MessengerApp.debug.xcconfig"; path = "Target Support Files/Pods-ChatMe-MessengerApp/Pods-ChatMe-MessengerApp.debug.xcconfig"; sourceTree = "<group>"; };
+		3B02C85128D6DD030080F1C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B02C85328D6E5DD0080F1C0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3B02C85628D6E7950080F1C0 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
+		3B02C85828D6E8130080F1C0 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		3B02C85A28D6EDB80080F1C0 /* AuthErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrorPresenter.swift; sourceTree = "<group>"; };
+		3B02C85C28D6F6B80080F1C0 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		3B1330F428D475A3006C078F /* CMRoundedRectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMRoundedRectButton.swift; sourceTree = "<group>"; };
 		3B1330F628D4772F006C078F /* UIButton + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Ext.swift"; sourceTree = "<group>"; };
 		3B1F740B28D49A3400E4705A /* ProfileRegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterCoordinator.swift; sourceTree = "<group>"; };
@@ -100,18 +116,22 @@
 		3BA77BEC28CF105E009F1366 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 		3BA77BEE28CF16CB009F1366 /* AssemblyBuilderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilderImpl.swift; sourceTree = "<group>"; };
 		3BAC64E228D3737D00A6BE77 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
-		3BAC64E528D376F700A6BE77 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		3BAC64E728D3772B00A6BE77 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		3BAC64E528D376F700A6BE77 /* AccountRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegisterViewController.swift; sourceTree = "<group>"; };
+		3BAC64E728D3772B00A6BE77 /* AccountRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegisterViewModel.swift; sourceTree = "<group>"; };
 		3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		3BAC64EB28D384E900A6BE77 /* CMBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMBaseNavigationController.swift; sourceTree = "<group>"; };
 		3BD2B89828D5D621009CF754 /* CMTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTitleLabel.swift; sourceTree = "<group>"; };
 		3BD2B89A28D5D6EC009CF754 /* CMInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMInfoLabel.swift; sourceTree = "<group>"; };
 		3BD2B89C28D5D7D1009CF754 /* LoginErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrorLabel.swift; sourceTree = "<group>"; };
 		3BD2B89E28D5DABF009CF754 /* ProfileRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterViewModel.swift; sourceTree = "<group>"; };
-		3BD2B8A028D5DCA8009CF754 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3BD2B8A028D5DCA8009CF754 /* PiecemealUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecemealUser.swift; sourceTree = "<group>"; };
+		3BE7E1E228D84966004AB284 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
+		3BE7E1E428D85685004AB284 /* ActiveStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveStatus.swift; sourceTree = "<group>"; };
 		3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMCoordinator.swift; sourceTree = "<group>"; };
 		3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsCoordinator.swift; sourceTree = "<group>"; };
 		3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
+		64C4F0F9062FA07783B4E133 /* Pods-ChatMe-MessengerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatMe-MessengerApp.release.xcconfig"; path = "Target Support Files/Pods-ChatMe-MessengerApp/Pods-ChatMe-MessengerApp.release.xcconfig"; sourceTree = "<group>"; };
+		FEF00C9B08AE9D2CC2B3D2B0 /* Pods_ChatMe_MessengerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatMe_MessengerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,15 +139,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2269760BAE4612187F18CAE6 /* Pods_ChatMe_MessengerApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10885B27309893BFDB3213A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F8DCCA6C800E34EB4D66768 /* Pods-ChatMe-MessengerApp.debug.xcconfig */,
+				64C4F0F9062FA07783B4E133 /* Pods-ChatMe-MessengerApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3B02C85528D6E70C0080F1C0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */,
+				3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */,
+				3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		3B1330F828D47FDC006C078F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3B02C85628D6E7950080F1C0 /* AuthServiceImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -153,8 +194,8 @@
 		3B1F740D28D49B1800E4705A /* AccountRegister */ = {
 			isa = PBXGroup;
 			children = (
-				3BAC64E528D376F700A6BE77 /* RegisterViewController.swift */,
-				3BAC64E728D3772B00A6BE77 /* RegisterViewModel.swift */,
+				3BAC64E528D376F700A6BE77 /* AccountRegisterViewController.swift */,
+				3BAC64E728D3772B00A6BE77 /* AccountRegisterViewModel.swift */,
 			);
 			path = AccountRegister;
 			sourceTree = "<group>";
@@ -173,6 +214,8 @@
 			children = (
 				3B302E3D28CC8CE700844468 /* ChatMe-MessengerApp */,
 				3B302E3C28CC8CE700844468 /* Products */,
+				10885B27309893BFDB3213A8 /* Pods */,
+				EFDA1FF4AB462952AA20982C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +232,7 @@
 			children = (
 				3B302E7228CCA8D800844468 /* Application */,
 				3B302E7628CCA98C00844468 /* Supporting */,
+				3B02C85128D6DD030080F1C0 /* GoogleService-Info.plist */,
 			);
 			path = "ChatMe-MessengerApp";
 			sourceTree = "<group>";
@@ -229,7 +273,7 @@
 		3B302E7528CCA97B00844468 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3BD2B8A028D5DCA8009CF754 /* User.swift */,
+				3BD2B8A028D5DCA8009CF754 /* PiecemealUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,9 +313,7 @@
 			children = (
 				3B302E8E28CCB5FF00844468 /* ApplicationCoordinator.swift */,
 				3B1F740728D496F500E4705A /* Authorization */,
-				3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */,
-				3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */,
-				3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */,
+				3B02C85528D6E70C0080F1C0 /* Main */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -302,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				3B8D570428CE07FC0004BDAD /* UIKit */,
+				3BE7E1E228D84966004AB284 /* String + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -312,6 +355,9 @@
 				3B302E8528CCAFE300844468 /* Core */,
 				3B8D570C28CE29340004BDAD /* BaseViewSetup.swift */,
 				3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */,
+				3B02C85328D6E5DD0080F1C0 /* AuthService.swift */,
+				3B02C85A28D6EDB80080F1C0 /* AuthErrorPresenter.swift */,
+				3B02C85C28D6F6B80080F1C0 /* AlertPresenter.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -410,6 +456,8 @@
 			isa = PBXGroup;
 			children = (
 				3BA77BEC28CF105E009F1366 /* LoginError.swift */,
+				3B02C85828D6E8130080F1C0 /* AuthError.swift */,
+				3BE7E1E428D85685004AB284 /* ActiveStatus.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -423,6 +471,14 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		EFDA1FF4AB462952AA20982C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FEF00C9B08AE9D2CC2B3D2B0 /* Pods_ChatMe_MessengerApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,9 +486,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B302E4F28CC8CE800844468 /* Build configuration list for PBXNativeTarget "ChatMe-MessengerApp" */;
 			buildPhases = (
+				ED12DC427D0D725920C08713 /* [CP] Check Pods Manifest.lock */,
 				3B302E3728CC8CE700844468 /* Sources */,
 				3B302E3828CC8CE700844468 /* Frameworks */,
 				3B302E3928CC8CE700844468 /* Resources */,
+				D721E13AB4AB4BC90920ABA3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -483,10 +541,53 @@
 			files = (
 				3B302E4B28CC8CE800844468 /* LaunchScreen.storyboard in Resources */,
 				3B302E4828CC8CE800844468 /* Assets.xcassets in Resources */,
+				3B02C85228D6DD040080F1C0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D721E13AB4AB4BC90920ABA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatMe-MessengerApp/Pods-ChatMe-MessengerApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatMe-MessengerApp/Pods-ChatMe-MessengerApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatMe-MessengerApp/Pods-ChatMe-MessengerApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED12DC427D0D725920C08713 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatMe-MessengerApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B302E3728CC8CE700844468 /* Sources */ = {
@@ -498,14 +599,16 @@
 				3BD2B89B28D5D6EC009CF754 /* CMInfoLabel.swift in Sources */,
 				3B302E8928CCB03100844468 /* Router.swift in Sources */,
 				3BFDF5C528D1AA3D00A452F5 /* CMCoordinator.swift in Sources */,
-				3BAC64E828D3772B00A6BE77 /* RegisterViewModel.swift in Sources */,
+				3BAC64E828D3772B00A6BE77 /* AccountRegisterViewModel.swift in Sources */,
 				3B1F741028D49B3800E4705A /* ProfileRegisterViewController.swift in Sources */,
 				3BA77BED28CF105E009F1366 /* LoginError.swift in Sources */,
 				3B8D570328CE07F90004BDAD /* UIView + Ext.swift in Sources */,
+				3BE7E1E528D85685004AB284 /* ActiveStatus.swift in Sources */,
 				3B302E8728CCAFF300844468 /* CoordinatorFactory.swift in Sources */,
 				3BAC64EC28D384E900A6BE77 /* CMBaseNavigationController.swift in Sources */,
 				3B8D571328CE4E210004BDAD /* LoginViewModel.swift in Sources */,
-				3BAC64E628D376F700A6BE77 /* RegisterViewController.swift in Sources */,
+				3B02C85B28D6EDB80080F1C0 /* AuthErrorPresenter.swift in Sources */,
+				3BAC64E628D376F700A6BE77 /* AccountRegisterViewController.swift in Sources */,
 				3BD2B89F28D5DABF009CF754 /* ProfileRegisterViewModel.swift in Sources */,
 				3B302E8B28CCB13200844468 /* RouterImpl.swift in Sources */,
 				3B1F741228D4B70000E4705A /* ProfileImageView.swift in Sources */,
@@ -513,7 +616,7 @@
 				3BA77BEF28CF16CB009F1366 /* AssemblyBuilderImpl.swift in Sources */,
 				3B1330F528D475A3006C078F /* CMRoundedRectButton.swift in Sources */,
 				3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */,
-				3BD2B8A128D5DCA8009CF754 /* User.swift in Sources */,
+				3BD2B8A128D5DCA8009CF754 /* PiecemealUser.swift in Sources */,
 				3BA62D0B28D17D6300741288 /* CMTabBarController.swift in Sources */,
 				3B302E9128CCB64500844468 /* AssemblyBuilder.swift in Sources */,
 				3B8D570828CE28E60004BDAD /* AuthorizationField.swift in Sources */,
@@ -526,10 +629,14 @@
 				3B302E4328CC8CE700844468 /* LoginViewController.swift in Sources */,
 				3BD2B89D28D5D7D1009CF754 /* LoginErrorLabel.swift in Sources */,
 				3B8D570128CE072B0004BDAD /* CMBaseController.swift in Sources */,
+				3B02C85928D6E8130080F1C0 /* AuthError.swift in Sources */,
 				3BAC64EA28D3791E00A6BE77 /* ViewModelable.swift in Sources */,
+				3BE7E1E328D84966004AB284 /* String + Ext.swift in Sources */,
 				3B8D570D28CE29340004BDAD /* BaseViewSetup.swift in Sources */,
+				3B02C85D28D6F6B80080F1C0 /* AlertPresenter.swift in Sources */,
 				3BD2B89928D5D621009CF754 /* CMTitleLabel.swift in Sources */,
 				3B302E8D28CCB5CA00844468 /* CoordinatorFactoryImpl.swift in Sources */,
+				3B02C85728D6E7950080F1C0 /* AuthServiceImpl.swift in Sources */,
 				3BAC64E328D3737D00A6BE77 /* RegisterCoordinator.swift in Sources */,
 				3B8D570628CE08F80004BDAD /* Resources.swift in Sources */,
 				3B302E8428CCAB4200844468 /* BaseCoordinator.swift in Sources */,
@@ -541,6 +648,7 @@
 				3B30432928D23A7C0067E301 /* Closures.swift in Sources */,
 				3B302E8F28CCB5FF00844468 /* ApplicationCoordinator.swift in Sources */,
 				3BA62D1128D183BF00741288 /* ChatsViewController.swift in Sources */,
+				3B02C85428D6E5DD0080F1C0 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +782,7 @@
 		};
 		3B302E5028CC8CE800844468 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F8DCCA6C800E34EB4D66768 /* Pods-ChatMe-MessengerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -685,8 +794,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -703,6 +811,7 @@
 		};
 		3B302E5128CC8CE800844468 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64C4F0F9062FA07783B4E133 /* Pods-ChatMe-MessengerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -714,8 +823,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

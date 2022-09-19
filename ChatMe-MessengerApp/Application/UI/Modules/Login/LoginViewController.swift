@@ -7,13 +7,23 @@
 
 import UIKit
 
-final class LoginViewController: CMBaseController, ViewModelable {
+final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter {
 
     typealias ViewModel = LoginViewModel
     
     //MARK: Properties
     
-    var viewModel: ViewModel!
+    var viewModel: ViewModel! {
+        didSet {
+            viewModel.displayError = { [weak self] error in
+                self?.showAuthErrorAlert(
+                    withTitle: error.errorDescription!,
+                    message: "Specify the valid details of your account",
+                    duration: 2
+                )
+            }
+        }
+    }
     
     //MARK: - Views
     
@@ -95,7 +105,7 @@ final class LoginViewController: CMBaseController, ViewModelable {
             errorLabel.text = error.errorDescription
             errorLabel.isHidden = false
         } else {
-            viewModel.login()
+            viewModel.login(withEmail: email, password: password)
         }
     }
     

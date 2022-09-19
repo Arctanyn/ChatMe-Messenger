@@ -13,13 +13,13 @@ final class ProfileRegisterCoordinator: BaseCoordinator {
     
     var finishFlow: BooleanClosure?
     
-    private let user: User
+    private let user: PiecemealUser
     private let assemblyBuilder: AssemblyBuilder
     private let router: Router
     
     //MARK: - Initialization
     
-    init(user: User, assemblyBuilder: AssemblyBuilder, router: Router) {
+    init(user: PiecemealUser, assemblyBuilder: AssemblyBuilder, router: Router) {
         self.user = user
         self.assemblyBuilder = assemblyBuilder
         self.router = router
@@ -32,7 +32,7 @@ final class ProfileRegisterCoordinator: BaseCoordinator {
         router.push(module)
     }
     
-    func runMainFlow() {
+    func showLoginPage() {
         router.dismissModule()
         finishFlow?(true)
     }

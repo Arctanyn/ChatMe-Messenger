@@ -9,8 +9,8 @@ import Foundation
 
 //MARK: LoginViewModel
 
-protocol LoginViewModel {
-    func login()
+protocol LoginViewModel: AuthErrorPresenter {
+    func login(withEmail email: String, password: String)
     func showSignUpPage()
     func checkToValid(email: String, password: String) -> LoginError?
 }
@@ -18,22 +18,36 @@ protocol LoginViewModel {
 //MARK: - LoginViewModelImpl
 
 final class LoginViewModelImpl: LoginViewModel {
-    
+
     //MARK: Properties
     
+    var displayError: ((AuthError) -> Void)?
+    
+    private let authService: AuthService
     private let coordinator: Coordinator
     
     //MARK: - Initialization
     
-    init(coordinator: Coordinator) {
+    init(authService: AuthService, coordinator: Coordinator) {
+        self.authService = authService
         self.coordinator = coordinator
     }
     
     //MARK: - Methods
     
-    func login() {
+    func login(withEmail email: String, password: String) {
         guard let loginCoordinator = coordinator as? LoginCoordinator else { return }
-        loginCoordinator.finishFlow?()
+        
+        authService.signIn(withEmail: email, password: password) { [weak self] result in
+            switch result {
+            case .success(let authResult):
+                let user = authResult.user
+                print("Welcome back: ", user.email ?? "")
+                loginCoordinator.finishFlow?()
+            case .failure(let authError):
+                self?.displayError?(authError)
+            }
+        }
     }
     
     func showSignUpPage() {
