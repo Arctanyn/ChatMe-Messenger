@@ -117,7 +117,7 @@ final class AccountRegisterViewController: CMBaseController, ViewModelable {
 
 private extension AccountRegisterViewController {
     func setupNavigationBar() {
-        title = "ChatMe"
+        title = Resources.Strings.applicationName
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: Resources.Images.xMark,
             style: .plain,
