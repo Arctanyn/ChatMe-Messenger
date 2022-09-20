@@ -30,7 +30,7 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
             viewModel.displayError = { [weak self] error in
                 self?.showAuthErrorAlert(
                     withTitle: Resources.Strings.somethingWentWrong,
-                    message: error.errorDescription!,
+                    message: error.localizedDescription,
                     duration: 2,
                     completion: {
                         self?.changeUIInteraction(to: .active)

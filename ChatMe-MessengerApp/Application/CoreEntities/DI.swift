@@ -27,7 +27,8 @@ extension DI: AppFactory {
         let router = RouterImpl(rootController: rootNavController)
 
         let window = UIWindow(windowScene: windowScene)
-        let coordinator = coordinatorsFactory.createApplicationCoordinator(router: router)
+        let coordinator = coordinatorsFactory.createApplicationCoordinator(authService: authService,
+                                                                           router: router)
         
         window.rootViewController = rootNavController
         window.makeKeyAndVisible()

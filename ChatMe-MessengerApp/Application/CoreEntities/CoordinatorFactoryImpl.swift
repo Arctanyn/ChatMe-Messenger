@@ -21,8 +21,8 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
     
     //MARK: - Methods
     
-    func createApplicationCoordinator(router: Router) -> ApplicationCoordinator {
-        return ApplicationCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
+    func createApplicationCoordinator(authService: AuthService, router: Router) -> ApplicationCoordinator {
+        return ApplicationCoordinator(authService: authService, coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }
     
     func createLoginCoordinator(router: Router) -> LoginCoordinator {

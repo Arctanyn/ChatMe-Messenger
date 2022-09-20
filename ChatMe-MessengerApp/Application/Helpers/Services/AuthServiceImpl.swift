@@ -9,8 +9,13 @@ import Foundation
 import FirebaseAuth
 
 final class AuthServiceImpl: AuthService {
+    
+    func checkUserAvailability() -> Bool {
+        return Auth.auth().currentUser != nil
+    }
+    
     func signIn(withEmail email: String, password: String, completion: @escaping (Result<AuthDataResult, AuthError>) -> Void) {
-        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [unowned self] authResult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { [unowned self] authResult, error in
             checkResult(with: authResult, error: error) { result in
                 switch result {
                 case .success(let authResult):
@@ -24,7 +29,7 @@ final class AuthServiceImpl: AuthService {
     }
     
     func signUp(withEmail email: String, password: String, completion: @escaping (Result<AuthDataResult, AuthError>) -> Void) {
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { [unowned self] authResult, error in
+        Auth.auth().createUser(withEmail: email, password: password) { [unowned self] authResult, error in
             checkResult(with: authResult, error: error) { result in
                 switch result {
                 case .success(let authResult):

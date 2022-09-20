@@ -16,7 +16,7 @@ final class ProfileImageView: UIImageView {
         isUserInteractionEnabled = true
         tintColor = .lightGray
         backgroundColor = Resources.Colors.secondary
-        contentMode = .scaleAspectFit
+        contentMode = .scaleAspectFill
         layer.masksToBounds = true
     }
     

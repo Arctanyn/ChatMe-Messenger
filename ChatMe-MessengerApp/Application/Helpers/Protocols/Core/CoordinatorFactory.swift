@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CoordinatorFactory {
-    func createApplicationCoordinator(router: Router) -> ApplicationCoordinator
+    func createApplicationCoordinator(authService: AuthService, router: Router) -> ApplicationCoordinator
     func createLoginCoordinator(router: Router) -> LoginCoordinator
     func createRegisterCoordinator(router: Router) -> RegisterCoordinator
     func createProfileRegisterCoordinator(user: PiecemealUser, router: Router) -> ProfileRegisterCoordinator

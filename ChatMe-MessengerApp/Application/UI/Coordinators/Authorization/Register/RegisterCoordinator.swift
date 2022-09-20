@@ -42,8 +42,8 @@ final class RegisterCoordinator: BaseCoordinator {
     
     func goToProfileRegisterPage(with user: PiecemealUser) {
         let router = RouterImpl(rootController: navigationController)
-        let coordinator = coordinatorFactory.createProfileRegisterCoordinator(user: user, router: router)
         
+        let coordinator = coordinatorFactory.createProfileRegisterCoordinator(user: user, router: router)
         coordinator.finishFlow = { [weak self] isUserCreated in
             self?.childDidFinish(coordinator)
             
@@ -51,7 +51,6 @@ final class RegisterCoordinator: BaseCoordinator {
                 self?.finishFlow?()
             }
         }
-        
         addChild(coordinator)
         coordinator.start()
     }

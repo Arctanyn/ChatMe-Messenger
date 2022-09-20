@@ -16,10 +16,14 @@ final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter
     var viewModel: ViewModel! {
         didSet {
             viewModel.displayError = { [weak self] error in
+                self?.changeUIInteraction(to: .inactive)
                 self?.showAuthErrorAlert(
-                    withTitle: error.errorDescription!,
+                    withTitle: error.localizedDescription,
                     message: "Specify the valid details of your account",
-                    duration: 2
+                    duration: 2,
+                    completion: {
+                        self?.changeUIInteraction(to: .active)
+                    }
                 )
             }
         }

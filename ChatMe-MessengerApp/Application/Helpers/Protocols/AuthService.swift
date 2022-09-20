@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 
 protocol AuthService {
+    func checkUserAvailability() -> Bool
     func signIn(withEmail email: String, password: String, completion: @escaping (Result<AuthDataResult, AuthError>) -> Void)
     func signUp(withEmail email: String, password: String, completion: @escaping (Result<AuthDataResult, AuthError>) -> Void)
 }

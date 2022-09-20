@@ -26,13 +26,13 @@ extension UIButton {
 
 @objc private extension UIButton {
     func handleIn() {
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 0.2) {
             self.alpha = 0.5
         }
     }
     
     func handleOut() {
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 0.2) {
             self.alpha = 1
         }
     }
