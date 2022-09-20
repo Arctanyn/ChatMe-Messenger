@@ -36,6 +36,7 @@ final class LoginCoordinator: BaseCoordinator {
         let coordinator = coordinatorsFactory.createRegisterCoordinator(router: router)
         coordinator.finishFlow = { [weak self] in
             self?.childDidFinish(coordinator)
+            self?.finishFlow?()
         }
         addChild(coordinator)
         coordinator.start()

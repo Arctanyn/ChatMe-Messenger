@@ -11,7 +11,7 @@ import Foundation
 
 protocol ProfileRegisterViewModel: AuthErrorPresenter {
     var newAccountDidCreate: VoidClosure? { get set }
-    func createNewAccount(withName name: String, lastName: String?, profileImage: Data?, completion: @escaping VoidClosure)
+    func createNewAccount(withName name: String, lastName: String?, profileImage: Data?)
     func backToAccountRegister()
     func checkToValid(username: String, lastName: String?) -> LoginError?
     func completeRegistration()
@@ -26,24 +26,26 @@ final class ProfileRegisterViewModelImpl: ProfileRegisterViewModel {
     var newAccountDidCreate: VoidClosure?
     var displayError: ((AuthError) -> Void)?
 
-    private var user: PiecemealUser
+    private var user: UserModel
     private let authService: AuthService
+    private let usersDatabaseManager: UsersDatabaseManager
     private let coordinator: Coordinator
     
     //MARK: - Initialization
     
-    init(user: PiecemealUser, authService: AuthService, coordinator: Coordinator) {
+    init(user: UserModel,
+         authService: AuthService,
+         usersDatabaseManager: UsersDatabaseManager,
+         coordinator: Coordinator) {
         self.user = user
         self.authService = authService
+        self.usersDatabaseManager = usersDatabaseManager
         self.coordinator = coordinator
     }
     
     //MARK: - Methods
     
-    func createNewAccount(withName name: String,
-                          lastName: String?,
-                          profileImage: Data?,
-                          completion: @escaping VoidClosure) {
+    func createNewAccount(withName name: String, lastName: String?, profileImage: Data?) {
         user.name = name
         user.lastName = lastName
         user.profileImageData = profileImage
@@ -53,14 +55,21 @@ final class ProfileRegisterViewModelImpl: ProfileRegisterViewModel {
         else { return }
         
         authService.signUp(withEmail: email, password: password) { [weak self] result in
+            guard let self = self else {
+                self?.displayError?(.failedToCreateNewAccount)
+                return
+            }
             switch result {
             case .success(let authResult):
-                completion()
-                print("Created new user:", authResult.user)
-                self?.newAccountDidCreate?()
+                self.usersDatabaseManager.addUser(withData: self.user, userIdentifier: authResult.user.uid) { error in
+                    guard error == nil else {
+                        self.displayError?(.failedToCreateNewAccount)
+                        return
+                    }
+                    self.newAccountDidCreate?()
+                }
             case .failure(let authError):
-                completion()
-                self?.displayError?(authError)
+                self.displayError?(authError)
             }
         }
     }

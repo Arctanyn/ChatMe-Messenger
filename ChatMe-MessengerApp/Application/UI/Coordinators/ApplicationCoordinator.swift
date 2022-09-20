@@ -49,7 +49,6 @@ private extension ApplicationCoordinator {
     func runLoginFlow() {
         let coordinator = coordinatorFactory.createLoginCoordinator(router: router)
         coordinator.finishFlow = { [weak self] in
-            self?.runCMFlow()
             self?.childDidFinish(coordinator)
             self?.start()
         }

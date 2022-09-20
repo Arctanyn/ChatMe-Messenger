@@ -29,11 +29,11 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
         return LoginCoordinator(coordinatorsFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }
 
-    func createRegisterCoordinator(router: Router) -> RegisterCoordinator {
-        return RegisterCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
+    func createRegisterCoordinator(router: Router) -> AccountRegisterCoordinator {
+        return AccountRegisterCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }
     
-    func createProfileRegisterCoordinator(user: PiecemealUser, router: Router) -> ProfileRegisterCoordinator {
+    func createProfileRegisterCoordinator(user: UserModel, router: Router) -> ProfileRegisterCoordinator {
         return ProfileRegisterCoordinator(user: user, assemblyBuilder: assemblyBuilder, router: router)
     }
     

@@ -1,5 +1,5 @@
 //
-//  RegisterCoordinator.swift
+//  AccountRegisterCoordinator.swift
 //  ChatMe-MessengerApp
 //
 //  Created by Малиль Дугулюбгов on 15.09.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class RegisterCoordinator: BaseCoordinator {
+final class AccountRegisterCoordinator: BaseCoordinator {
     
     //MARK: Properties
     
@@ -35,12 +35,12 @@ final class RegisterCoordinator: BaseCoordinator {
         router.present(navigationController)
     }
     
-    func backToLogin(isUserCreated: Bool) {
+    func backToLogin() {
         router.dismissModule()
         finishFlow?()
     }
     
-    func goToProfileRegisterPage(with user: PiecemealUser) {
+    func goToProfileRegisterPage(with user: UserModel) {
         let router = RouterImpl(rootController: navigationController)
         
         let coordinator = coordinatorFactory.createProfileRegisterCoordinator(user: user, router: router)

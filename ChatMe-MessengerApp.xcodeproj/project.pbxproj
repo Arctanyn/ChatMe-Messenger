@@ -51,16 +51,21 @@
 		3BA62D1428D1840500741288 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA62D1328D1840500741288 /* UserViewController.swift */; };
 		3BA77BED28CF105E009F1366 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA77BEC28CF105E009F1366 /* LoginError.swift */; };
 		3BA77BEF28CF16CB009F1366 /* AssemblyBuilderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA77BEE28CF16CB009F1366 /* AssemblyBuilderImpl.swift */; };
-		3BAC64E328D3737D00A6BE77 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E228D3737D00A6BE77 /* RegisterCoordinator.swift */; };
+		3BAC64E328D3737D00A6BE77 /* AccountRegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E228D3737D00A6BE77 /* AccountRegisterCoordinator.swift */; };
 		3BAC64E628D376F700A6BE77 /* AccountRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E528D376F700A6BE77 /* AccountRegisterViewController.swift */; };
 		3BAC64E828D3772B00A6BE77 /* AccountRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E728D3772B00A6BE77 /* AccountRegisterViewModel.swift */; };
 		3BAC64EA28D3791E00A6BE77 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */; };
 		3BAC64EC28D384E900A6BE77 /* CMBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64EB28D384E900A6BE77 /* CMBaseNavigationController.swift */; };
+		3BC5469B28D99058002CCBBD /* DatabaseManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5469A28D99058002CCBBD /* DatabaseManagerImpl.swift */; };
+		3BC5469D28D99094002CCBBD /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5469C28D99094002CCBBD /* DatabaseManager.swift */; };
+		3BC5469F28D99148002CCBBD /* DatabaseCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5469E28D99148002CCBBD /* DatabaseCollection.swift */; };
+		3BC546A428D99D79002CCBBD /* UsersDatabaseManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC546A328D99D79002CCBBD /* UsersDatabaseManagerImpl.swift */; };
+		3BC546A628D99DD3002CCBBD /* UsersDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC546A528D99DD3002CCBBD /* UsersDatabaseManager.swift */; };
 		3BD2B89928D5D621009CF754 /* CMTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89828D5D621009CF754 /* CMTitleLabel.swift */; };
 		3BD2B89B28D5D6EC009CF754 /* CMInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89A28D5D6EC009CF754 /* CMInfoLabel.swift */; };
 		3BD2B89D28D5D7D1009CF754 /* LoginErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89C28D5D7D1009CF754 /* LoginErrorLabel.swift */; };
 		3BD2B89F28D5DABF009CF754 /* ProfileRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89E28D5DABF009CF754 /* ProfileRegisterViewModel.swift */; };
-		3BD2B8A128D5DCA8009CF754 /* PiecemealUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B8A028D5DCA8009CF754 /* PiecemealUser.swift */; };
+		3BD2B8A128D5DCA8009CF754 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B8A028D5DCA8009CF754 /* UserModel.swift */; };
 		3BE7E1E328D84966004AB284 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7E1E228D84966004AB284 /* String + Ext.swift */; };
 		3BE7E1E528D85685004AB284 /* ActiveStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7E1E428D85685004AB284 /* ActiveStatus.swift */; };
 		3BFDF5C528D1AA3D00A452F5 /* CMCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */; };
@@ -115,16 +120,21 @@
 		3BA62D1328D1840500741288 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		3BA77BEC28CF105E009F1366 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 		3BA77BEE28CF16CB009F1366 /* AssemblyBuilderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilderImpl.swift; sourceTree = "<group>"; };
-		3BAC64E228D3737D00A6BE77 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
+		3BAC64E228D3737D00A6BE77 /* AccountRegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegisterCoordinator.swift; sourceTree = "<group>"; };
 		3BAC64E528D376F700A6BE77 /* AccountRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegisterViewController.swift; sourceTree = "<group>"; };
 		3BAC64E728D3772B00A6BE77 /* AccountRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegisterViewModel.swift; sourceTree = "<group>"; };
 		3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		3BAC64EB28D384E900A6BE77 /* CMBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMBaseNavigationController.swift; sourceTree = "<group>"; };
+		3BC5469A28D99058002CCBBD /* DatabaseManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerImpl.swift; sourceTree = "<group>"; };
+		3BC5469C28D99094002CCBBD /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		3BC5469E28D99148002CCBBD /* DatabaseCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCollection.swift; sourceTree = "<group>"; };
+		3BC546A328D99D79002CCBBD /* UsersDatabaseManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDatabaseManagerImpl.swift; sourceTree = "<group>"; };
+		3BC546A528D99DD3002CCBBD /* UsersDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDatabaseManager.swift; sourceTree = "<group>"; };
 		3BD2B89828D5D621009CF754 /* CMTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTitleLabel.swift; sourceTree = "<group>"; };
 		3BD2B89A28D5D6EC009CF754 /* CMInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMInfoLabel.swift; sourceTree = "<group>"; };
 		3BD2B89C28D5D7D1009CF754 /* LoginErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrorLabel.swift; sourceTree = "<group>"; };
 		3BD2B89E28D5DABF009CF754 /* ProfileRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterViewModel.swift; sourceTree = "<group>"; };
-		3BD2B8A028D5DCA8009CF754 /* PiecemealUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecemealUser.swift; sourceTree = "<group>"; };
+		3BD2B8A028D5DCA8009CF754 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3BE7E1E228D84966004AB284 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		3BE7E1E428D85685004AB284 /* ActiveStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveStatus.swift; sourceTree = "<group>"; };
 		3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMCoordinator.swift; sourceTree = "<group>"; };
@@ -169,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				3B02C85628D6E7950080F1C0 /* AuthServiceImpl.swift */,
+				3BC5469A28D99058002CCBBD /* DatabaseManagerImpl.swift */,
+				3BC546A328D99D79002CCBBD /* UsersDatabaseManagerImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -185,7 +197,7 @@
 		3B1F740828D4973100E4705A /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				3BAC64E228D3737D00A6BE77 /* RegisterCoordinator.swift */,
+				3BAC64E228D3737D00A6BE77 /* AccountRegisterCoordinator.swift */,
 				3B1F740B28D49A3400E4705A /* ProfileRegisterCoordinator.swift */,
 			);
 			path = Register;
@@ -273,7 +285,7 @@
 		3B302E7528CCA97B00844468 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3BD2B8A028D5DCA8009CF754 /* PiecemealUser.swift */,
+				3BD2B8A028D5DCA8009CF754 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -358,6 +370,8 @@
 				3B02C85328D6E5DD0080F1C0 /* AuthService.swift */,
 				3B02C85A28D6EDB80080F1C0 /* AuthErrorPresenter.swift */,
 				3B02C85C28D6F6B80080F1C0 /* AlertPresenter.swift */,
+				3BC5469C28D99094002CCBBD /* DatabaseManager.swift */,
+				3BC546A528D99DD3002CCBBD /* UsersDatabaseManager.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -458,6 +472,7 @@
 				3BA77BEC28CF105E009F1366 /* LoginError.swift */,
 				3B02C85828D6E8130080F1C0 /* AuthError.swift */,
 				3BE7E1E428D85685004AB284 /* ActiveStatus.swift */,
+				3BC5469E28D99148002CCBBD /* DatabaseCollection.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -608,6 +623,8 @@
 				3BAC64EC28D384E900A6BE77 /* CMBaseNavigationController.swift in Sources */,
 				3B8D571328CE4E210004BDAD /* LoginViewModel.swift in Sources */,
 				3B02C85B28D6EDB80080F1C0 /* AuthErrorPresenter.swift in Sources */,
+				3BC5469D28D99094002CCBBD /* DatabaseManager.swift in Sources */,
+				3BC546A628D99DD3002CCBBD /* UsersDatabaseManager.swift in Sources */,
 				3BAC64E628D376F700A6BE77 /* AccountRegisterViewController.swift in Sources */,
 				3BD2B89F28D5DABF009CF754 /* ProfileRegisterViewModel.swift in Sources */,
 				3B302E8B28CCB13200844468 /* RouterImpl.swift in Sources */,
@@ -616,7 +633,7 @@
 				3BA77BEF28CF16CB009F1366 /* AssemblyBuilderImpl.swift in Sources */,
 				3B1330F528D475A3006C078F /* CMRoundedRectButton.swift in Sources */,
 				3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */,
-				3BD2B8A128D5DCA8009CF754 /* PiecemealUser.swift in Sources */,
+				3BD2B8A128D5DCA8009CF754 /* UserModel.swift in Sources */,
 				3BA62D0B28D17D6300741288 /* CMTabBarController.swift in Sources */,
 				3B302E9128CCB64500844468 /* AssemblyBuilder.swift in Sources */,
 				3B8D570828CE28E60004BDAD /* AuthorizationField.swift in Sources */,
@@ -637,15 +654,18 @@
 				3BD2B89928D5D621009CF754 /* CMTitleLabel.swift in Sources */,
 				3B302E8D28CCB5CA00844468 /* CoordinatorFactoryImpl.swift in Sources */,
 				3B02C85728D6E7950080F1C0 /* AuthServiceImpl.swift in Sources */,
-				3BAC64E328D3737D00A6BE77 /* RegisterCoordinator.swift in Sources */,
+				3BAC64E328D3737D00A6BE77 /* AccountRegisterCoordinator.swift in Sources */,
 				3B8D570628CE08F80004BDAD /* Resources.swift in Sources */,
+				3BC546A428D99D79002CCBBD /* UsersDatabaseManagerImpl.swift in Sources */,
 				3B302E8428CCAB4200844468 /* BaseCoordinator.swift in Sources */,
 				3B302E3F28CC8CE700844468 /* AppDelegate.swift in Sources */,
 				3B302E4128CC8CE700844468 /* SceneDelegate.swift in Sources */,
+				3BC5469B28D99058002CCBBD /* DatabaseManagerImpl.swift in Sources */,
 				3B302E9F28CCCC5D00844468 /* UIViewController + Ext.swift in Sources */,
 				3B8D571528CE55BA0004BDAD /* UIStackView + Ext.swift in Sources */,
 				3B302E8228CCAAF600844468 /* AppFactory.swift in Sources */,
 				3B30432928D23A7C0067E301 /* Closures.swift in Sources */,
+				3BC5469F28D99148002CCBBD /* DatabaseCollection.swift in Sources */,
 				3B302E8F28CCB5FF00844468 /* ApplicationCoordinator.swift in Sources */,
 				3BA62D1128D183BF00741288 /* ChatsViewController.swift in Sources */,
 				3B02C85428D6E5DD0080F1C0 /* AuthService.swift in Sources */,

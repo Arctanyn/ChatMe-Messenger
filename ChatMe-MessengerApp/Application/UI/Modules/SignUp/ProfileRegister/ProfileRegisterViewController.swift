@@ -17,6 +17,7 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
     var viewModel: ViewModel! {
         didSet {
             viewModel.newAccountDidCreate = { [weak self] in
+                self?.loadingAlertView.dismiss()
                 self?.showDoneAlert(
                     withTitle: Resources.Strings.Register.completed,
                     message: Resources.Strings.Register.newAccountCreated,
@@ -28,6 +29,7 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
             }
             
             viewModel.displayError = { [weak self] error in
+                self?.loadingAlertView.dismiss()
                 self?.showAuthErrorAlert(
                     withTitle: Resources.Strings.somethingWentWrong,
                     message: error.localizedDescription,
@@ -41,6 +43,8 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
     }
     
     //MARK: - Views
+    
+    private lazy var loadingAlertView = SPAlertView(title: Resources.Strings.processing, preset: .spinner)
     
     private lazy var imagePicker: UIImagePickerController = {
         let picker = UIImagePickerController()
@@ -124,17 +128,12 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
             errorLabel.text = error.errorDescription
             errorLabel.isHidden = false
         } else {
+            loadingAlertView.present()
             errorLabel.isHidden = true
-            
             changeUIInteraction(to: .inactive)
-            
-            let alertView = SPAlertView(title: Resources.Strings.processing, preset: .spinner)
-            alertView.present()
-            
-            let imageData = profileImageView.image?.pngData()
-            viewModel.createNewAccount(withName: username, lastName: lastName, profileImage: imageData) {
-                alertView.dismiss()
-            }
+
+            let imageData = profileImageView.image?.jpegData(compressionQuality: 0.8)
+            viewModel.createNewAccount(withName: username, lastName: lastName, profileImage: imageData)
         }
     }
     

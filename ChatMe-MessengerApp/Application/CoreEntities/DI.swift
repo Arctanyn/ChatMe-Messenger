@@ -11,11 +11,15 @@ final class DI {
     fileprivate let assemblyBuilder: AssemblyBuilderImpl
     fileprivate let coordinatorsFactory: CoordinatorFactoryImpl
     private(set) var authService: AuthService
+    private(set) var databaseManager: DatabaseManager
+    private(set) var usersDatabaseManager: UsersDatabaseManager
     
     init() {
         assemblyBuilder = AssemblyBuilderImpl()
         coordinatorsFactory = CoordinatorFactoryImpl(assemblyBuilder: assemblyBuilder)
         authService = AuthServiceImpl()
+        databaseManager = DatabaseManagerImpl()
+        usersDatabaseManager = UsersDatabaseManagerImpl(databaseManager: databaseManager)
         
         assemblyBuilder.di = self
     }

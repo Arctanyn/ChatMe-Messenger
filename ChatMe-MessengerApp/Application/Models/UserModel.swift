@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PiecemealUser {
+struct UserModel: Codable {
     var name, lastName: String?
     var email, password: String?
     var profileImageData: Data?

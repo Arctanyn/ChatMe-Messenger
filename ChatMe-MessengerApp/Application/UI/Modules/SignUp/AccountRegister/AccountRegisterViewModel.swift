@@ -21,18 +21,18 @@ final class AccountRegisterViewModelImpl: AccountRegisterViewModel {
 
     //MARK: Properties
     
-    private var user: PiecemealUser
+    private var user: UserModel
     private let coordinator: Coordinator
     
     //MARK: - Initialization
     
-    init(user: PiecemealUser, coordinator: Coordinator) {
+    init(user: UserModel, coordinator: Coordinator) {
         self.user = user
         self.coordinator = coordinator
     }
     
     func showProfileRegistrationPage(withEmailAdress email: String, password: String) {
-        guard let coordinator = coordinator as? RegisterCoordinator else { return }
+        guard let coordinator = coordinator as? AccountRegisterCoordinator else { return }
         
         user.email = email
         user.password = password
@@ -41,8 +41,8 @@ final class AccountRegisterViewModelImpl: AccountRegisterViewModel {
     }
     
     func backToLogin() {
-        guard let coordinator = coordinator as? RegisterCoordinator else { return }
-        coordinator.backToLogin(isUserCreated: false)
+        guard let coordinator = coordinator as? AccountRegisterCoordinator else { return }
+        coordinator.backToLogin()
     }
     
     func checkToValid(email: String, password: String, repeatedPassword: String) -> LoginError? {

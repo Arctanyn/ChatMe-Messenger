@@ -9,3 +9,4 @@ import Foundation
 
 typealias VoidClosure = () -> Void
 typealias BooleanClosure = (Bool) -> Void
+typealias OptionalErrorClosure = (Error?) -> Void
