@@ -46,7 +46,11 @@ final class AssemblyBuilderImpl: AssemblyBuilder {
     
     func createUserModule(coordinator: Coordinator) -> UIViewController {
         let view = UserViewController()
-        view.viewModel = UserViewModelImpl(usersDatabaseManager: di.usersDatabaseManager, coordinator: coordinator)
+        view.viewModel = UserViewModelImpl(
+            usersDatabaseManager: di.usersDatabaseManager,
+            authService: di.authService,
+            coordinator: coordinator
+        )
         return view
     }
 }

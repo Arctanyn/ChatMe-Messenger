@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import FirebaseAuth
-import FirebaseFirestore
 
 //MARK: UserViewModel
 
@@ -40,19 +38,21 @@ final class UserViewModelImpl: UserViewModel {
     
     private var user: UserModel?
     private let usersDatabaseManager: UsersDatabaseManager
+    private let authService: AuthService
     private let coordinator: Coordinator
     
     //MARK: - Initialization
     
-    init(usersDatabaseManager: UsersDatabaseManager, coordinator: Coordinator) {
+    init(usersDatabaseManager: UsersDatabaseManager, authService: AuthService, coordinator: Coordinator) {
         self.usersDatabaseManager = usersDatabaseManager
+        self.authService = authService
         self.coordinator = coordinator
     }
     
     //MARK: - Methods
     
     func fetchUser(completion: @escaping VoidClosure) {
-        guard let user = Auth.auth().currentUser else { return }
+        guard let user = authService.currentUser else { return }
         usersDatabaseManager.getUser(withID: user.uid) { [weak self] result in
             switch result {
             case .success(let user):
@@ -67,13 +67,9 @@ final class UserViewModelImpl: UserViewModel {
     
     func logOut() {
         guard let coordinator = coordinator as? UserCoordinator else { return }
-        do {
-            try Auth.auth().signOut()
+        authService.signOut {
             coordinator.finishFlow?()
-        } catch {
-            print(error.localizedDescription)
         }
-        
     }
     
 }

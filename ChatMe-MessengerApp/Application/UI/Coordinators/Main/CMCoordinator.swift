@@ -14,6 +14,7 @@ final class CMCoordinator: BaseCoordinator {
     var finishFlow: VoidClosure?
     var isAlreadyLoggedIn = false
     
+    private let mainTabBarController = CMTabBarController()
     private var navigationControllers: [UINavigationController] = []
     
     private let router: Router
@@ -32,8 +33,7 @@ final class CMCoordinator: BaseCoordinator {
     
     override func start() {
         prepareTabs()
-        
-        let mainTabBarController = CMTabBarController()
+
         mainTabBarController.configureViewControllers(with: navigationControllers)
 
         mainTabBarController.modalPresentationStyle = .fullScreen
@@ -72,6 +72,7 @@ private extension CMCoordinator {
             let coordinator = coordinatorFactory.createUserCoordinator(router: router)
             coordinator.finishFlow = { [weak self] in
                 self?.childCoordinators.removeAll()
+                self?.mainTabBarController.modalTransitionStyle = .flipHorizontal
                 self?.router.dismissModule()
                 self?.finishFlow?()
             }
