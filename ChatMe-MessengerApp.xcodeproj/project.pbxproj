@@ -45,6 +45,9 @@
 		3B8D570D28CE29340004BDAD /* BaseViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D570C28CE29340004BDAD /* BaseViewSetup.swift */; };
 		3B8D571328CE4E210004BDAD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D571228CE4E210004BDAD /* LoginViewModel.swift */; };
 		3B8D571528CE55BA0004BDAD /* UIStackView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D571428CE55BA0004BDAD /* UIStackView + Ext.swift */; };
+		3B95952528DA186A006B44EC /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95952428DA186A006B44EC /* UserViewModel.swift */; };
+		3B95952728DA1965006B44EC /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95952628DA1965006B44EC /* ObservableObject.swift */; };
+		3B95952928DA2E24006B44EC /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95952828DA2E24006B44EC /* UserInfoView.swift */; };
 		3BA62D0B28D17D6300741288 /* CMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA62D0A28D17D6300741288 /* CMTabBarController.swift */; };
 		3BA62D0D28D182E400741288 /* UIColor + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA62D0C28D182E400741288 /* UIColor + Ext.swift */; };
 		3BA62D1128D183BF00741288 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA62D1028D183BF00741288 /* ChatsViewController.swift */; };
@@ -114,6 +117,9 @@
 		3B8D570C28CE29340004BDAD /* BaseViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewSetup.swift; sourceTree = "<group>"; };
 		3B8D571228CE4E210004BDAD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3B8D571428CE55BA0004BDAD /* UIStackView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Ext.swift"; sourceTree = "<group>"; };
+		3B95952428DA186A006B44EC /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		3B95952628DA1965006B44EC /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
+		3B95952828DA2E24006B44EC /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		3BA62D0A28D17D6300741288 /* CMTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTabBarController.swift; sourceTree = "<group>"; };
 		3BA62D0C28D182E400741288 /* UIColor + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Ext.swift"; sourceTree = "<group>"; };
 		3BA62D1028D183BF00741288 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +343,7 @@
 				3BD2B89C28D5D7D1009CF754 /* LoginErrorLabel.swift */,
 				3B8D570728CE28E60004BDAD /* AuthorizationField.swift */,
 				3B1F741128D4B70000E4705A /* ProfileImageView.swift */,
+				3B95952828DA2E24006B44EC /* UserInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,6 +355,7 @@
 				3B30432728D23A6C0067E301 /* Typealiases */,
 				3B302E7D28CCAA4300844468 /* Protocols */,
 				3B302E7C28CCAA3400844468 /* Extensions */,
+				3B95952628DA1965006B44EC /* ObservableObject.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -462,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				3BA62D1328D1840500741288 /* UserViewController.swift */,
+				3B95952428DA186A006B44EC /* UserViewModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -632,6 +641,7 @@
 				3BFDF5C928D1B96F00A452F5 /* UserCoordinator.swift in Sources */,
 				3BA77BEF28CF16CB009F1366 /* AssemblyBuilderImpl.swift in Sources */,
 				3B1330F528D475A3006C078F /* CMRoundedRectButton.swift in Sources */,
+				3B95952528DA186A006B44EC /* UserViewModel.swift in Sources */,
 				3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */,
 				3BD2B8A128D5DCA8009CF754 /* UserModel.swift in Sources */,
 				3BA62D0B28D17D6300741288 /* CMTabBarController.swift in Sources */,
@@ -644,6 +654,7 @@
 				3B302E7F28CCAA8600844468 /* DI.swift in Sources */,
 				3BA62D0D28D182E400741288 /* UIColor + Ext.swift in Sources */,
 				3B302E4328CC8CE700844468 /* LoginViewController.swift in Sources */,
+				3B95952928DA2E24006B44EC /* UserInfoView.swift in Sources */,
 				3BD2B89D28D5D7D1009CF754 /* LoginErrorLabel.swift in Sources */,
 				3B8D570128CE072B0004BDAD /* CMBaseController.swift in Sources */,
 				3B02C85928D6E8130080F1C0 /* AuthError.swift in Sources */,
@@ -657,6 +668,7 @@
 				3BAC64E328D3737D00A6BE77 /* AccountRegisterCoordinator.swift in Sources */,
 				3B8D570628CE08F80004BDAD /* Resources.swift in Sources */,
 				3BC546A428D99D79002CCBBD /* UsersDatabaseManagerImpl.swift in Sources */,
+				3B95952728DA1965006B44EC /* ObservableObject.swift in Sources */,
 				3B302E8428CCAB4200844468 /* BaseCoordinator.swift in Sources */,
 				3B302E3F28CC8CE700844468 /* AppDelegate.swift in Sources */,
 				3B302E4128CC8CE700844468 /* SceneDelegate.swift in Sources */,

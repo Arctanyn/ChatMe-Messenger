@@ -82,6 +82,10 @@ final class AccountRegisterViewController: CMBaseController, ViewModelable {
             vStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             vStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
             vStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            
+            labelsStack.bottomAnchor.constraint(equalTo: vStack.topAnchor, constant: -20),
+            labelsStack.leadingAnchor.constraint(equalTo: vStack.leadingAnchor),
+            labelsStack.trailingAnchor.constraint(equalTo: vStack.trailingAnchor),
         ])
     }
     
@@ -128,12 +132,12 @@ private extension AccountRegisterViewController {
     
     func setupVerticalStack() {
         view.addSubview(vStack, useConstraints: true)
-        vStack.addArrangedSubview(labelsStack)
         vStack.addArrangedSubview(authFieldsStack)
         vStack.addArrangedSubview(continueButton)
     }
     
     func setupLabelsStack() {
+        view.addSubview(labelsStack, useConstraints: true)
         labelsStack.addArrangedSubview(titleLabel)
         labelsStack.addArrangedSubview(infoLabel)
     }
@@ -168,6 +172,4 @@ extension AccountRegisterViewController: UITextFieldDelegate {
         
         return true
     }
-    
-
 }

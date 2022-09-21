@@ -43,7 +43,7 @@ final class LoginViewModelImpl: LoginViewModel {
             case .success(let authResult):
                 let user = authResult.user
                 print("Welcome back: ", user.email ?? "")
-                loginCoordinator.finishFlow?()
+                loginCoordinator.finishFlow?(.signIn)
             case .failure(let authError):
                 self?.displayError?(authError)
             }

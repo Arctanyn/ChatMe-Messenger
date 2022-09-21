@@ -38,11 +38,11 @@ final class CMCoordinator: BaseCoordinator {
 
         mainTabBarController.modalPresentationStyle = .fullScreen
         
-        if !isAlreadyLoggedIn {
+        if isAlreadyLoggedIn {
             mainTabBarController.modalTransitionStyle = .flipHorizontal
         }
         
-        router.present(mainTabBarController, animated: !isAlreadyLoggedIn)
+        router.present(mainTabBarController, animated: isAlreadyLoggedIn)
     }
 }
 
@@ -60,16 +60,22 @@ private extension CMCoordinator {
         navigationControllers.append(navController)
         
         let router = RouterImpl(rootController: navController)
-        
-        var coordinator: Coordinator!
-        
+
         switch tab {
         case .chats:
-            coordinator = coordinatorFactory.createChatsCoordinator(router: router)
+            let coordinator = coordinatorFactory.createChatsCoordinator(router: router)
+            coordinator.finishFlow = { [weak self] in
+                self?.childDidFinish(coordinator)
+            }
+            addChild(coordinator)
         case .user:
-            coordinator = coordinatorFactory.createUserCoordinator(router: router)
+            let coordinator = coordinatorFactory.createUserCoordinator(router: router)
+            coordinator.finishFlow = { [weak self] in
+                self?.childCoordinators.removeAll()
+                self?.router.dismissModule()
+                self?.finishFlow?()
+            }
+            addChild(coordinator)
         }
-        
-        addChild(coordinator)
     }
 }

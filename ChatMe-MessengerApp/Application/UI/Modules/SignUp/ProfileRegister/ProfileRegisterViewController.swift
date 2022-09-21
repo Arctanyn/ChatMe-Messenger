@@ -44,6 +44,12 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
     
     //MARK: - Views
     
+    private lazy var profileImage: UIImage = Resources.Images.defaultProfileImage {
+        didSet {
+            profileImageView.image = profileImage
+        }
+    }
+    
     private lazy var loadingAlertView = SPAlertView(title: Resources.Strings.processing, preset: .spinner)
     
     private lazy var imagePicker: UIImagePickerController = {
@@ -66,7 +72,7 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
     
     private lazy var profileImageView = ProfileImageView()
     
-    private lazy var usernameFiled = AuthorizationField(placeholder: "First name")
+    private lazy var firstNameField = AuthorizationField(placeholder: "First name")
     private lazy var lastNameField = AuthorizationField(placeholder: "Last name (optional)")
     
     private lazy var errorLabel = LoginErrorLabel()
@@ -103,7 +109,7 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
     
     override func constraintViews() {
         NSLayoutConstraint.activate([
-            profileImageView.heightAnchor.constraint(equalToConstant: 130),
+            profileImageView.heightAnchor.constraint(equalToConstant: 120),
             profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor),
 
             vStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -111,9 +117,17 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
             vStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
             
             authFieldsStack.widthAnchor.constraint(equalTo: vStack.widthAnchor),
+            
+            labelsStack.bottomAnchor.constraint(equalTo: vStack.topAnchor, constant: -20),
+            labelsStack.leadingAnchor.constraint(equalTo: vStack.leadingAnchor),
+            labelsStack.trailingAnchor.constraint(equalTo: vStack.trailingAnchor),
 
             createAccountButton.widthAnchor.constraint(equalTo: vStack.widthAnchor)
         ])
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }
 
@@ -121,10 +135,10 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
 
 @objc private extension ProfileRegisterViewController {
     func createAccountButtonPressed() {
-        let username = usernameFiled.textField.text ?? ""
+        let firstName = firstNameField.textField.text ?? ""
         let lastName = lastNameField.textField.text
         
-        if let error = viewModel.checkToValid(username: username, lastName: lastName) {
+        if let error = viewModel.checkToValid(firstName: firstName, lastName: lastName) {
             errorLabel.text = error.errorDescription
             errorLabel.isHidden = false
         } else {
@@ -132,8 +146,8 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
             errorLabel.isHidden = true
             changeUIInteraction(to: .inactive)
 
-            let imageData = profileImageView.image?.jpegData(compressionQuality: 0.8)
-            viewModel.createNewAccount(withName: username, lastName: lastName, profileImage: imageData)
+            let imageData = profileImage.jpegData(compressionQuality: 0.85)
+            viewModel.createNewAccount(withName: firstName, lastName: lastName, profileImage: imageData)
         }
     }
     
@@ -151,7 +165,6 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
 private extension ProfileRegisterViewController {
     func setupVerticalStack() {
         view.addSubview(vStack, useConstraints: true)
-        vStack.addArrangedSubview(labelsStack)
         vStack.addArrangedSubview(profileImageView)
         vStack.addArrangedSubview(authFieldsStack)
         vStack.addArrangedSubview(createAccountButton)
@@ -159,9 +172,10 @@ private extension ProfileRegisterViewController {
     
     func setupAuthFieldsStack() {
         [
-            usernameFiled,
+            firstNameField,
             lastNameField
         ].forEach { authField in
+            authField.textField.delegate = self
             authFieldsStack.addArrangedSubview(authField)
         }
         
@@ -169,6 +183,7 @@ private extension ProfileRegisterViewController {
     }
     
     func setupLabelsStack() {
+        view.addSubview(labelsStack, useConstraints: true)
         labelsStack.addArrangedSubview(titleLabel)
         labelsStack.addArrangedSubview(infoLabel)
     }
@@ -186,8 +201,21 @@ private extension ProfileRegisterViewController {
 extension ProfileRegisterViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
-        profileImageView.image = image
+        profileImage = image
         picker.dismiss(animated: true)
     }
 }
 
+extension ProfileRegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        if textField === self.firstNameField.textField {
+            self.lastNameField.textField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        
+        return true
+    }
+}

@@ -9,9 +9,14 @@ import Foundation
 
 final class LoginCoordinator: BaseCoordinator {
     
+    enum AuthMethod {
+        case signIn
+        case signUp
+    }
+    
     //MARK: Properties
     
-    var finishFlow: VoidClosure?
+    var finishFlow: ((AuthMethod) -> Void)?
     
     private let coordinatorsFactory: CoordinatorFactory
     private let assemblyBuilder: AssemblyBuilder
@@ -36,7 +41,7 @@ final class LoginCoordinator: BaseCoordinator {
         let coordinator = coordinatorsFactory.createRegisterCoordinator(router: router)
         coordinator.finishFlow = { [weak self] in
             self?.childDidFinish(coordinator)
-            self?.finishFlow?()
+            self?.finishFlow?(.signUp)
         }
         addChild(coordinator)
         coordinator.start()

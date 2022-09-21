@@ -13,7 +13,7 @@ protocol ProfileRegisterViewModel: AuthErrorPresenter {
     var newAccountDidCreate: VoidClosure? { get set }
     func createNewAccount(withName name: String, lastName: String?, profileImage: Data?)
     func backToAccountRegister()
-    func checkToValid(username: String, lastName: String?) -> LoginError?
+    func checkToValid(firstName: String, lastName: String?) -> LoginError?
     func completeRegistration()
 }
 
@@ -46,7 +46,7 @@ final class ProfileRegisterViewModelImpl: ProfileRegisterViewModel {
     //MARK: - Methods
     
     func createNewAccount(withName name: String, lastName: String?, profileImage: Data?) {
-        user.name = name
+        user.firstName = name
         user.lastName = lastName
         user.profileImageData = profileImage
         
@@ -85,8 +85,8 @@ final class ProfileRegisterViewModelImpl: ProfileRegisterViewModel {
         coordinator.backToAccountRegister()
     }
     
-    func checkToValid(username: String, lastName: String?) -> LoginError? {
-        guard !username.isEmpty else { return .missingName }
+    func checkToValid(firstName: String, lastName: String?) -> LoginError? {
+        guard !firstName.isEmpty else { return .missingName }
 
         return nil
     }

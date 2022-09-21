@@ -54,8 +54,10 @@ final class CMTabBarController: UITabBarController {
 
 private extension CMTabBarController {
     func configureAppearance() {
+        tabBar.isTranslucent = false
         tabBar.tintColor = Resources.Colors.active
         tabBar.unselectedItemTintColor = Resources.Colors.inactive
+        tabBar.barTintColor = Resources.Colors.secondary
         tabBar.backgroundColor = Resources.Colors.secondary
 
         tabBar.addTopBorderLine(color: .separator, height: 0.5)

@@ -58,6 +58,10 @@ enum Resources {
             }
         }
         
+        static var defaultProfileImage: UIImage {
+            UIImage(named: "default_profile_picture")!
+        }
+        
         static var overviewBackground: UIImage {
             UIImage(named: "overview_background_image")!
         }
@@ -133,11 +137,15 @@ enum Resources {
         }
         
         static var logIn: String {
-            "Log in"
+            "Log In"
         }
         
         static var signUp: String {
-            "Sign up"
+            "Sign Up"
+        }
+        
+        static var logOut: String {
+            "Log Out"
         }
         
         static var somethingWentWrong: String {

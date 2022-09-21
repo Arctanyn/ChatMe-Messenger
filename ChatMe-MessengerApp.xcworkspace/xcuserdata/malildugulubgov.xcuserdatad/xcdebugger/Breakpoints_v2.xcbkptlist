@@ -3,22 +3,4 @@
    uuid = "E375F948-AD2C-439E-8055-B9FB51B34DAE"
    type = "0"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BADD9715-C38B-4693-8E4A-6BE249B3CA1F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ChatMe-MessengerApp/Application/UI/Coordinators/Authorization/Register/RegisterCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "goToProfileRegisterPage(with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

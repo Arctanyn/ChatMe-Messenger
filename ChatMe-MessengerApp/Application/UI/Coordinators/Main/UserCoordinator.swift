@@ -11,6 +11,8 @@ final class UserCoordinator: BaseCoordinator {
     
     //MARK: Properties
     
+    var finishFlow: VoidClosure?
+    
     private let coordinatorFactory: CoordinatorFactory
     private let assemblyBuilder: AssemblyBuilder
     private let router: Router

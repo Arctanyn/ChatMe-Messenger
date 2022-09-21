@@ -11,7 +11,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     
     //MARK: Properties
 
-    private lazy var isLogin = false
+    private lazy var isAlreadyLoggedIn = false
 
     private let authService: AuthService
     private let coordinatorFactory: CoordinatorFactory
@@ -34,10 +34,8 @@ final class ApplicationCoordinator: BaseCoordinator {
     
     override func start() {
         if authService.checkUserAvailability() {
-            isLogin = true
             runCMFlow()
         } else {
-            isLogin = false
             runLoginFlow()
         }
     }
@@ -48,7 +46,8 @@ final class ApplicationCoordinator: BaseCoordinator {
 private extension ApplicationCoordinator {
     func runLoginFlow() {
         let coordinator = coordinatorFactory.createLoginCoordinator(router: router)
-        coordinator.finishFlow = { [weak self] in
+        coordinator.finishFlow = { [weak self] authMethod in
+            self?.isAlreadyLoggedIn = authMethod == .signIn
             self?.childDidFinish(coordinator)
             self?.start()
         }
@@ -60,9 +59,10 @@ private extension ApplicationCoordinator {
     func runCMFlow() {
         let coordinator = coordinatorFactory.createCMCoordinator(router: router)
         coordinator.finishFlow = { [weak self] in
+            self?.start()
             self?.childDidFinish(coordinator)
         }
-        coordinator.isAlreadyLoggedIn = isLogin
+        coordinator.isAlreadyLoggedIn = isAlreadyLoggedIn
         addChild(coordinator)
         coordinator.start()
     }
