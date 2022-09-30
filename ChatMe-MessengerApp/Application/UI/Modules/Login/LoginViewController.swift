@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SPAlert
 
 final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter {
 
@@ -16,6 +17,7 @@ final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter
     var viewModel: ViewModel! {
         didSet {
             viewModel.displayError = { [weak self] error in
+                self?.loadingAlertView.dismiss()
                 self?.changeUIInteraction(to: .inactive)
                 self?.showAuthErrorAlert(
                     withTitle: error.localizedDescription,
@@ -30,6 +32,8 @@ final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter
     }
     
     //MARK: - Views
+    
+    private lazy var loadingAlertView = SPAlertView(title: Resources.Strings.processing, preset: .spinner)
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -109,7 +113,12 @@ final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter
             errorLabel.text = error.errorDescription
             errorLabel.isHidden = false
         } else {
-            viewModel.login(withEmail: email, password: password)
+            loadingAlertView.present()
+            changeUIInteraction(to: .inactive)
+            viewModel.login(withEmail: email, password: password) { [weak self] in
+                self?.loadingAlertView.dismiss()
+                self?.changeUIInteraction(to: .active)
+            }
         }
     }
     

@@ -12,5 +12,6 @@ protocol AssemblyBuilder {
     func createRegisterModule(coordinator: Coordinator) -> UIViewController
     func createProfileRegistrationProfile(user: UserModel, coordinator: Coordinator) -> UIViewController
     func createChatsModule(coordinator: Coordinator) -> UIViewController
+    func createNewChatModule(coordinator: Coordinator) -> UIViewController
     func createUserModule(coordinator: Coordinator) -> UIViewController
 }

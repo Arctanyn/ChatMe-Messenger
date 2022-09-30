@@ -28,7 +28,17 @@ final class ChatsCoordinator: BaseCoordinator {
     //MARK: - Methods
     
     override func start() {
-        let viewController = assemblyBuilder.createChatsModule(coordinator: self)
-        router.setRootModule(viewController)
+        let module = assemblyBuilder.createChatsModule(coordinator: self)
+        router.setRootModule(module)
+    }
+    
+    func runStartNewChatFlow() {
+        let coordinator = coordinatorFactory.createNewChatCoordinator(router: router)
+        coordinator.finishFlow = { [weak self] in
+            self?.childDidFinish(coordinator)
+        }
+        addChild(coordinator)
+        coordinator.start()
+        
     }
 }

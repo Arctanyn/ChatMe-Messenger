@@ -49,12 +49,8 @@ final class ProfileRegisterViewModelImpl: ProfileRegisterViewModel {
         user.firstName = name
         user.lastName = lastName
         user.profileImageData = profileImage
-        
-        guard let email = user.email,
-              let password = user.password
-        else { return }
-        
-        authService.signUp(withEmail: email, password: password) { [weak self] result in
+
+        authService.signUp(withEmail: user.email, password: user.password) { [weak self] result in
             guard let self = self else {
                 self?.displayError?(.failedToCreateNewAccount)
                 return

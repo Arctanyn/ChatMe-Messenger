@@ -20,6 +20,7 @@ extension UIViewController: Presentable {
 protocol Router: Presentable {
     func setRootModule(_ module: Presentable?)
     func setRootModule(_ module: Presentable?, hideBar: Bool)
+    func presentInNavigation(_ module: Presentable)
     func present(_ module: Presentable?)
     func present(_ module: Presentable?, animated: Bool)
     func dismissModule()

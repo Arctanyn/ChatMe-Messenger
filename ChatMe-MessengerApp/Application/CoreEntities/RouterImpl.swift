@@ -37,6 +37,12 @@ final class RouterImpl: Router {
         rootController?.isNavigationBarHidden = hideBar
     }
     
+    func presentInNavigation(_ module: Presentable) {
+        guard let controller = module.toPresent() else { return }
+        let navigationController = UINavigationController(rootViewController: controller)
+        present(navigationController)
+    }
+    
     func present(_ module: Presentable?) {
         present(module, animated: true)
     }

@@ -24,7 +24,7 @@ final class CMTabBarController: UITabBarController {
     
     //MARK: - Methods
     
-    func configureViewControllers(with navigationControllers: [UINavigationController]) {
+    func configureViewControllers(with navigationControllers: [CMBaseNavigationController]) {
         for navigationController in navigationControllers {
             guard let tab = Tabs(rawValue: navigationController.tabBarItem.tag) else { break }
         
@@ -63,7 +63,7 @@ private extension CMTabBarController {
         tabBar.addTopBorderLine(color: .separator, height: 0.5)
     }
     
-    func setupViewController(with navController: UINavigationController,
+    func setupViewController(with navController: CMBaseNavigationController,
                                          title: String,
                                          tabBarImage: UIImage,
                                          tabBarSelectedImage: UIImage) {

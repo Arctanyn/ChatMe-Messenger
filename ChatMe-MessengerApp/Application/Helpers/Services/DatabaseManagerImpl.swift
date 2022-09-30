@@ -31,7 +31,9 @@ final class DatabaseManagerImpl: DatabaseManager {
         }
     }
     
-    func getData(fromCollection collection: DatabaseCollection, inDocument document: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
+    func getData(fromCollection collection: DatabaseCollection,
+                 inDocument document: String,
+                 completion: @escaping (Result<[String: Any], Error>) -> Void) {
         firestore.collection(collection.rawValue).document(document).getDocument { snapshot, error in
             guard error == nil else {
                 completion(.failure(error!))
@@ -47,6 +49,22 @@ final class DatabaseManagerImpl: DatabaseManager {
             }
             
             completion(.success(data))
+        }
+    }
+    
+    func getDocuments(fromCollection: DatabaseCollection,
+                      completion: @escaping (Result<[QueryDocumentSnapshot], Error>) -> Void) {
+        firestore.collection(fromCollection.rawValue).getDocuments { snapshot, error in
+            guard error == nil else {
+                completion(.failure(error!))
+                return
+            }
+            
+            guard let documents = snapshot?.documents else {
+                return
+            }
+            
+            completion(.success(documents))
         }
     }
 }

@@ -20,6 +20,5 @@ final class CMBaseNavigationController: UINavigationController {
     
     private func configureAppearance() {
         navigationBar.tintColor = Resources.Colors.active
-        navigationBar.barTintColor = Resources.Colors.background
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 //MARK: LoginViewModel
 
 protocol LoginViewModel: AuthErrorPresenter {
-    func login(withEmail email: String, password: String)
+    func login(withEmail email: String, password: String, completion: @escaping VoidClosure)
     func showSignUpPage()
     func checkToValid(email: String, password: String) -> LoginError?
 }
@@ -35,18 +35,17 @@ final class LoginViewModelImpl: LoginViewModel {
     
     //MARK: - Methods
     
-    func login(withEmail email: String, password: String) {
+    func login(withEmail email: String, password: String, completion: @escaping VoidClosure) {
         guard let loginCoordinator = coordinator as? LoginCoordinator else { return }
         
         authService.signIn(withEmail: email, password: password) { [weak self] result in
             switch result {
-            case .success(let authResult):
-                let user = authResult.user
-                print("Welcome back: ", user.email ?? "")
+            case .success(_):
                 loginCoordinator.finishFlow?(.signIn)
             case .failure(let authError):
                 self?.displayError?(authError)
             }
+            completion()
         }
     }
     

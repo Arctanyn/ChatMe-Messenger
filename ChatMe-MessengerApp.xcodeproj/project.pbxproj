@@ -37,6 +37,17 @@
 		3B302E9D28CCCB8D00844468 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B302E9C28CCCB8D00844468 /* Coordinator.swift */; };
 		3B302E9F28CCCC5D00844468 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B302E9E28CCCC5D00844468 /* UIViewController + Ext.swift */; };
 		3B30432928D23A7C0067E301 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30432828D23A7C0067E301 /* Closures.swift */; };
+		3B62407A28E19B4F00D04529 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62407928E19B4F00D04529 /* ChatTableViewCell.swift */; };
+		3B62407C28E19FEE00D04529 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62407B28E19FEE00D04529 /* ChatsViewModel.swift */; };
+		3B62407E28E1D71D00D04529 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62407D28E1D71D00D04529 /* ChatViewController.swift */; };
+		3B62408228E1E6E000D04529 /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62408128E1E6E000D04529 /* NewChatViewController.swift */; };
+		3B62408628E1EE8A00D04529 /* NewChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62408528E1EE8A00D04529 /* NewChatViewModel.swift */; };
+		3B62408828E1F16200D04529 /* NewChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62408728E1F16200D04529 /* NewChatCoordinator.swift */; };
+		3B62408B28E20ED100D04529 /* UsersSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62408A28E20ED100D04529 /* UsersSearchResultsViewController.swift */; };
+		3B62408D28E20F2500D04529 /* UsersSearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62408C28E20F2500D04529 /* UsersSearchResultsViewModel.swift */; };
+		3B62409028E2161E00D04529 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62408F28E2161E00D04529 /* UserTableViewCell.swift */; };
+		3B62409228E2172900D04529 /* UserTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62409128E2172900D04529 /* UserTableViewCellViewModel.swift */; };
+		3B62409428E239A200D04529 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62409328E239A200D04529 /* UserProfileModel.swift */; };
 		3B8D570128CE072B0004BDAD /* CMBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D570028CE072B0004BDAD /* CMBaseController.swift */; };
 		3B8D570328CE07F90004BDAD /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D570228CE07F90004BDAD /* UIView + Ext.swift */; };
 		3B8D570628CE08F80004BDAD /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D570528CE08F80004BDAD /* Resources.swift */; };
@@ -109,6 +120,17 @@
 		3B302E9C28CCCB8D00844468 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3B302E9E28CCCC5D00844468 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
 		3B30432828D23A7C0067E301 /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		3B62407928E19B4F00D04529 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		3B62407B28E19FEE00D04529 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
+		3B62407D28E1D71D00D04529 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		3B62408128E1E6E000D04529 /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
+		3B62408528E1EE8A00D04529 /* NewChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewModel.swift; sourceTree = "<group>"; };
+		3B62408728E1F16200D04529 /* NewChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatCoordinator.swift; sourceTree = "<group>"; };
+		3B62408A28E20ED100D04529 /* UsersSearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersSearchResultsViewController.swift; sourceTree = "<group>"; };
+		3B62408C28E20F2500D04529 /* UsersSearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersSearchResultsViewModel.swift; sourceTree = "<group>"; };
+		3B62408F28E2161E00D04529 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		3B62409128E2172900D04529 /* UserTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		3B62409328E239A200D04529 /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		3B8D570028CE072B0004BDAD /* CMBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMBaseController.swift; sourceTree = "<group>"; };
 		3B8D570228CE07F90004BDAD /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 		3B8D570528CE08F80004BDAD /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
@@ -175,8 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */,
-				3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */,
-				3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */,
+				3B62409528E23D5700D04529 /* Chats */,
+				3B62409628E23D5F00D04529 /* User */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -292,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				3BD2B8A028D5DCA8009CF754 /* UserModel.swift */,
+				3B62409328E239A200D04529 /* UserProfileModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -344,6 +367,8 @@
 				3B8D570728CE28E60004BDAD /* AuthorizationField.swift */,
 				3B1F741128D4B70000E4705A /* ProfileImageView.swift */,
 				3B95952828DA2E24006B44EC /* UserInfoView.swift */,
+				3B62407928E19B4F00D04529 /* ChatTableViewCell.swift */,
+				3B62408E28E215F100D04529 /* UserTableVieCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -425,6 +450,59 @@
 			path = Typealiases;
 			sourceTree = "<group>";
 		};
+		3B62407F28E1D7E300D04529 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				3B62407D28E1D71D00D04529 /* ChatViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		3B62408028E1E35000D04529 /* NewChat */ = {
+			isa = PBXGroup;
+			children = (
+				3B62408928E20EA900D04529 /* UsersSearchResults */,
+				3B62408128E1E6E000D04529 /* NewChatViewController.swift */,
+				3B62408528E1EE8A00D04529 /* NewChatViewModel.swift */,
+			);
+			path = NewChat;
+			sourceTree = "<group>";
+		};
+		3B62408928E20EA900D04529 /* UsersSearchResults */ = {
+			isa = PBXGroup;
+			children = (
+				3B62408A28E20ED100D04529 /* UsersSearchResultsViewController.swift */,
+				3B62408C28E20F2500D04529 /* UsersSearchResultsViewModel.swift */,
+			);
+			path = UsersSearchResults;
+			sourceTree = "<group>";
+		};
+		3B62408E28E215F100D04529 /* UserTableVieCell */ = {
+			isa = PBXGroup;
+			children = (
+				3B62408F28E2161E00D04529 /* UserTableViewCell.swift */,
+				3B62409128E2172900D04529 /* UserTableViewCellViewModel.swift */,
+			);
+			path = UserTableVieCell;
+			sourceTree = "<group>";
+		};
+		3B62409528E23D5700D04529 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */,
+				3B62408728E1F16200D04529 /* NewChatCoordinator.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		3B62409628E23D5F00D04529 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		3B8D56FF28CE06780004BDAD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,7 +539,10 @@
 		3BA62D0928D17D2100741288 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
+				3B62408028E1E35000D04529 /* NewChat */,
+				3B62407F28E1D7E300D04529 /* Chat */,
 				3BA62D1028D183BF00741288 /* ChatsViewController.swift */,
+				3B62407B28E19FEE00D04529 /* ChatsViewModel.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -623,9 +704,11 @@
 				3BD2B89B28D5D6EC009CF754 /* CMInfoLabel.swift in Sources */,
 				3B302E8928CCB03100844468 /* Router.swift in Sources */,
 				3BFDF5C528D1AA3D00A452F5 /* CMCoordinator.swift in Sources */,
+				3B62408228E1E6E000D04529 /* NewChatViewController.swift in Sources */,
 				3BAC64E828D3772B00A6BE77 /* AccountRegisterViewModel.swift in Sources */,
 				3B1F741028D49B3800E4705A /* ProfileRegisterViewController.swift in Sources */,
 				3BA77BED28CF105E009F1366 /* LoginError.swift in Sources */,
+				3B62409228E2172900D04529 /* UserTableViewCellViewModel.swift in Sources */,
 				3B8D570328CE07F90004BDAD /* UIView + Ext.swift in Sources */,
 				3BE7E1E528D85685004AB284 /* ActiveStatus.swift in Sources */,
 				3B302E8728CCAFF300844468 /* CoordinatorFactory.swift in Sources */,
@@ -645,6 +728,7 @@
 				3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */,
 				3BD2B8A128D5DCA8009CF754 /* UserModel.swift in Sources */,
 				3BA62D0B28D17D6300741288 /* CMTabBarController.swift in Sources */,
+				3B62409028E2161E00D04529 /* UserTableViewCell.swift in Sources */,
 				3B302E9128CCB64500844468 /* AssemblyBuilder.swift in Sources */,
 				3B8D570828CE28E60004BDAD /* AuthorizationField.swift in Sources */,
 				3BA62D1428D1840500741288 /* UserViewController.swift in Sources */,
@@ -660,10 +744,12 @@
 				3B02C85928D6E8130080F1C0 /* AuthError.swift in Sources */,
 				3BAC64EA28D3791E00A6BE77 /* ViewModelable.swift in Sources */,
 				3BE7E1E328D84966004AB284 /* String + Ext.swift in Sources */,
+				3B62408628E1EE8A00D04529 /* NewChatViewModel.swift in Sources */,
 				3B8D570D28CE29340004BDAD /* BaseViewSetup.swift in Sources */,
 				3B02C85D28D6F6B80080F1C0 /* AlertPresenter.swift in Sources */,
 				3BD2B89928D5D621009CF754 /* CMTitleLabel.swift in Sources */,
 				3B302E8D28CCB5CA00844468 /* CoordinatorFactoryImpl.swift in Sources */,
+				3B62407E28E1D71D00D04529 /* ChatViewController.swift in Sources */,
 				3B02C85728D6E7950080F1C0 /* AuthServiceImpl.swift in Sources */,
 				3BAC64E328D3737D00A6BE77 /* AccountRegisterCoordinator.swift in Sources */,
 				3B8D570628CE08F80004BDAD /* Resources.swift in Sources */,
@@ -671,9 +757,15 @@
 				3B95952728DA1965006B44EC /* ObservableObject.swift in Sources */,
 				3B302E8428CCAB4200844468 /* BaseCoordinator.swift in Sources */,
 				3B302E3F28CC8CE700844468 /* AppDelegate.swift in Sources */,
+				3B62408D28E20F2500D04529 /* UsersSearchResultsViewModel.swift in Sources */,
+				3B62407A28E19B4F00D04529 /* ChatTableViewCell.swift in Sources */,
+				3B62409428E239A200D04529 /* UserProfileModel.swift in Sources */,
 				3B302E4128CC8CE700844468 /* SceneDelegate.swift in Sources */,
+				3B62407C28E19FEE00D04529 /* ChatsViewModel.swift in Sources */,
 				3BC5469B28D99058002CCBBD /* DatabaseManagerImpl.swift in Sources */,
 				3B302E9F28CCCC5D00844468 /* UIViewController + Ext.swift in Sources */,
+				3B62408828E1F16200D04529 /* NewChatCoordinator.swift in Sources */,
+				3B62408B28E20ED100D04529 /* UsersSearchResultsViewController.swift in Sources */,
 				3B8D571528CE55BA0004BDAD /* UIStackView + Ext.swift in Sources */,
 				3B302E8228CCAAF600844468 /* AppFactory.swift in Sources */,
 				3B30432928D23A7C0067E301 /* Closures.swift in Sources */,

@@ -14,5 +14,6 @@ protocol CoordinatorFactory {
     func createProfileRegisterCoordinator(user: UserModel, router: Router) -> ProfileRegisterCoordinator
     func createCMCoordinator(router: Router) -> CMCoordinator
     func createChatsCoordinator(router: Router) -> ChatsCoordinator
+    func createNewChatCoordinator(router: Router) -> NewChatCoordinator
     func createUserCoordinator(router: Router) -> UserCoordinator
 }

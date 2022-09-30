@@ -45,6 +45,10 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
         return UserCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }
     
+    func createNewChatCoordinator(router: Router) -> NewChatCoordinator {
+        return NewChatCoordinator(assemblyBuilder: assemblyBuilder, router: router)
+    }
+    
     func createChatsCoordinator(router: Router) -> ChatsCoordinator {
         return ChatsCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }

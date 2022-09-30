@@ -15,7 +15,7 @@ final class CMCoordinator: BaseCoordinator {
     var isAlreadyLoggedIn = false
     
     private let mainTabBarController = CMTabBarController()
-    private var navigationControllers: [UINavigationController] = []
+    private var navigationControllers: [CMBaseNavigationController] = []
     
     private let router: Router
     private let coordinatorFactory: CoordinatorFactory

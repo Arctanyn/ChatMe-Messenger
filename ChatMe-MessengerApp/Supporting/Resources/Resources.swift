@@ -71,12 +71,21 @@ enum Resources {
                 .withConfiguration(UIImage.SymbolConfiguration(pointSize: 16, weight: .bold))
         }
         
+        static var xMarkCircle: UIImage {
+            UIImage(systemName: "xmark.circle")!
+                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 20, weight: .bold))
+        }
+        
         static var circlePhoto: UIImage {
             UIImage(systemName: "photo.circle")!
         }
         
         static var backArrow: UIImage {
             UIImage(systemName: "chevron.backward")!
+        }
+        
+        static var squareAndPencil: UIImage {
+            UIImage(systemName: "square.and.pencil")!
         }
     }
     

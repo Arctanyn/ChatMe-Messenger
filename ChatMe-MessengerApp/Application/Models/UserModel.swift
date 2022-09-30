@@ -8,10 +8,12 @@
 import Foundation
 
 struct UserModel: Codable {
-    var firstName, lastName: String?
+    var firstName = ""
+    var lastName: String?
     var fullName: String {
-        "\(firstName ?? "") \(lastName ?? "")"
+        "\(firstName) \(lastName ?? "")"
     }
-    var email, password: String?
+    var email = ""
+    var password = ""
     var profileImageData: Data?
 }
