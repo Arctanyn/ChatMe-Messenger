@@ -21,12 +21,12 @@ final class AccountRegisterViewModelImpl: AccountRegisterViewModel {
 
     //MARK: Properties
     
-    private var user: UserModel
+    private var user: PiecemealUser
     private let coordinator: Coordinator
     
     //MARK: - Initialization
     
-    init(user: UserModel, coordinator: Coordinator) {
+    init(user: PiecemealUser, coordinator: Coordinator) {
         self.user = user
         self.coordinator = coordinator
     }

@@ -33,7 +33,7 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
         return AccountRegisterCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }
     
-    func createProfileRegisterCoordinator(user: UserModel, router: Router) -> ProfileRegisterCoordinator {
+    func createProfileRegisterCoordinator(user: PiecemealUser, router: Router) -> ProfileRegisterCoordinator {
         return ProfileRegisterCoordinator(user: user, assemblyBuilder: assemblyBuilder, router: router)
     }
     
@@ -43,6 +43,10 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
     
     func createUserCoordinator(router: Router) -> UserCoordinator {
         return UserCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
+    }
+    
+    func createChatCoordinator(user: UserProfile, router: Router) -> ChatCoordinator {
+        return ChatCoordinator(user: user, assemblyBuilder: assemblyBuilder, router: router)
     }
     
     func createNewChatCoordinator(router: Router) -> NewChatCoordinator {

@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum DatabaseCollection: String {
-    case users
+enum DatabaseCollection {
+    static let users = "users"
+    static let chats = "chats"
 }

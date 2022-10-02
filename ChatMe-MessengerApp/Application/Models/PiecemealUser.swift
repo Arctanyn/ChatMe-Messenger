@@ -7,12 +7,9 @@
 
 import Foundation
 
-struct UserModel: Codable {
+struct PiecemealUser: Codable {
     var firstName = ""
     var lastName: String?
-    var fullName: String {
-        "\(firstName) \(lastName ?? "")"
-    }
     var email = ""
     var password = ""
     var profileImageData: Data?

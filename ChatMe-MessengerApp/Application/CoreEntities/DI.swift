@@ -11,16 +11,16 @@ final class DI {
     fileprivate let assemblyBuilder: AssemblyBuilderImpl
     fileprivate let coordinatorsFactory: CoordinatorFactoryImpl
     private(set) var authService: AuthService
-    private(set) var databaseManager: DatabaseManager
     private(set) var usersDatabaseManager: UsersDatabaseManager
+    private(set) var chatsDatabaseManager: ChatsDatabaseManager
     
     init() {
         assemblyBuilder = AssemblyBuilderImpl()
         coordinatorsFactory = CoordinatorFactoryImpl(assemblyBuilder: assemblyBuilder)
         authService = AuthServiceImpl()
-        databaseManager = DatabaseManagerImpl()
-        usersDatabaseManager = UsersDatabaseManagerImpl(databaseManager: databaseManager)
-        
+        usersDatabaseManager = UsersDatabaseManagerImpl()
+        chatsDatabaseManager = ChatsDatabaseManagerImpl()
+
         assemblyBuilder.di = self
     }
 }
@@ -31,8 +31,10 @@ extension DI: AppFactory {
         let router = RouterImpl(rootController: rootNavController)
 
         let window = UIWindow(windowScene: windowScene)
-        let coordinator = coordinatorsFactory.createApplicationCoordinator(authService: authService,
-                                                                           router: router)
+        let coordinator = coordinatorsFactory.createApplicationCoordinator(
+            authService: authService,
+            router: router
+        )
         
         window.rootViewController = rootNavController
         window.makeKeyAndVisible()

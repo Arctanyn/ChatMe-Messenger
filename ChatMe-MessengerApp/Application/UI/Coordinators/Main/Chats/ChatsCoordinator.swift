@@ -34,11 +34,22 @@ final class ChatsCoordinator: BaseCoordinator {
     
     func runStartNewChatFlow() {
         let coordinator = coordinatorFactory.createNewChatCoordinator(router: router)
-        coordinator.finishFlow = { [weak self] in
+        coordinator.finishFlow = { [weak self] user in
+            if let user {
+                self?.goToChat(with: user)
+            }
             self?.childDidFinish(coordinator)
         }
         addChild(coordinator)
         coordinator.start()
         
+    }
+    
+    func goToChat(with user: UserProfile) {
+        let coordinator = coordinatorFactory.createChatCoordinator(user: user, router: router)
+        coordinator.finishFlow = { [weak self] in
+            self?.childDidFinish(coordinator)
+        }
+        coordinator.start()
     }
 }

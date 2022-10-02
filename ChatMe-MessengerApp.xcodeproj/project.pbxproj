@@ -47,7 +47,6 @@
 		3B62408D28E20F2500D04529 /* UsersSearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62408C28E20F2500D04529 /* UsersSearchResultsViewModel.swift */; };
 		3B62409028E2161E00D04529 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62408F28E2161E00D04529 /* UserTableViewCell.swift */; };
 		3B62409228E2172900D04529 /* UserTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62409128E2172900D04529 /* UserTableViewCellViewModel.swift */; };
-		3B62409428E239A200D04529 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62409328E239A200D04529 /* UserProfileModel.swift */; };
 		3B8D570128CE072B0004BDAD /* CMBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D570028CE072B0004BDAD /* CMBaseController.swift */; };
 		3B8D570328CE07F90004BDAD /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D570228CE07F90004BDAD /* UIView + Ext.swift */; };
 		3B8D570628CE08F80004BDAD /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D570528CE08F80004BDAD /* Resources.swift */; };
@@ -70,6 +69,13 @@
 		3BAC64E828D3772B00A6BE77 /* AccountRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E728D3772B00A6BE77 /* AccountRegisterViewModel.swift */; };
 		3BAC64EA28D3791E00A6BE77 /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */; };
 		3BAC64EC28D384E900A6BE77 /* CMBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC64EB28D384E900A6BE77 /* CMBaseNavigationController.swift */; };
+		3BAE880728E85994006C8A8E /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE880628E85994006C8A8E /* UserProfileModel.swift */; };
+		3BB1554C28E840BE0061358E /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1554B28E840BE0061358E /* ChatViewModel.swift */; };
+		3BB1554E28E844AE0061358E /* ChatsDatabaseManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1554D28E844AE0061358E /* ChatsDatabaseManagerImpl.swift */; };
+		3BB1555028E844E10061358E /* ChatsDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1554F28E844E10061358E /* ChatsDatabaseManager.swift */; };
+		3BBD62C628E982BA00086E0E /* ChatManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD62C528E982BA00086E0E /* ChatManagerImpl.swift */; };
+		3BBD62C828E982C500086E0E /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD62C728E982C500086E0E /* ChatManager.swift */; };
+		3BBD62CB28E98FF600086E0E /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD62CA28E98FF600086E0E /* ChatCoordinator.swift */; };
 		3BC5469B28D99058002CCBBD /* DatabaseManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5469A28D99058002CCBBD /* DatabaseManagerImpl.swift */; };
 		3BC5469D28D99094002CCBBD /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5469C28D99094002CCBBD /* DatabaseManager.swift */; };
 		3BC5469F28D99148002CCBBD /* DatabaseCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5469E28D99148002CCBBD /* DatabaseCollection.swift */; };
@@ -79,9 +85,11 @@
 		3BD2B89B28D5D6EC009CF754 /* CMInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89A28D5D6EC009CF754 /* CMInfoLabel.swift */; };
 		3BD2B89D28D5D7D1009CF754 /* LoginErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89C28D5D7D1009CF754 /* LoginErrorLabel.swift */; };
 		3BD2B89F28D5DABF009CF754 /* ProfileRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B89E28D5DABF009CF754 /* ProfileRegisterViewModel.swift */; };
-		3BD2B8A128D5DCA8009CF754 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B8A028D5DCA8009CF754 /* UserModel.swift */; };
+		3BD2B8A128D5DCA8009CF754 /* PiecemealUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD2B8A028D5DCA8009CF754 /* PiecemealUser.swift */; };
 		3BE7E1E328D84966004AB284 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7E1E228D84966004AB284 /* String + Ext.swift */; };
 		3BE7E1E528D85685004AB284 /* ActiveStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7E1E428D85685004AB284 /* ActiveStatus.swift */; };
+		3BF6BB0E28EA28EF0081B158 /* UserDefaults + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF6BB0D28EA28EF0081B158 /* UserDefaults + Ext.swift */; };
+		3BF6BB1028EA35820081B158 /* UIImage + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF6BB0F28EA35820081B158 /* UIImage + Ext.swift */; };
 		3BFDF5C528D1AA3D00A452F5 /* CMCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */; };
 		3BFDF5C728D1B80C00A452F5 /* ChatsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */; };
 		3BFDF5C928D1B96F00A452F5 /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */; };
@@ -130,7 +138,6 @@
 		3B62408C28E20F2500D04529 /* UsersSearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersSearchResultsViewModel.swift; sourceTree = "<group>"; };
 		3B62408F28E2161E00D04529 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		3B62409128E2172900D04529 /* UserTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		3B62409328E239A200D04529 /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		3B8D570028CE072B0004BDAD /* CMBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMBaseController.swift; sourceTree = "<group>"; };
 		3B8D570228CE07F90004BDAD /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 		3B8D570528CE08F80004BDAD /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
@@ -153,6 +160,13 @@
 		3BAC64E728D3772B00A6BE77 /* AccountRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegisterViewModel.swift; sourceTree = "<group>"; };
 		3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		3BAC64EB28D384E900A6BE77 /* CMBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMBaseNavigationController.swift; sourceTree = "<group>"; };
+		3BAE880628E85994006C8A8E /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
+		3BB1554B28E840BE0061358E /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		3BB1554D28E844AE0061358E /* ChatsDatabaseManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsDatabaseManagerImpl.swift; sourceTree = "<group>"; };
+		3BB1554F28E844E10061358E /* ChatsDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsDatabaseManager.swift; sourceTree = "<group>"; };
+		3BBD62C528E982BA00086E0E /* ChatManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManagerImpl.swift; sourceTree = "<group>"; };
+		3BBD62C728E982C500086E0E /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
+		3BBD62CA28E98FF600086E0E /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
 		3BC5469A28D99058002CCBBD /* DatabaseManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerImpl.swift; sourceTree = "<group>"; };
 		3BC5469C28D99094002CCBBD /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		3BC5469E28D99148002CCBBD /* DatabaseCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCollection.swift; sourceTree = "<group>"; };
@@ -162,9 +176,11 @@
 		3BD2B89A28D5D6EC009CF754 /* CMInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMInfoLabel.swift; sourceTree = "<group>"; };
 		3BD2B89C28D5D7D1009CF754 /* LoginErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrorLabel.swift; sourceTree = "<group>"; };
 		3BD2B89E28D5DABF009CF754 /* ProfileRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterViewModel.swift; sourceTree = "<group>"; };
-		3BD2B8A028D5DCA8009CF754 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		3BD2B8A028D5DCA8009CF754 /* PiecemealUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecemealUser.swift; sourceTree = "<group>"; };
 		3BE7E1E228D84966004AB284 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 		3BE7E1E428D85685004AB284 /* ActiveStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveStatus.swift; sourceTree = "<group>"; };
+		3BF6BB0D28EA28EF0081B158 /* UserDefaults + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults + Ext.swift"; sourceTree = "<group>"; };
+		3BF6BB0F28EA35820081B158 /* UIImage + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Ext.swift"; sourceTree = "<group>"; };
 		3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMCoordinator.swift; sourceTree = "<group>"; };
 		3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsCoordinator.swift; sourceTree = "<group>"; };
 		3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
@@ -209,6 +225,8 @@
 				3B02C85628D6E7950080F1C0 /* AuthServiceImpl.swift */,
 				3BC5469A28D99058002CCBBD /* DatabaseManagerImpl.swift */,
 				3BC546A328D99D79002CCBBD /* UsersDatabaseManagerImpl.swift */,
+				3BB1554D28E844AE0061358E /* ChatsDatabaseManagerImpl.swift */,
+				3BBD62C528E982BA00086E0E /* ChatManagerImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -313,8 +331,8 @@
 		3B302E7528CCA97B00844468 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3BD2B8A028D5DCA8009CF754 /* UserModel.swift */,
-				3B62409328E239A200D04529 /* UserProfileModel.swift */,
+				3BD2B8A028D5DCA8009CF754 /* PiecemealUser.swift */,
+				3BAE880628E85994006C8A8E /* UserProfileModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -390,6 +408,7 @@
 			children = (
 				3B8D570428CE07FC0004BDAD /* UIKit */,
 				3BE7E1E228D84966004AB284 /* String + Ext.swift */,
+				3BF6BB0D28EA28EF0081B158 /* UserDefaults + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -398,13 +417,11 @@
 			isa = PBXGroup;
 			children = (
 				3B302E8528CCAFE300844468 /* Core */,
+				3BBD62C928E982D500086E0E /* Services */,
 				3B8D570C28CE29340004BDAD /* BaseViewSetup.swift */,
 				3BAC64E928D3791E00A6BE77 /* ViewModelable.swift */,
-				3B02C85328D6E5DD0080F1C0 /* AuthService.swift */,
 				3B02C85A28D6EDB80080F1C0 /* AuthErrorPresenter.swift */,
 				3B02C85C28D6F6B80080F1C0 /* AlertPresenter.swift */,
-				3BC5469C28D99094002CCBBD /* DatabaseManager.swift */,
-				3BC546A528D99DD3002CCBBD /* UsersDatabaseManager.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -454,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				3B62407D28E1D71D00D04529 /* ChatViewController.swift */,
+				3BB1554B28E840BE0061358E /* ChatViewModel.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -491,6 +509,7 @@
 			children = (
 				3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */,
 				3B62408728E1F16200D04529 /* NewChatCoordinator.swift */,
+				3BBD62CA28E98FF600086E0E /* ChatCoordinator.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -521,6 +540,7 @@
 				3B8D571428CE55BA0004BDAD /* UIStackView + Ext.swift */,
 				3BA62D0C28D182E400741288 /* UIColor + Ext.swift */,
 				3B1330F628D4772F006C078F /* UIButton + Ext.swift */,
+				3BF6BB0F28EA35820081B158 /* UIImage + Ext.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -574,6 +594,18 @@
 				3B1F740E28D49B2100E4705A /* ProfileRegister */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		3BBD62C928E982D500086E0E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3B02C85328D6E5DD0080F1C0 /* AuthService.swift */,
+				3BC5469C28D99094002CCBBD /* DatabaseManager.swift */,
+				3BC546A528D99DD3002CCBBD /* UsersDatabaseManager.swift */,
+				3BB1554F28E844E10061358E /* ChatsDatabaseManager.swift */,
+				3BBD62C728E982C500086E0E /* ChatManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		EFDA1FF4AB462952AA20982C /* Frameworks */ = {
@@ -710,10 +742,13 @@
 				3BA77BED28CF105E009F1366 /* LoginError.swift in Sources */,
 				3B62409228E2172900D04529 /* UserTableViewCellViewModel.swift in Sources */,
 				3B8D570328CE07F90004BDAD /* UIView + Ext.swift in Sources */,
+				3BBD62C628E982BA00086E0E /* ChatManagerImpl.swift in Sources */,
 				3BE7E1E528D85685004AB284 /* ActiveStatus.swift in Sources */,
 				3B302E8728CCAFF300844468 /* CoordinatorFactory.swift in Sources */,
+				3BB1554C28E840BE0061358E /* ChatViewModel.swift in Sources */,
 				3BAC64EC28D384E900A6BE77 /* CMBaseNavigationController.swift in Sources */,
 				3B8D571328CE4E210004BDAD /* LoginViewModel.swift in Sources */,
+				3BBD62CB28E98FF600086E0E /* ChatCoordinator.swift in Sources */,
 				3B02C85B28D6EDB80080F1C0 /* AuthErrorPresenter.swift in Sources */,
 				3BC5469D28D99094002CCBBD /* DatabaseManager.swift in Sources */,
 				3BC546A628D99DD3002CCBBD /* UsersDatabaseManager.swift in Sources */,
@@ -726,7 +761,8 @@
 				3B1330F528D475A3006C078F /* CMRoundedRectButton.swift in Sources */,
 				3B95952528DA186A006B44EC /* UserViewModel.swift in Sources */,
 				3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */,
-				3BD2B8A128D5DCA8009CF754 /* UserModel.swift in Sources */,
+				3BB1554E28E844AE0061358E /* ChatsDatabaseManagerImpl.swift in Sources */,
+				3BD2B8A128D5DCA8009CF754 /* PiecemealUser.swift in Sources */,
 				3BA62D0B28D17D6300741288 /* CMTabBarController.swift in Sources */,
 				3B62409028E2161E00D04529 /* UserTableViewCell.swift in Sources */,
 				3B302E9128CCB64500844468 /* AssemblyBuilder.swift in Sources */,
@@ -734,22 +770,26 @@
 				3BA62D1428D1840500741288 /* UserViewController.swift in Sources */,
 				3B1330F728D4772F006C078F /* UIButton + Ext.swift in Sources */,
 				3B8D570A28CE28FD0004BDAD /* CMBaseView.swift in Sources */,
+				3BF6BB0E28EA28EF0081B158 /* UserDefaults + Ext.swift in Sources */,
 				3B302E9B28CCC1A100844468 /* LoginCoordinator.swift in Sources */,
 				3B302E7F28CCAA8600844468 /* DI.swift in Sources */,
 				3BA62D0D28D182E400741288 /* UIColor + Ext.swift in Sources */,
 				3B302E4328CC8CE700844468 /* LoginViewController.swift in Sources */,
+				3BB1555028E844E10061358E /* ChatsDatabaseManager.swift in Sources */,
 				3B95952928DA2E24006B44EC /* UserInfoView.swift in Sources */,
 				3BD2B89D28D5D7D1009CF754 /* LoginErrorLabel.swift in Sources */,
 				3B8D570128CE072B0004BDAD /* CMBaseController.swift in Sources */,
 				3B02C85928D6E8130080F1C0 /* AuthError.swift in Sources */,
 				3BAC64EA28D3791E00A6BE77 /* ViewModelable.swift in Sources */,
 				3BE7E1E328D84966004AB284 /* String + Ext.swift in Sources */,
+				3BF6BB1028EA35820081B158 /* UIImage + Ext.swift in Sources */,
 				3B62408628E1EE8A00D04529 /* NewChatViewModel.swift in Sources */,
 				3B8D570D28CE29340004BDAD /* BaseViewSetup.swift in Sources */,
 				3B02C85D28D6F6B80080F1C0 /* AlertPresenter.swift in Sources */,
 				3BD2B89928D5D621009CF754 /* CMTitleLabel.swift in Sources */,
 				3B302E8D28CCB5CA00844468 /* CoordinatorFactoryImpl.swift in Sources */,
 				3B62407E28E1D71D00D04529 /* ChatViewController.swift in Sources */,
+				3BBD62C828E982C500086E0E /* ChatManager.swift in Sources */,
 				3B02C85728D6E7950080F1C0 /* AuthServiceImpl.swift in Sources */,
 				3BAC64E328D3737D00A6BE77 /* AccountRegisterCoordinator.swift in Sources */,
 				3B8D570628CE08F80004BDAD /* Resources.swift in Sources */,
@@ -759,13 +799,13 @@
 				3B302E3F28CC8CE700844468 /* AppDelegate.swift in Sources */,
 				3B62408D28E20F2500D04529 /* UsersSearchResultsViewModel.swift in Sources */,
 				3B62407A28E19B4F00D04529 /* ChatTableViewCell.swift in Sources */,
-				3B62409428E239A200D04529 /* UserProfileModel.swift in Sources */,
 				3B302E4128CC8CE700844468 /* SceneDelegate.swift in Sources */,
 				3B62407C28E19FEE00D04529 /* ChatsViewModel.swift in Sources */,
 				3BC5469B28D99058002CCBBD /* DatabaseManagerImpl.swift in Sources */,
 				3B302E9F28CCCC5D00844468 /* UIViewController + Ext.swift in Sources */,
 				3B62408828E1F16200D04529 /* NewChatCoordinator.swift in Sources */,
 				3B62408B28E20ED100D04529 /* UsersSearchResultsViewController.swift in Sources */,
+				3BAE880728E85994006C8A8E /* UserProfileModel.swift in Sources */,
 				3B8D571528CE55BA0004BDAD /* UIStackView + Ext.swift in Sources */,
 				3B302E8228CCAAF600844468 /* AppFactory.swift in Sources */,
 				3B30432928D23A7C0067E301 /* Closures.swift in Sources */,

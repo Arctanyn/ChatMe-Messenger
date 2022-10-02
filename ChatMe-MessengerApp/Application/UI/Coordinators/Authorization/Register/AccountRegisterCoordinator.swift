@@ -40,7 +40,7 @@ final class AccountRegisterCoordinator: BaseCoordinator {
         finishFlow?()
     }
     
-    func goToProfileRegisterPage(with user: UserModel) {
+    func goToProfileRegisterPage(with user: PiecemealUser) {
         let router = RouterImpl(rootController: navigationController)
         
         let coordinator = coordinatorFactory.createProfileRegisterCoordinator(user: user, router: router)

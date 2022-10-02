@@ -11,7 +11,6 @@ import FirebaseAuth
 protocol UserTableViewCellViewModel {
     var name: String { get }
     var profileImageData: Data? { get }
-    var additionalInfo: String? { get }
 }
 
 final class UserTableViewCellViewModelImpl: UserTableViewCellViewModel {
@@ -19,23 +18,18 @@ final class UserTableViewCellViewModelImpl: UserTableViewCellViewModel {
     //MARK: Properties
     
     var name: String {
-        user.name
+        user.fullName
     }
     
     var profileImageData: Data? {
         user.profileImageData
     }
     
-    var additionalInfo: String? {
-        guard let currentUser = Auth.auth().currentUser else { return nil }
-        return currentUser.email?.lowercased() == user.email.lowercased() ? "That's you" : nil
-    }
-    
-    private let user: UserProfileModel
+    private let user: UserProfile
     
     //MARK: - Initialization
     
-    init(user: UserProfileModel) {
+    init(user: UserProfile) {
         self.user = user
     }
 }

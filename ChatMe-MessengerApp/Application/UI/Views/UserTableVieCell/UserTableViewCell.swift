@@ -59,11 +59,7 @@ final class UserTableViewCell: UITableViewCell, ViewModelable {
 private extension UserTableViewCell {
     func updateUI() {
         nameLabel.text = viewModel.name
-        
-        additionalInfoLabel.isHidden = viewModel.additionalInfo == nil
-        additionalInfoLabel.text = viewModel.additionalInfo
-        
-        
+ 
         if let imageData = viewModel.profileImageData {
             profileImageView.image = UIImage(data: imageData)
         } else {

@@ -36,7 +36,7 @@ final class UserViewModelImpl: UserViewModel {
         user?.profileImageData
     }
     
-    private var user: UserModel?
+    private var user: UserProfile?
     private let usersDatabaseManager: UsersDatabaseManager
     private let authService: AuthService
     private let coordinator: Coordinator
@@ -52,17 +52,9 @@ final class UserViewModelImpl: UserViewModel {
     //MARK: - Methods
     
     func fetchUser(completion: @escaping VoidClosure) {
-        guard let user = authService.currentUser else { return }
-        usersDatabaseManager.getUser(withID: user.uid) { [weak self] result in
-            switch result {
-            case .success(let user):
-                self?.user = user
-                completion()
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
+        guard let user = UserDefaults.standard.getCurrentUser() else { return }
+        self.user = user
+        completion()
     }
     
     func logOut() {

@@ -62,7 +62,11 @@ private extension NewChatViewController {
 
 extension NewChatViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard !searchText.trimmingCharacters(in: .whitespaces).isEmpty else {
+        let trimmedSearchText = searchText.trimmingCharacters(in: .whitespaces)
+        
+        guard !trimmedSearchText.isEmpty,
+              trimmedSearchText.count >= 2
+        else {
             return
         }
         

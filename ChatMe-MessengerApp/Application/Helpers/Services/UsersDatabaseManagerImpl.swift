@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 final class UsersDatabaseManagerImpl: UsersDatabaseManager {
     
@@ -21,17 +22,11 @@ final class UsersDatabaseManagerImpl: UsersDatabaseManager {
     
     //MARK: Properties
     
-    private let databaseManager: DatabaseManager
-    
-    //MARK: - Initialization
-    
-    init(databaseManager: DatabaseManager) {
-        self.databaseManager = databaseManager
-    }
-    
+    private let firestore = Firestore.firestore()
+
     //MARK: - Methods
     
-    func addUser(withData data: UserModel, userIdentifier id: String, completion: @escaping OptionalErrorClosure) {
+    func addUser(withData data: PiecemealUser, userIdentifier id: String, completion: @escaping OptionalErrorClosure) {
         let dict: [String: Any] = [
             UserDataFields.firstName: data.firstName,
             UserDataFields.lastName: data.lastName ?? "",
@@ -39,61 +34,70 @@ final class UsersDatabaseManagerImpl: UsersDatabaseManager {
             UserDataFields.password: data.password,
             UserDataFields.profileImage: data.profileImageData ?? ""
         ]
-        
-        databaseManager.addData(dict, toCollection: .users, inDocument: id, completion: completion)
+
+        firestore.collection(DatabaseCollection.users).document(id).setData(dict, completion: completion)
     }
     
-    func getUser(withID id: String, completion: @escaping (Result<UserModel, Error>) -> Void) {
-        databaseManager.getData(fromCollection: .users, inDocument: id) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let data):
-                let user = self.setupUser(with: data)
-                completion(.success(user))
-            case .failure(let error):
-                completion(.failure(error))
+    func getUser(withID id: String, completion: @escaping (Result<UserProfile, Error>) -> Void) {
+        firestore.collection(DatabaseCollection.users).document(id).getDocument { [weak self] documentSnapshot, error in
+            guard error == nil else {
+                completion(.failure(error!))
+                return
             }
+            
+            guard let self else { return }
+            
+            guard
+                let documentSnapshot, documentSnapshot.exists,
+                let userData = documentSnapshot.data()
+            else {
+                return
+            }
+            
+            let user = self.setupUser(withId: documentSnapshot.documentID, data: userData)
+            completion(.success(user))
         }
     }
     
-    func getUser(withName name: String, completion: @escaping (Result<[UserModel], Error>) -> Void) {
-        databaseManager.getDocuments(fromCollection: .users) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let documents):
-                var users: [UserModel] = []
+    func getUsers(withName name: String, completion: @escaping (Result<[UserProfile], Error>) -> Void) {
+        firestore.collection(DatabaseCollection.users).getDocuments { [weak self] querySnapshot, error in
+            guard error == nil else {
+                completion(.failure(error!))
+                return
+            }
+            
+            guard let documents = querySnapshot?.documents else {
+                return
+            }
+            
+            guard let self else { return }
+            var users = [UserProfile]()
+            
+            for document in documents {
+                let userData = document.data()
                 
-                for document in documents {
-                    let userData = document.data()
-                    
-                    guard
-                        let firstName = userData[UserDataFields.firstName] as? String,
-                        let lastName = userData[UserDataFields.lastName] as? String
-                    else {
-                        continue
-                    }
-                    
-                    let fullName = "\(firstName) \(lastName)"
-                    if fullName.lowercased().contains(name.lowercased()) {
-                        let user = self.setupUser(with: userData)
-                        users.append(user)
-                    }
+                let firstName = userData[UserDataFields.firstName] as? String ?? ""
+                let lastName = userData[UserDataFields.lastName] as? String ?? ""
+                
+                if "\(firstName) \(lastName)".lowercased().contains(name.lowercased()) {
+                    let user = self.setupUser(withId: document.documentID, data: userData)
+                    users.append(user)
                 }
                 
-                completion(.success(users))
-            case .failure(let error):
-                print(error.localizedDescription)
-                completion(.failure(error))
             }
+            
+            completion(.success(users))
+            
         }
+
     }
     
-    private func setupUser(with data: [String: Any]) -> UserModel {
-        return UserModel(
+    private func setupUser(withId id: String, data: [String: Any]) -> UserProfile {
+        return UserProfile(
+            id: id,
             firstName: data[UserDataFields.firstName] as? String ?? "",
             lastName: data[UserDataFields.lastName] as? String ?? "",
             email: data[UserDataFields.email] as? String ?? "",
-            password: data[UserDataFields.password] as? String ?? "",
             profileImageData: data[UserDataFields.profileImage] as? Data
         )
     }

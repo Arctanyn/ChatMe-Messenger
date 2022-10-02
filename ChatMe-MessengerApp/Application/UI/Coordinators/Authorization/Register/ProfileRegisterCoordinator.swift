@@ -13,13 +13,13 @@ final class ProfileRegisterCoordinator: BaseCoordinator {
     
     var finishFlow: BooleanClosure?
     
-    private let user: UserModel
+    private let user: PiecemealUser
     private let assemblyBuilder: AssemblyBuilder
     private let router: Router
     
     //MARK: - Initialization
     
-    init(user: UserModel, assemblyBuilder: AssemblyBuilder, router: Router) {
+    init(user: PiecemealUser, assemblyBuilder: AssemblyBuilder, router: Router) {
         self.user = user
         self.assemblyBuilder = assemblyBuilder
         self.router = router

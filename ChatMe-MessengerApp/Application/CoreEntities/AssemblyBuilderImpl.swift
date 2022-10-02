@@ -23,11 +23,11 @@ final class AssemblyBuilderImpl: AssemblyBuilder {
     
     func createRegisterModule(coordinator: Coordinator) -> UIViewController {
         let view = AccountRegisterViewController()
-        view.viewModel = AccountRegisterViewModelImpl(user: UserModel(), coordinator: coordinator)
+        view.viewModel = AccountRegisterViewModelImpl(user: PiecemealUser(), coordinator: coordinator)
         return view
     }
     
-    func createProfileRegistrationProfile(user: UserModel, coordinator: Coordinator) -> UIViewController {
+    func createProfileRegistrationProfile(user: PiecemealUser, coordinator: Coordinator) -> UIViewController {
         let view = ProfileRegisterViewController()
         view.viewModel = ProfileRegisterViewModelImpl(
             user: user,
@@ -44,6 +44,26 @@ final class AssemblyBuilderImpl: AssemblyBuilder {
             usersDatabaseManager: di.usersDatabaseManager,
             coordinator: coordinator
         )
+        return view
+    }
+    
+    func createChatModule(with otherUser: UserProfile, coordinator: Coordinator) -> UIViewController {
+        guard let currentUser = UserDefaults.standard.getCurrentUser() else {
+            fatalError("The user does not exist")
+        }
+        
+        let view = ChatViewController()
+        
+        view.viewModel = ChatViewModelImpl(
+            currentUser: currentUser,
+            recipient: otherUser,
+            chatManager: ChatManagerImpl(
+                sender: currentUser,
+                recipient: otherUser,
+                chatsDatabaseManager: di.chatsDatabaseManager
+            )
+        )
+        
         return view
     }
     

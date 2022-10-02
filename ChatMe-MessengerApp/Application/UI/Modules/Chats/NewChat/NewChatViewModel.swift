@@ -6,13 +6,13 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 //MARK: - NewChatViewModel
 
 protocol NewChatViewModel {
     func searchUser(query: String, completion: @escaping VoidClosure)
     func createSearchResultsViewModel() -> UsersSearchResultsViewModel
-    func goToChat()
     func closePage()
     func pageDidClose()
 }
@@ -26,7 +26,7 @@ final class NewChatViewModelImpl: NewChatViewModel {
     private let usersDatabaseManager: UsersDatabaseManager
     private let coordinator: Coordinator
     
-    private var users: [UserModel] = []
+    private var users: [UserProfile] = []
     
     //MARK: - Initialization
     
@@ -38,7 +38,7 @@ final class NewChatViewModelImpl: NewChatViewModel {
     //MARK: - Methods
     
     func searchUser(query: String, completion: @escaping VoidClosure) {
-        usersDatabaseManager.getUser(withName: query) { [weak self] result in
+        usersDatabaseManager.getUsers(withName: query) { [weak self] result in
             switch result {
             case .success(let users):
                 self?.users = users
@@ -50,17 +50,11 @@ final class NewChatViewModelImpl: NewChatViewModel {
     }
     
     func createSearchResultsViewModel() -> UsersSearchResultsViewModel {
-        let usersProfiles = users.map {
-            UserProfileModel(
-                name: $0.fullName,
-                email: $0.email,
-                profileImageData: $0.profileImageData
-            )
-        }
+        let filteredUsers = users.filter { $0.id != Auth.auth().currentUser?.uid }
         
-        let viewModel = UserSearchResultsViewModelImpl(users: usersProfiles)
-        viewModel.userSelectedAtIndex = { [weak self] index in
-            self?.goToChat()
+        let viewModel = UserSearchResultsViewModelImpl(users: filteredUsers)
+        viewModel.userSelected = { [weak self] user in
+            self?.goToChat(with: user)
         }
 
         return viewModel
@@ -68,16 +62,20 @@ final class NewChatViewModelImpl: NewChatViewModel {
     
     func pageDidClose() {
         guard let coordinator = coordinator as? NewChatCoordinator else { return }
-        coordinator.finishFlow?()
+        coordinator.finishFlow?(nil)
     }
     
     func closePage() {
         guard let coordinator = coordinator as? NewChatCoordinator else { return }
         coordinator.backToChats()
     }
-    
-    func goToChat() {
-        closePage()
-        print("Chat is here!!!")
+}
+
+//MARK: - Private methods
+
+private extension NewChatViewModelImpl {
+    func goToChat(with user: UserProfile) {
+        guard let coordinator = coordinator as? NewChatCoordinator else { return }
+        coordinator.goToChat(with: user)
     }
 }

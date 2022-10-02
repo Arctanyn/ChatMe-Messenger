@@ -26,14 +26,14 @@ final class ProfileRegisterViewModelImpl: ProfileRegisterViewModel {
     var newAccountDidCreate: VoidClosure?
     var displayError: ((AuthError) -> Void)?
 
-    private var user: UserModel
+    private var user: PiecemealUser
     private let authService: AuthService
     private let usersDatabaseManager: UsersDatabaseManager
     private let coordinator: Coordinator
     
     //MARK: - Initialization
     
-    init(user: UserModel,
+    init(user: PiecemealUser,
          authService: AuthService,
          usersDatabaseManager: UsersDatabaseManager,
          coordinator: Coordinator) {
@@ -57,7 +57,9 @@ final class ProfileRegisterViewModelImpl: ProfileRegisterViewModel {
             }
             switch result {
             case .success(let authResult):
-                self.usersDatabaseManager.addUser(withData: self.user, userIdentifier: authResult.user.uid) { error in
+                let userId = authResult.user.uid
+                
+                self.usersDatabaseManager.addUser(withData: self.user, userIdentifier: userId) { error in
                     guard error == nil else {
                         self.displayError?(.failedToCreateNewAccount)
                         return

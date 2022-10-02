@@ -11,6 +11,6 @@ target 'ChatMe-MessengerApp' do
   pod "Firebase/Database"
   pod "Firebase/Firestore"
   pod "SPAlert"
-  pod "MessageKit"
+  pod 'MessageKit'
 
 end

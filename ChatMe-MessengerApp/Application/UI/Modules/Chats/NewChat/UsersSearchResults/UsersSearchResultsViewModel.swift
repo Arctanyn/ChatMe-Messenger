@@ -25,13 +25,13 @@ final class UserSearchResultsViewModelImpl: UsersSearchResultsViewModel {
         users.count
     }
     
-    var userSelectedAtIndex: ((Int) -> Void)?
+    var userSelected: ((UserProfile) -> Void)?
     
-    private let users: [UserProfileModel]
+    private let users: [UserProfile]
     
     //MARK: - Initialization
     
-    init(users: [UserProfileModel]) {
+    init(users: [UserProfile]) {
         self.users = users
     }
     
@@ -42,6 +42,6 @@ final class UserSearchResultsViewModelImpl: UsersSearchResultsViewModel {
     }
     
     func didSelectRow(at indexPath: IndexPath) {
-        userSelectedAtIndex?(indexPath.row)
+        userSelected?(users[indexPath.row])
     }
 }

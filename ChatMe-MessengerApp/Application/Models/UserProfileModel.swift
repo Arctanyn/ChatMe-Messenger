@@ -1,14 +1,19 @@
 //
-//  UserProfileModel.swift
+//  UserProfile.swift
 //  ChatMe-MessengerApp
 //
-//  Created by Малиль Дугулюбгов on 26.09.2022.
+//  Created by Малиль Дугулюбгов on 01.10.2022.
 //
 
 import Foundation
 
-struct UserProfileModel {
-    let name: String
-    let email: String
-    let profileImageData: Data?
+struct UserProfile: Codable {
+    let id: String
+    var firstName: String
+    var lastName: String?
+    var fullName: String {
+        "\(firstName) \(lastName ?? "")".trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    var email: String
+    var profileImageData: Data?
 }

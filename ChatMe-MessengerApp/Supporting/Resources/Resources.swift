@@ -87,6 +87,11 @@ enum Resources {
         static var squareAndPencil: UIImage {
             UIImage(systemName: "square.and.pencil")!
         }
+        
+        static var send: UIImage {
+            UIImage(systemName: "arrow.up.circle.fill")!
+                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 25))
+        }
     }
     
     //MARK: - Fonts

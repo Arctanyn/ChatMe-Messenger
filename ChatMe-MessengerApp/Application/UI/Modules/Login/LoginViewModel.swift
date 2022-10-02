@@ -26,6 +26,8 @@ final class LoginViewModelImpl: LoginViewModel {
     private let authService: AuthService
     private let coordinator: Coordinator
     
+    let usersDatabase = UsersDatabaseManagerImpl()
+    
     //MARK: - Initialization
     
     init(authService: AuthService, coordinator: Coordinator) {
@@ -40,8 +42,16 @@ final class LoginViewModelImpl: LoginViewModel {
         
         authService.signIn(withEmail: email, password: password) { [weak self] result in
             switch result {
-            case .success(_):
-                loginCoordinator.finishFlow?(.signIn)
+            case .success(let authResult):
+                self?.usersDatabase.getUser(withID: authResult.user.uid, completion: { result in
+                    switch result {
+                    case .success(let user):
+                        UserDefaults.standard.set(try? PropertyListEncoder().encode(user), forKey: "current_user")
+                        loginCoordinator.finishFlow?(.signIn)
+                    case .failure(let failure):
+                        print(failure.localizedDescription)
+                    }
+                })
             case .failure(let authError):
                 self?.displayError?(authError)
             }

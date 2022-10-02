@@ -11,7 +11,7 @@ final class NewChatCoordinator: BaseCoordinator {
     
     //MARK: Properties
     
-    var finishFlow: VoidClosure?
+    var finishFlow: ((UserProfile?) -> Void)?
     
     private let assemblyBuilder: AssemblyBuilder
     private let router: Router
@@ -32,5 +32,10 @@ final class NewChatCoordinator: BaseCoordinator {
     
     func backToChats() {
         router.dismissModule()
+    }
+    
+    func goToChat(with user: UserProfile) {
+        backToChats()
+        finishFlow?(user)
     }
 }
