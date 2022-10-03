@@ -76,8 +76,6 @@
 		3BBD62C628E982BA00086E0E /* ChatManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD62C528E982BA00086E0E /* ChatManagerImpl.swift */; };
 		3BBD62C828E982C500086E0E /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD62C728E982C500086E0E /* ChatManager.swift */; };
 		3BBD62CB28E98FF600086E0E /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBD62CA28E98FF600086E0E /* ChatCoordinator.swift */; };
-		3BC5469B28D99058002CCBBD /* DatabaseManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5469A28D99058002CCBBD /* DatabaseManagerImpl.swift */; };
-		3BC5469D28D99094002CCBBD /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5469C28D99094002CCBBD /* DatabaseManager.swift */; };
 		3BC5469F28D99148002CCBBD /* DatabaseCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5469E28D99148002CCBBD /* DatabaseCollection.swift */; };
 		3BC546A428D99D79002CCBBD /* UsersDatabaseManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC546A328D99D79002CCBBD /* UsersDatabaseManagerImpl.swift */; };
 		3BC546A628D99DD3002CCBBD /* UsersDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC546A528D99DD3002CCBBD /* UsersDatabaseManager.swift */; };
@@ -167,8 +165,6 @@
 		3BBD62C528E982BA00086E0E /* ChatManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManagerImpl.swift; sourceTree = "<group>"; };
 		3BBD62C728E982C500086E0E /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		3BBD62CA28E98FF600086E0E /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
-		3BC5469A28D99058002CCBBD /* DatabaseManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagerImpl.swift; sourceTree = "<group>"; };
-		3BC5469C28D99094002CCBBD /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		3BC5469E28D99148002CCBBD /* DatabaseCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCollection.swift; sourceTree = "<group>"; };
 		3BC546A328D99D79002CCBBD /* UsersDatabaseManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDatabaseManagerImpl.swift; sourceTree = "<group>"; };
 		3BC546A528D99DD3002CCBBD /* UsersDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDatabaseManager.swift; sourceTree = "<group>"; };
@@ -223,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				3B02C85628D6E7950080F1C0 /* AuthServiceImpl.swift */,
-				3BC5469A28D99058002CCBBD /* DatabaseManagerImpl.swift */,
 				3BC546A328D99D79002CCBBD /* UsersDatabaseManagerImpl.swift */,
 				3BB1554D28E844AE0061358E /* ChatsDatabaseManagerImpl.swift */,
 				3BBD62C528E982BA00086E0E /* ChatManagerImpl.swift */,
@@ -600,7 +595,6 @@
 			isa = PBXGroup;
 			children = (
 				3B02C85328D6E5DD0080F1C0 /* AuthService.swift */,
-				3BC5469C28D99094002CCBBD /* DatabaseManager.swift */,
 				3BC546A528D99DD3002CCBBD /* UsersDatabaseManager.swift */,
 				3BB1554F28E844E10061358E /* ChatsDatabaseManager.swift */,
 				3BBD62C728E982C500086E0E /* ChatManager.swift */,
@@ -750,7 +744,6 @@
 				3B8D571328CE4E210004BDAD /* LoginViewModel.swift in Sources */,
 				3BBD62CB28E98FF600086E0E /* ChatCoordinator.swift in Sources */,
 				3B02C85B28D6EDB80080F1C0 /* AuthErrorPresenter.swift in Sources */,
-				3BC5469D28D99094002CCBBD /* DatabaseManager.swift in Sources */,
 				3BC546A628D99DD3002CCBBD /* UsersDatabaseManager.swift in Sources */,
 				3BAC64E628D376F700A6BE77 /* AccountRegisterViewController.swift in Sources */,
 				3BD2B89F28D5DABF009CF754 /* ProfileRegisterViewModel.swift in Sources */,
@@ -801,7 +794,6 @@
 				3B62407A28E19B4F00D04529 /* ChatTableViewCell.swift in Sources */,
 				3B302E4128CC8CE700844468 /* SceneDelegate.swift in Sources */,
 				3B62407C28E19FEE00D04529 /* ChatsViewModel.swift in Sources */,
-				3BC5469B28D99058002CCBBD /* DatabaseManagerImpl.swift in Sources */,
 				3B302E9F28CCCC5D00844468 /* UIViewController + Ext.swift in Sources */,
 				3B62408828E1F16200D04529 /* NewChatCoordinator.swift in Sources */,
 				3B62408B28E20ED100D04529 /* UsersSearchResultsViewController.swift in Sources */,

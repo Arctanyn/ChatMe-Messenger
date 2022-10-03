@@ -106,7 +106,7 @@ extension ChatViewController: MessagesDataSource {
 
 extension ChatViewController: MessagesLayoutDelegate {
     func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return CGSize(width: messagesCollectionView.bounds.width, height: 20)
+        return CGSize(width: messagesCollectionView.bounds.width, height: 10)
     }
 }
 
@@ -131,10 +131,8 @@ extension ChatViewController: MessagesDisplayDelegate {
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        messageInputBar.inputTextView.text = nil
-        messageInputBar.inputTextView.resignFirstResponder()
-        
+        messageInputBar.inputTextView.text = nil        
         viewModel.sendMessage(kind: .text(text.trimmingCharacters(in: .whitespacesAndNewlines)))
-        messagesCollectionView.reloadDataAndKeepOffset()
+        messagesCollectionView.scrollToLastItem()
     }
 }

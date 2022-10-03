@@ -46,7 +46,7 @@ final class LoginViewModelImpl: LoginViewModel {
                 self?.usersDatabase.getUser(withID: authResult.user.uid, completion: { result in
                     switch result {
                     case .success(let user):
-                        UserDefaults.standard.set(try? PropertyListEncoder().encode(user), forKey: "current_user")
+                        UserDefaults.standard.addUser(user)
                         loginCoordinator.finishFlow?(.signIn)
                     case .failure(let failure):
                         print(failure.localizedDescription)

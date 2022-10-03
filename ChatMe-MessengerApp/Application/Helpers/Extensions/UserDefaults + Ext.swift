@@ -15,4 +15,8 @@ extension UserDefaults {
         else { return nil }
         return user
     }
+    
+    func addUser(_ user: UserProfile) {
+        set(try? PropertyListEncoder().encode(user), forKey: "current_user")
+    }
 }

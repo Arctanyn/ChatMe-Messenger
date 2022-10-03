@@ -64,6 +64,17 @@ final class ProfileRegisterViewModelImpl: ProfileRegisterViewModel {
                         self.displayError?(.failedToCreateNewAccount)
                         return
                     }
+                    
+                    let userProfile = UserProfile(
+                        id: userId,
+                        firstName: self.user.firstName,
+                        lastName: self.user.lastName,
+                        email: self.user.email,
+                        profileImageData: self.user.profileImageData
+                    )
+                    
+                    UserDefaults.standard.addUser(userProfile)
+                    
                     self.newAccountDidCreate?()
                 }
             case .failure(let authError):
