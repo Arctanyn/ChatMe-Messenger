@@ -37,6 +37,9 @@
 		3B302E9D28CCCB8D00844468 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B302E9C28CCCB8D00844468 /* Coordinator.swift */; };
 		3B302E9F28CCCC5D00844468 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B302E9E28CCCC5D00844468 /* UIViewController + Ext.swift */; };
 		3B30432928D23A7C0067E301 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B30432828D23A7C0067E301 /* Closures.swift */; };
+		3B31EB2E28F0BE4500F8A39D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B31EB2D28F0BE4500F8A39D /* Message.swift */; };
+		3B31EB3028F0BE5A00F8A39D /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B31EB2F28F0BE5A00F8A39D /* Sender.swift */; };
+		3B31EB3228F0BE6C00F8A39D /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B31EB3128F0BE6C00F8A39D /* Media.swift */; };
 		3B62407A28E19B4F00D04529 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62407928E19B4F00D04529 /* ChatTableViewCell.swift */; };
 		3B62407C28E19FEE00D04529 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62407B28E19FEE00D04529 /* ChatsViewModel.swift */; };
 		3B62407E28E1D71D00D04529 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62407D28E1D71D00D04529 /* ChatViewController.swift */; };
@@ -126,6 +129,9 @@
 		3B302E9C28CCCB8D00844468 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3B302E9E28CCCC5D00844468 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
 		3B30432828D23A7C0067E301 /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		3B31EB2D28F0BE4500F8A39D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		3B31EB2F28F0BE5A00F8A39D /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		3B31EB3128F0BE6C00F8A39D /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		3B62407928E19B4F00D04529 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		3B62407B28E19FEE00D04529 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 		3B62407D28E1D71D00D04529 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -328,6 +334,9 @@
 			children = (
 				3BD2B8A028D5DCA8009CF754 /* PiecemealUser.swift */,
 				3BAE880628E85994006C8A8E /* UserProfileModel.swift */,
+				3B31EB2D28F0BE4500F8A39D /* Message.swift */,
+				3B31EB2F28F0BE5A00F8A39D /* Sender.swift */,
+				3B31EB3128F0BE6C00F8A39D /* Media.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -749,12 +758,14 @@
 				3BD2B89F28D5DABF009CF754 /* ProfileRegisterViewModel.swift in Sources */,
 				3B302E8B28CCB13200844468 /* RouterImpl.swift in Sources */,
 				3B1F741228D4B70000E4705A /* ProfileImageView.swift in Sources */,
+				3B31EB3028F0BE5A00F8A39D /* Sender.swift in Sources */,
 				3BFDF5C928D1B96F00A452F5 /* UserCoordinator.swift in Sources */,
 				3BA77BEF28CF16CB009F1366 /* AssemblyBuilderImpl.swift in Sources */,
 				3B1330F528D475A3006C078F /* CMRoundedRectButton.swift in Sources */,
 				3B95952528DA186A006B44EC /* UserViewModel.swift in Sources */,
 				3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */,
 				3BB1554E28E844AE0061358E /* ChatsDatabaseManagerImpl.swift in Sources */,
+				3B31EB3228F0BE6C00F8A39D /* Media.swift in Sources */,
 				3BD2B8A128D5DCA8009CF754 /* PiecemealUser.swift in Sources */,
 				3BA62D0B28D17D6300741288 /* CMTabBarController.swift in Sources */,
 				3B62409028E2161E00D04529 /* UserTableViewCell.swift in Sources */,
@@ -773,6 +784,7 @@
 				3BD2B89D28D5D7D1009CF754 /* LoginErrorLabel.swift in Sources */,
 				3B8D570128CE072B0004BDAD /* CMBaseController.swift in Sources */,
 				3B02C85928D6E8130080F1C0 /* AuthError.swift in Sources */,
+				3B31EB2E28F0BE4500F8A39D /* Message.swift in Sources */,
 				3BAC64EA28D3791E00A6BE77 /* ViewModelable.swift in Sources */,
 				3BE7E1E328D84966004AB284 /* String + Ext.swift in Sources */,
 				3BF6BB1028EA35820081B158 /* UIImage + Ext.swift in Sources */,

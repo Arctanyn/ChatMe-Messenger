@@ -9,38 +9,23 @@ import UIKit
 import MessageKit
 import InputBarAccessoryView
 
-struct Sender: SenderType {
-    var senderId: String
-    var displayName: String
-}
-
-struct Message: MessageType {
-    var sender: MessageKit.SenderType
-    var messageId: String
-    var sentDate: Date
-    var kind: MessageKit.MessageKind
-}
-
-struct Media: MediaItem {
-    var url: URL?
-    var image: UIImage?
-    var placeholderImage: UIImage
-    var size: CGSize
-}
-
 final class ChatViewController: MessagesViewController, ViewModelable {
 
     typealias ViewModel = ChatViewModel
     
+    //MARK: Properties
+
     var viewModel: ViewModel! {
         didSet {
             viewModel.fetchMessages()
             viewModel.messages.bind { [weak self] in
-                guard let self else { return }
-                self.messagesCollectionView.reloadData()
+                self?.messagesCollectionView.reloadData()
+                self?.messagesCollectionView.scrollToLastItem()
             }
         }
     }
+    
+    private var isChatDisplayed = false
 
     //MARK: - View Controller Lyfecycle
 
@@ -49,6 +34,29 @@ final class ChatViewController: MessagesViewController, ViewModelable {
         title = viewModel.recipientName
         setupViews()
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let messagesCount = viewModel.messages.value.count
+        
+        guard
+            collectionView.numberOfSections == messagesCount,
+            indexPath.section == 0,
+                !isChatDisplayed
+        else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.messagesCollectionView.scrollToItem(
+                at: IndexPath(
+                    item: 0,
+                    section: messagesCount - 1
+                ),
+                at: .bottom,
+                animated: false
+            )
+        }
+        
+        isChatDisplayed = true
+    }
 }
 
 //MARK: - Private methods
@@ -56,7 +64,6 @@ final class ChatViewController: MessagesViewController, ViewModelable {
 private extension ChatViewController {
     func setupViews() {
         view.backgroundColor = Resources.Colors.background
-        scrollsToLastItemOnKeyboardBeginsEditing = true
         showMessageTimestampOnSwipeLeft = true
         
         setupMessagesCollectionView()
@@ -133,6 +140,5 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         messageInputBar.inputTextView.text = nil        
         viewModel.sendMessage(kind: .text(text.trimmingCharacters(in: .whitespacesAndNewlines)))
-        messagesCollectionView.scrollToLastItem()
     }
 }
