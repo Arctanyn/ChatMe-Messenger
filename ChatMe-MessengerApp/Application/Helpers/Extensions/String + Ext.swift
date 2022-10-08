@@ -13,4 +13,8 @@ extension String {
         let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: self)
     }
+    
+    func isBeginWithString(_ str: String) -> Bool {
+        return self.lowercased().hasPrefix(str.lowercased())
+    }
 }

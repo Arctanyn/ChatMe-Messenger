@@ -10,9 +10,11 @@ import Foundation
 //MARK: ChatsViewModel
 
 protocol ChatsViewModel {
-    var numberOfChats: Int { get }
-    func getChats(completion: @escaping VoidClosure)
+    var chats: ObservableObject<[RecentChat]> { get }
+    func getChats()
     func startNewChat()
+    func viewModelForCell(at indexPath: IndexPath) -> ChatTableViewCellViewModel
+    func goToChatWithUser(at indexPath: IndexPath)
 }
 
 //MARK: - ChatsViewModelImpl
@@ -20,27 +22,53 @@ protocol ChatsViewModel {
 final class ChatsViewModelImpl: ChatsViewModel {
     
     //MARK: Properties
-    
-    var numberOfChats: Int = 0
-    
-    private let usersDatabaseManager: UsersDatabaseManager
+
+    var chats: ObservableObject<[RecentChat]> = ObservableObject(value: [])
+
+    private let chatsDatabaseManager: ChatsDatabaseManager
     private let coordinator: Coordinator
+    let usersDatabase = UsersDatabaseManagerImpl()
     
     //MARK: - Initialization
 
-    init(usersDatabaseManager: UsersDatabaseManager, coordinator: Coordinator) {
-        self.usersDatabaseManager = usersDatabaseManager
+    init(chatsDatabaseManager: ChatsDatabaseManager, coordinator: Coordinator) {
+        self.chatsDatabaseManager = chatsDatabaseManager
         self.coordinator = coordinator
     }
     
     //MARK: - Methods
     
-    func getChats(completion: @escaping VoidClosure) {
+    func getChats() {
+        chatsDatabaseManager.fetchRecentChats()
         
+        chatsDatabaseManager.chats.bind { [weak self] chats in
+            self?.chats.value = chats
+        }
     }
     
     func startNewChat() {
         guard let coordinator = coordinator as? ChatsCoordinator else { return }
         coordinator.runStartNewChatFlow()
+    }
+    
+    func viewModelForCell(at indexPath: IndexPath) -> ChatTableViewCellViewModel {
+        let chat = chats.value[indexPath.row]
+        return ChatsTableViewCellViewModelImpl(recentChat: chat)
+    }
+    
+    func goToChatWithUser(at indexPath: IndexPath) {
+        guard let coordinator = coordinator as? ChatsCoordinator else { return }
+
+        let chat = chats.value[indexPath.row]
+        
+        let user = UserProfile(
+            id: chat.userId,
+            firstName: chat.userFirstName,
+            lastName: chat.userLastName,
+            email: chat.userEmail,
+            profileImageData: chat.profileImageData
+        )
+        
+        coordinator.goToChat(with: user)
     }
 }

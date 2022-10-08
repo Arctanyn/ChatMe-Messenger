@@ -10,4 +10,6 @@ import Foundation
 enum DatabaseCollection {
     static let users = "users"
     static let chats = "chats"
+    static let recentChats = "recent_chats"
+    static let recentChat = "recent_chat"
 }

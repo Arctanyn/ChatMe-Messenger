@@ -19,19 +19,34 @@ final class ChatViewController: MessagesViewController, ViewModelable {
         didSet {
             viewModel.fetchMessages()
             viewModel.messages.bind { [weak self] in
-                self?.messagesCollectionView.reloadData()
-                self?.messagesCollectionView.scrollToLastItem()
+                DispatchQueue.main.async {
+                    self?.messagesCollectionView.reloadData()
+                    self?.messagesCollectionView.scrollToLastItem()
+                }
             }
         }
     }
     
-    private var isChatDisplayed = false
+    private var isChatDisplayed = false {
+        didSet {
+            self.messagesCollectionView.isHidden = false
+        }
+    }
+    
+    //MARK: - Views
+    
+    private lazy var chatTitleView = ChatTitleView()
 
     //MARK: - View Controller Lyfecycle
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.backToChats()
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = viewModel.recipientName
         setupViews()
     }
     
@@ -53,9 +68,9 @@ final class ChatViewController: MessagesViewController, ViewModelable {
                 at: .bottom,
                 animated: false
             )
+            self?.isChatDisplayed = true
         }
         
-        isChatDisplayed = true
     }
 }
 
@@ -66,11 +81,18 @@ private extension ChatViewController {
         view.backgroundColor = Resources.Colors.background
         showMessageTimestampOnSwipeLeft = true
         
+        chatTitleView.configure(
+            username: viewModel.recipientName,
+            profileImage: UIImage.profileImage(from: viewModel.recipientProfileImageData)
+        )
+        navigationItem.titleView = chatTitleView
+        
         setupMessagesCollectionView()
         setupInputBar()
     }
     
     func setupMessagesCollectionView() {
+        messagesCollectionView.isHidden = true
         messagesCollectionView.backgroundColor = Resources.Colors.background
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -78,7 +100,6 @@ private extension ChatViewController {
     }
     
     func setupInputBar() {
-        
         messageInputBar.backgroundView.backgroundColor = Resources.Colors.secondary
         messageInputBar.delegate = self
         
@@ -115,6 +136,8 @@ extension ChatViewController: MessagesLayoutDelegate {
     func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
         return CGSize(width: messagesCollectionView.bounds.width, height: 10)
     }
+    
+    
 }
 
 //MARK: - MessagesDisplayDelegate

@@ -22,6 +22,8 @@ protocol ChatViewModel {
     var messages: ObservableObject<[Message]> { get }
     func sendMessage(kind: MessageKit.MessageKind)
     func fetchMessages()
+    
+    func backToChats()
 }
 
 //MARK: ChatViewModelImpl
@@ -56,13 +58,15 @@ final class ChatViewModelImpl: ChatViewModel {
     private let recipient: UserProfile
     
     private let chatManager: ChatManager
+    private let coordinator: Coordinator
 
     //MARK: - Initialization
 
-    init(currentUser: UserProfile, recipient: UserProfile, chatManager: ChatManager) {
+    init(currentUser: UserProfile, recipient: UserProfile, chatManager: ChatManager, coordinator: Coordinator) {
         self.currentUser = currentUser
         self.recipient = recipient
         self.chatManager = chatManager
+        self.coordinator = coordinator
     }
 
     //MARK: - Methods
@@ -85,5 +89,10 @@ final class ChatViewModelImpl: ChatViewModel {
                 print(failure.localizedDescription)
             }
         }
+    }
+    
+    func backToChats() {
+        guard let coordinator = coordinator as? ChatCoordinator else { return }
+        coordinator.finishFlow?()
     }
 }

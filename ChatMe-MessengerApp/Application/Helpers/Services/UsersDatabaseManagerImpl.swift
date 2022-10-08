@@ -79,7 +79,7 @@ final class UsersDatabaseManagerImpl: UsersDatabaseManager {
                 let firstName = userData[UserDataFields.firstName] as? String ?? ""
                 let lastName = userData[UserDataFields.lastName] as? String ?? ""
                 
-                if "\(firstName) \(lastName)".lowercased().contains(name.lowercased()) {
+                if firstName.isBeginWithString(name) || lastName.isBeginWithString(name) {
                     let user = self.setupUser(withId: document.documentID, data: userData)
                     users.append(user)
                 }
@@ -91,8 +91,12 @@ final class UsersDatabaseManagerImpl: UsersDatabaseManager {
         }
 
     }
-    
-    private func setupUser(withId id: String, data: [String: Any]) -> UserProfile {
+}
+
+//MARK: - Private methods
+
+private extension UsersDatabaseManagerImpl {
+    func setupUser(withId id: String, data: [String: Any]) -> UserProfile {
         return UserProfile(
             id: id,
             firstName: data[UserDataFields.firstName] as? String ?? "",

@@ -41,7 +41,7 @@ final class AssemblyBuilderImpl: AssemblyBuilder {
     func createChatsModule(coordinator: Coordinator) -> UIViewController {
         let view = ChatsViewController()
         view.viewModel = ChatsViewModelImpl(
-            usersDatabaseManager: di.usersDatabaseManager,
+            chatsDatabaseManager: di.chatsDatabaseManager,
             coordinator: coordinator
         )
         return view
@@ -61,7 +61,8 @@ final class AssemblyBuilderImpl: AssemblyBuilder {
                 sender: currentUser,
                 recipient: otherUser,
                 chatsDatabaseManager: di.chatsDatabaseManager
-            )
+            ),
+            coordinator: coordinator
         )
         
         return view

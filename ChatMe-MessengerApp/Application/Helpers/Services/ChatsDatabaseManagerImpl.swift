@@ -14,11 +14,59 @@ final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
     
     //MARK: Properties
     
+    var chats: ObservableObject<[RecentChat]> = ObservableObject(value: [])
+    
     private let firestore = Firestore.firestore()
     private let auth = Auth.auth()
     
     //MARK: - Methods
     
+    func fetchRecentChats() {
+        guard let currentUserId = auth.currentUser?.uid else { return }
+        
+        firestore
+            .collection(DatabaseCollection.recentChats)
+            .document(currentUserId)
+            .collection(DatabaseCollection.recentChat)
+            .order(by: ChatDataFields.date)
+            .addSnapshotListener { [weak self] querySnapshot, error in
+                if let error {
+                    print(error.localizedDescription)
+                    return
+                } else {
+                    guard let self else { return }
+                    
+                    var recentChats = self.chats.value
+                    
+                    querySnapshot?.documentChanges.forEach { changedDocument in
+                        let documentId = changedDocument.document.documentID
+                        
+                        if let index = recentChats.firstIndex(where: { recentChat in
+                            recentChat.id == documentId
+                        }) {
+                            recentChats.remove(at: index)
+                        }
+                        
+                        let data = changedDocument.document.data()
+                        
+                        let recentChat = RecentChat(
+                            id: documentId,
+                            userId: data[ChatDataFields.userId] as? String ?? "",
+                            userFirstName: data[ChatDataFields.userFirstName] as? String ?? "",
+                            userEmail: data[ChatDataFields.userEmail] as? String ?? "",
+                            userLastName: data[ChatDataFields.userLastName] as? String,
+                            profileImageData: data[ChatDataFields.profileImage] as? Data,
+                            lastMessage: data[ChatDataFields.lastMessage] as? String ?? "",
+                            date: (data[ChatDataFields.date] as? Timestamp)?.dateValue() ?? Date()
+                        )
+                        
+                        recentChats.insert(recentChat, at: 0)
+                    }
+                    
+                    self.chats.value = recentChats
+                }
+            }
+    }
 }
 
 //MARK: - Private methods

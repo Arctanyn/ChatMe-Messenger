@@ -15,8 +15,9 @@ final class ChatsViewController: CMBaseController, ViewModelable {
     
     var viewModel: ViewModel! {
         didSet {
-            viewModel.getChats {
-                
+            viewModel.getChats()
+            viewModel.chats.bind { [weak self] in
+                self?.chatsTableView.reloadData()
             }
         }
     }
@@ -24,8 +25,8 @@ final class ChatsViewController: CMBaseController, ViewModelable {
     //MARK: - Views
     
     private lazy var chatsTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.register(ChatTableViewCell.self, forCellReuseIdentifier: ChatTableViewCell.identifier)
         tableView.backgroundColor = .clear
         return tableView
     }()
@@ -66,6 +67,7 @@ final class ChatsViewController: CMBaseController, ViewModelable {
 private extension ChatsViewController {
     func setupNavigationBar() {
         title = Resources.Strings.TabBar.chats
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: Resources.Images.squareAndPencil,
             style: .plain,
@@ -79,11 +81,16 @@ private extension ChatsViewController {
 
 extension ChatsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        viewModel.chats.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.identifier, for: indexPath) as? ChatTableViewCell
+        else {
+            return UITableViewCell()
+        }
+        
+        cell.viewModel = self.viewModel.viewModelForCell(at: indexPath)
         return cell
     }
     
@@ -94,6 +101,7 @@ extension ChatsViewController: UITableViewDataSource {
 
 extension ChatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.goToChatWithUser(at: indexPath)
     }
 }
