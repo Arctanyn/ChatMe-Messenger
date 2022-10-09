@@ -14,7 +14,7 @@ final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
     
     //MARK: Properties
     
-    var chats: ObservableObject<[RecentChat]> = ObservableObject(value: [])
+    var chats: ObservedObject<[RecentChat]> = ObservedObject(value: [])
     
     private let firestore = Firestore.firestore()
     private let auth = Auth.auth()
@@ -40,13 +40,6 @@ final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
                     
                     querySnapshot?.documentChanges.forEach { changedDocument in
                         let documentId = changedDocument.document.documentID
-                        
-                        if let index = recentChats.firstIndex(where: { recentChat in
-                            recentChat.id == documentId
-                        }) {
-                            recentChats.remove(at: index)
-                        }
-                        
                         let data = changedDocument.document.data()
                         
                         let recentChat = RecentChat(
@@ -60,7 +53,20 @@ final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
                             date: (data[ChatDataFields.date] as? Timestamp)?.dateValue() ?? Date()
                         )
                         
-                        recentChats.insert(recentChat, at: 0)
+                        let index = recentChats.firstIndex(where: { $0.id == documentId })
+                        
+                        switch changedDocument.type {
+                        case .removed:
+                            if let index {
+                                recentChats.remove(at: index)
+                            }
+                        default:
+                            if let index {
+                                recentChats.remove(at: index)
+                            }
+                            recentChats.insert(recentChat, at: 0)
+                        }
+                        
                     }
                     
                     self.chats.value = recentChats

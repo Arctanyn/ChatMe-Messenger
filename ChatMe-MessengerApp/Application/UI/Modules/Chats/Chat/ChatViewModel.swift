@@ -19,7 +19,7 @@ protocol ChatViewModel {
     var recipientName: String { get }
     var recipientProfileImageData: Data? { get }
     
-    var messages: ObservableObject<[Message]> { get }
+    var messages: ObservedObject<[Message]> { get }
     func sendMessage(kind: MessageKit.MessageKind)
     func fetchMessages()
     
@@ -52,7 +52,7 @@ final class ChatViewModelImpl: ChatViewModel {
         recipient.profileImageData
     }
     
-    var messages: ObservableObject<[Message]> = ObservableObject(value: [])
+    var messages: ObservedObject<[Message]> = ObservedObject(value: [])
     
     private let currentUser: UserProfile
     private let recipient: UserProfile

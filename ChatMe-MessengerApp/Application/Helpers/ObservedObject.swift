@@ -1,5 +1,5 @@
 //
-//  ObservableObject.swift
+//  ObservedObject.swift
 //  ChatMe-MessengerApp
 //
 //  Created by Малиль Дугулюбгов on 20.09.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ObservableObject<T> {
+final class ObservedObject<T> {
     
     typealias Listener = VoidClosure
     typealias ValueListener = (T) -> Void

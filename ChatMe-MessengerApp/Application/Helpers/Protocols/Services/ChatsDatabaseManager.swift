@@ -9,6 +9,6 @@ import Foundation
 import MessageKit
 
 protocol ChatsDatabaseManager {
-    var chats: ObservableObject<[RecentChat]> { get }
+    var chats: ObservedObject<[RecentChat]> { get }
     func fetchRecentChats()
 }
