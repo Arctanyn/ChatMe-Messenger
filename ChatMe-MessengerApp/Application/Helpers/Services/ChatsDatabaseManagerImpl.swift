@@ -8,7 +8,6 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
-import MessageKit
 
 final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
     
@@ -29,7 +28,7 @@ final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
             .document(currentUserId)
             .collection(DatabaseCollection.recentChat)
             .order(by: ChatDataFields.date)
-            .addSnapshotListener { [weak self] querySnapshot, error in
+            .addSnapshotListener({ [weak self] querySnapshot, error in
                 if let error {
                     print(error.localizedDescription)
                     return
@@ -41,42 +40,48 @@ final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
                     querySnapshot?.documentChanges.forEach { changedDocument in
                         let documentId = changedDocument.document.documentID
                         let data = changedDocument.document.data()
-                        
-                        let recentChat = RecentChat(
-                            id: documentId,
-                            userId: data[ChatDataFields.userId] as? String ?? "",
-                            userFirstName: data[ChatDataFields.userFirstName] as? String ?? "",
-                            userEmail: data[ChatDataFields.userEmail] as? String ?? "",
-                            userLastName: data[ChatDataFields.userLastName] as? String,
-                            profileImageData: data[ChatDataFields.profileImage] as? Data,
-                            lastMessage: data[ChatDataFields.lastMessage] as? String ?? "",
-                            date: (data[ChatDataFields.date] as? Timestamp)?.dateValue() ?? Date()
-                        )
-                        
-                        let index = recentChats.firstIndex(where: { $0.id == documentId })
-                        
-                        switch changedDocument.type {
-                        case .removed:
-                            if let index {
-                                recentChats.remove(at: index)
+ 
+                        if let recentChat = self.setupRecentChat(with: documentId, from: data) {
+                            let index = recentChats.firstIndex(where: { $0.id == documentId })
+                            
+                            switch changedDocument.type {
+                            case .removed:
+                                if let index {
+                                    recentChats.remove(at: index)
+                                }
+                            default:
+                                if let index {
+                                    recentChats.remove(at: index)
+                                }
+                                recentChats.insert(recentChat, at: 0)
                             }
-                        default:
-                            if let index {
-                                recentChats.remove(at: index)
-                            }
-                            recentChats.insert(recentChat, at: 0)
                         }
-                        
                     }
                     
                     self.chats.value = recentChats
                 }
-            }
+
+            })
     }
 }
 
 //MARK: - Private methods
 
 private extension ChatsDatabaseManagerImpl {
-    
+    func setupRecentChat(with id: String, from data: [String: Any]) -> RecentChat? {
+        guard let user = data[ChatDataFields.user] as? [String: Any] else { return nil }
+        let recentChat = RecentChat(
+            id: id,
+            user: UserProfile(
+                id: user[ChatDataFields.userId] as? String ?? "",
+                firstName: user[ChatDataFields.userFirstName] as? String ?? "",
+                lastName: user[ChatDataFields.userLastName] as? String,
+                email: user[ChatDataFields.userEmail] as? String ?? "",
+                profileImageData: user[ChatDataFields.profileImage] as? Data
+            ),
+            lastMessage: data[ChatDataFields.lastMessage] as? String ?? "",
+            date: (data[ChatDataFields.date] as? Timestamp)?.dateValue() ?? Date()
+        )
+        return recentChat
+    }
 }

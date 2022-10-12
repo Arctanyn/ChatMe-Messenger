@@ -398,9 +398,9 @@
 				3B8D570728CE28E60004BDAD /* AuthorizationField.swift */,
 				3B1F741128D4B70000E4705A /* ProfileImageView.swift */,
 				3B95952828DA2E24006B44EC /* UserInfoView.swift */,
+				3BA659EB28F1BA09001EBB07 /* ChatTitleView.swift */,
 				3B62408E28E215F100D04529 /* UserTableVieCell */,
 				3BA659E428F16D7B001EBB07 /* ChatsTableViewCell */,
-				3BA659EB28F1BA09001EBB07 /* ChatTitleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

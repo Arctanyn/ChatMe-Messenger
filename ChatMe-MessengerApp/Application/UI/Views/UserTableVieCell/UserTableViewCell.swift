@@ -59,12 +59,7 @@ final class UserTableViewCell: UITableViewCell, ViewModelable {
 private extension UserTableViewCell {
     func updateUI() {
         nameLabel.text = viewModel.name
- 
-        if let imageData = viewModel.profileImageData {
-            profileImageView.image = UIImage(data: imageData)
-        } else {
-            profileImageView.image = Resources.Images.defaultProfileImage
-        }
+        profileImageView.image = UIImage.profileImage(from: viewModel.profileImageData)
     }
 }
 

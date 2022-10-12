@@ -29,10 +29,10 @@ final class UsersDatabaseManagerImpl: UsersDatabaseManager {
     func addUser(withData data: PiecemealUser, userIdentifier id: String, completion: @escaping OptionalErrorClosure) {
         let dict: [String: Any] = [
             UserDataFields.firstName: data.firstName,
-            UserDataFields.lastName: data.lastName ?? "",
+            UserDataFields.lastName: data.lastName as Any,
             UserDataFields.email: data.email,
             UserDataFields.password: data.password,
-            UserDataFields.profileImage: data.profileImageData ?? ""
+            UserDataFields.profileImage: data.profileImageData as Any
         ]
 
         firestore.collection(DatabaseCollection.users).document(id).setData(dict, completion: completion)

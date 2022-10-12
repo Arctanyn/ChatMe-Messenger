@@ -15,11 +15,11 @@ protocol ChatTableViewCellViewModel {
 
 final class ChatsTableViewCellViewModelImpl: ChatTableViewCellViewModel {
     var userProfileImageData: Data? {
-        recentChat.profileImageData
+        recentChat.user.profileImageData
     }
     
     var username: String {
-        recentChat.fullName
+        recentChat.user.fullName
     }
     
     var lastMessage: String {

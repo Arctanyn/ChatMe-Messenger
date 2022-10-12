@@ -11,6 +11,11 @@ import MessageKit
 
 final class ChatManagerImpl: ChatManager {
     
+    enum ChatUserType {
+        case sender
+        case recipient
+    }
+    
     enum MessageDataFields {
         static let senderID = "sender_id"
         static let text = "text"
@@ -18,6 +23,7 @@ final class ChatManagerImpl: ChatManager {
     }
 
     //MARK: Properties
+    
     private let sender: UserProfile
     private let recipient: UserProfile
     private let firestore = Firestore.firestore()
@@ -61,20 +67,19 @@ final class ChatManagerImpl: ChatManager {
             MessageDataFields.date: date
         ]
         
-        senderDocument.setData(messageData) { error in
+        setData(messageData, inDocument: senderDocument) { error in
             completion(error)
         }
         
-        recipientDocument.setData(messageData) { error in
-            completion(error)
-        }
+        setData(messageData, inDocument: recipientDocument)
         
         persistRecentMessage(with: message, date: date)
     }
     
     func fetchMessages(completion: @escaping (Result<[Message], Error>) -> Void) {
-        firestore
-            .collection(DatabaseCollection.chats)
+        let chatsCollection = firestore.collection(DatabaseCollection.chats)
+        
+        chatsCollection
             .document(sender.id)
             .collection(recipient.id)
             .order(by: MessageDataFields.date)
@@ -84,7 +89,6 @@ final class ChatManagerImpl: ChatManager {
                 return
             } else {
                 guard let self else { return }
-
                 var messages = [Message]()
                 
                 querySnapshot?.documents.forEach { document in
@@ -105,10 +109,9 @@ final class ChatManagerImpl: ChatManager {
                     
                     messages.append(message)
                 }
-                
+
                 completion(.success(messages))
             }
-            
         }
     }
 }
@@ -121,53 +124,47 @@ private extension ChatManagerImpl {
         persistMessageForRecipient(message, date: date)
     }
     
-    private func persistMessageForSender(_ message: String, date: Timestamp) {
+    func persistMessageForSender(_ message: String, date: Timestamp) {
         let senderDocument = firestore
             .collection(DatabaseCollection.recentChats)
             .document(sender.id)
             .collection(DatabaseCollection.recentChat)
             .document(recipient.id)
-        
-        let senderData: [String: Any] = [
-            ChatDataFields.userId: recipient.id,
-            ChatDataFields.userFirstName: recipient.firstName,
-            ChatDataFields.userLastName: recipient.lastName ?? "",
-            ChatDataFields.userEmail: recipient.email,
-            ChatDataFields.profileImage: recipient.profileImageData ?? "",
-            ChatDataFields.lastMessage: message,
-            ChatDataFields.date: date
-        ]
-        
-        senderDocument.setData(senderData) { error in
-            if let error {
-                print(error.localizedDescription)
-                return
-            }
-        }
+
+        let chatData = setupChatData(withMessage: message, date: date, for: .sender)
+        setData(chatData, inDocument: senderDocument)
     }
     
-    private func persistMessageForRecipient(_ message: String, date: Timestamp) {
+    func persistMessageForRecipient(_ message: String, date: Timestamp) {
         let recipientDocument = firestore
             .collection(DatabaseCollection.recentChats)
             .document(recipient.id)
             .collection(DatabaseCollection.recentChat)
             .document(sender.id)
-        
-        let recipientData: [String: Any] = [
-            ChatDataFields.userId: sender.id,
-            ChatDataFields.userFirstName: sender.firstName,
-            ChatDataFields.userLastName: sender.lastName ?? "",
-            ChatDataFields.userEmail: sender.email,
-            ChatDataFields.profileImage: sender.profileImageData ?? "",
-            ChatDataFields.lastMessage: message,
-            ChatDataFields.date: date
-        ]
 
-        recipientDocument.setData(recipientData) { error in
-            if let error {
-                print(error.localizedDescription)
-                return
-            }
+        let chatData = setupChatData(withMessage: message, date: date, for: .recipient)
+        setData(chatData, inDocument: recipientDocument)
+    }
+    
+    func setupChatData(withMessage message: String, date: Timestamp, for userType: ChatUserType) -> [String: Any] {
+        let data: [String: Any] = [
+            ChatDataFields.lastMessage: message,
+            ChatDataFields.date: date,
+            ChatDataFields.user: [
+                ChatDataFields.userId: userType == .sender ? recipient.id : sender.id,
+                ChatDataFields.userFirstName: userType == .sender ? recipient.firstName : sender.firstName,
+                ChatDataFields.userLastName: userType == .sender ? recipient.lastName as Any : sender.lastName as Any,
+                ChatDataFields.userEmail: userType == .sender ? recipient.email : sender.email,
+                ChatDataFields.profileImage: userType == .sender ? recipient.profileImageData as Any : sender.profileImageData as Any
+            ]
+        ]
+    
+        return data
+    }
+    
+    func setData(_ data: [String: Any], inDocument document: DocumentReference, completion: ((Error?) -> Void)? = nil) {
+        document.setData(data) { error in
+            completion?(error)
         }
     }
 }

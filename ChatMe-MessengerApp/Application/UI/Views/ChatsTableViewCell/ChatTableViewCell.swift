@@ -13,13 +13,11 @@ final class ChatTableViewCell: UITableViewCell, ViewModelable {
     
     //MARK: Properties
     
-    static let identifier = "Chat Cell"
+    static let identifier = "ChatCell"
     
     var viewModel: ViewModel! {
         didSet {
-            userProfileImageView.image = UIImage.profileImage(from: viewModel.userProfileImageData)
-            usernameLabel.text = viewModel.username
-            lastMessageLabel.text = viewModel.lastMessage
+            updateUI()
         }
     }
     
@@ -58,6 +56,16 @@ final class ChatTableViewCell: UITableViewCell, ViewModelable {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+//MARK: - Private methods
+
+private extension ChatTableViewCell {
+    func updateUI() {
+        userProfileImageView.image = UIImage.profileImage(from: viewModel.userProfileImageData)
+        usernameLabel.text = viewModel.username
+        lastMessageLabel.text = viewModel.lastMessage
+    }
 }
 
 //MARK: - BaseViewSetup

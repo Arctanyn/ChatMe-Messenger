@@ -58,17 +58,8 @@ final class ChatsViewModelImpl: ChatsViewModel {
     
     func goToChatWithUser(at indexPath: IndexPath) {
         guard let coordinator = coordinator as? ChatsCoordinator else { return }
-
         let chat = chats.value[indexPath.row]
-        
-        let user = UserProfile(
-            id: chat.userId,
-            firstName: chat.userFirstName,
-            lastName: chat.userLastName,
-            email: chat.userEmail,
-            profileImageData: chat.profileImageData
-        )
-        
+        let user = chat.user
         coordinator.goToChat(with: user)
     }
 }

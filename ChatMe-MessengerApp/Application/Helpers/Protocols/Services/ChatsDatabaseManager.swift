@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import MessageKit
 
 protocol ChatsDatabaseManager {
     var chats: ObservedObject<[RecentChat]> { get }

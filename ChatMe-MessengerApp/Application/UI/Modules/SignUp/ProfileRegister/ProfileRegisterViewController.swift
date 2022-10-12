@@ -44,7 +44,7 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
     
     //MARK: - Views
     
-    private lazy var profileImage: UIImage = Resources.Images.defaultProfileImage {
+    private var profileImage: UIImage? {
         didSet {
             profileImageView.image = profileImage
         }
@@ -146,7 +146,7 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
             errorLabel.isHidden = true
             changeUIInteraction(to: .inactive)
 
-            let imageData = profileImage.jpegData(compressionQuality: 0.85)
+            let imageData = profileImage?.jpegData(compressionQuality: 0.85)
             viewModel.createNewAccount(withName: firstName, lastName: lastName, profileImage: imageData)
         }
     }

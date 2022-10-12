@@ -8,6 +8,7 @@
 import Foundation
 
 enum ChatDataFields {
+    static let user = "user"
     static let userId = "user_id"
     static let userFirstName = "user_first_name"
     static let userLastName = "user_last_name"

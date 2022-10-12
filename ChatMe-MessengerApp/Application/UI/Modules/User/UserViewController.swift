@@ -68,7 +68,7 @@ private extension UserViewController {
         userInfoView.configure(
             name: viewModel.fullName,
             email: viewModel.email,
-            profileImage: viewModel.profileImageData != nil ? UIImage(data: viewModel.profileImageData!) : Resources.Images.defaultProfileImage
+            profileImage: UIImage.profileImage(from: viewModel.profileImageData)
         )
     }
 }
