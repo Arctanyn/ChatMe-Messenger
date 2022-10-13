@@ -10,4 +10,5 @@ import Foundation
 protocol ChatsDatabaseManager {
     var chats: ObservedObject<[RecentChat]> { get }
     func fetchRecentChats()
+    func deleteChat(withId id: String, recipientId: String)
 }

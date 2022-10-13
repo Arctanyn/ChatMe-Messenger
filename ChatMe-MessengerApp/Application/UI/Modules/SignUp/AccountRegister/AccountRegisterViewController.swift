@@ -19,7 +19,7 @@ final class AccountRegisterViewController: CMBaseController, ViewModelable {
     
     private lazy var titleLabel: CMTitleLabel = {
         let label = CMTitleLabel()
-        label.text = Resources.Strings.createNewAccount
+        label.text = Resources.Strings.Register.createNewAccount
         return label
     }()
     

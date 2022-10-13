@@ -28,7 +28,7 @@ final class UserViewController: CMBaseController, ViewModelable {
     private lazy var logOutButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .systemRed
-        button.setTitle(Resources.Strings.logOut, for: .normal)
+        button.setTitle(Resources.Strings.Login.logOut, for: .normal)
         button.titleLabel?.font = Resources.Fonts.system(size: 20, weight: .medium)
         button.addTarget(self, action: #selector(logOutButtonPressed), for: .touchUpInside)
         return button

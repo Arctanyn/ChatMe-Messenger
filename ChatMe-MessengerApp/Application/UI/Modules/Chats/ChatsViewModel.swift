@@ -15,6 +15,8 @@ protocol ChatsViewModel {
     func startNewChat()
     func viewModelForCell(at indexPath: IndexPath) -> ChatTableViewCellViewModel
     func goToChatWithUser(at indexPath: IndexPath)
+    func deleteChat(at indexPath: IndexPath)
+    func usernameForChat(at indexPath: IndexPath) -> String
 }
 
 //MARK: - ChatsViewModelImpl
@@ -51,9 +53,19 @@ final class ChatsViewModelImpl: ChatsViewModel {
         coordinator.runStartNewChatFlow()
     }
     
+    func deleteChat(at indexPath: IndexPath) {
+        let chat = chats.value[indexPath.row]
+        chatsDatabaseManager.deleteChat(withId: chat.id, recipientId: chat.user.id)
+    }
+    
     func viewModelForCell(at indexPath: IndexPath) -> ChatTableViewCellViewModel {
         let chat = chats.value[indexPath.row]
         return ChatsTableViewCellViewModelImpl(recentChat: chat)
+    }
+    
+    func usernameForChat(at indexPath: IndexPath) -> String {
+        let user = chats.value[indexPath.row].user
+        return user.fullName
     }
     
     func goToChatWithUser(at indexPath: IndexPath) {

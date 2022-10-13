@@ -33,31 +33,6 @@ enum Resources {
     
     enum Images {
         
-        //MARK: TabBar
-        
-        enum TabBar {
-            case chats
-            case user
-            
-            var tabImage: UIImage {
-                switch self {
-                case .chats:
-                    return UIImage(systemName: "message")!
-                case .user:
-                    return UIImage(systemName: "person")!
-                }
-            }
-            
-            var tabSelectedImage: UIImage {
-                switch self {
-                case .chats:
-                    return UIImage(systemName: "message.fill")!
-                case .user:
-                    return UIImage(systemName: "person.fill")!
-                }
-            }
-        }
-        
         static var defaultProfileImage: UIImage {
             UIImage(named: "default_profile_picture")!
         }
@@ -92,6 +67,35 @@ enum Resources {
             UIImage(systemName: "arrow.up.circle.fill")!
                 .withConfiguration(UIImage.SymbolConfiguration(pointSize: 25))
         }
+        
+        static var trash: UIImage {
+            UIImage(systemName: "trash")!
+        }
+        
+        //MARK: TabBar
+        
+        enum TabBar {
+            case chats
+            case user
+            
+            var tabImage: UIImage {
+                switch self {
+                case .chats:
+                    return UIImage(systemName: "message")!
+                case .user:
+                    return UIImage(systemName: "person")!
+                }
+            }
+            
+            var tabSelectedImage: UIImage {
+                switch self {
+                case .chats:
+                    return UIImage(systemName: "message.fill")!
+                case .user:
+                    return UIImage(systemName: "person.fill")!
+                }
+            }
+        }
     }
     
     //MARK: - Fonts
@@ -106,6 +110,22 @@ enum Resources {
     
     enum Strings {
         
+        static var applicationName: String {
+            "ChatMe"
+        }
+        
+        static var somethingWentWrong: String {
+            "Something went wrong"
+        }
+        
+        static var processing: String {
+            "Processing..."
+        }
+        
+        static func toDeleteChat(with username: String) -> String {
+            "Are you sure you want to delete the chat with \(username)?"
+        }
+        
         //MARK: TabBar
         
         enum TabBar {
@@ -115,6 +135,22 @@ enum Resources {
             
             static var chats: String {
                 "Chats"
+            }
+        }
+        
+        //MARK: - Login
+        
+        enum Login {
+            static var logIn: String {
+                "Log In"
+            }
+            
+            static var signUp: String {
+                "Sign Up"
+            }
+            
+            static var logOut: String {
+                "Log Out"
             }
         }
         
@@ -144,34 +180,10 @@ enum Resources {
             static var newAccountCreated: String {
                 "You have successfully created a new account"
             }
-        }
-        
-        static var applicationName: String {
-            "ChatMe"
-        }
-        
-        static var logIn: String {
-            "Log In"
-        }
-        
-        static var signUp: String {
-            "Sign Up"
-        }
-        
-        static var logOut: String {
-            "Log Out"
-        }
-        
-        static var somethingWentWrong: String {
-            "Something went wrong"
-        }
-        
-        static var processing: String {
-            "Processing..."
-        }
-        
-        static var createNewAccount: String {
-            "Create new account"
+            
+            static var createNewAccount: String {
+                "Create new account"
+            }
         }
     }
 }

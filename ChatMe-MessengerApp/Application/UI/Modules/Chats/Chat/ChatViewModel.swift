@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseAuth
 import MessageKit
 
 //MARK: ChatViewModel
@@ -20,6 +19,7 @@ protocol ChatViewModel {
     var recipientProfileImageData: Data? { get }
     
     var messages: ObservedObject<[Message]> { get }
+    
     func sendMessage(kind: MessageKit.MessageKind)
     func fetchMessages()
     

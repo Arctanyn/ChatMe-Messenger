@@ -161,7 +161,7 @@ extension ChatViewController: MessagesDisplayDelegate {
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        messageInputBar.inputTextView.text = nil        
+        messageInputBar.inputTextView.text = nil
         viewModel.sendMessage(kind: .text(text.trimmingCharacters(in: .whitespacesAndNewlines)))
     }
 }

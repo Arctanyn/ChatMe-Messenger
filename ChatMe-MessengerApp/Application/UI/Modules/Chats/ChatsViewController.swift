@@ -75,6 +75,22 @@ private extension ChatsViewController {
             action: #selector(createNewChat)
         )
     }
+    
+    func showAlertForDeleteChatWithUser(at indexPath: IndexPath) {
+        let alert = UIAlertController(
+            title: nil,
+            message: Resources.Strings.toDeleteChat(with: viewModel.usernameForChat(at: indexPath)),
+            preferredStyle: .actionSheet
+        )
+        
+        alert.addAction(UIAlertAction(title: "Delete chat", style: .destructive) { [weak self] _ in
+            self?.viewModel.deleteChat(at: indexPath)
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(alert, animated: true)
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -93,8 +109,6 @@ extension ChatsViewController: UITableViewDataSource {
         cell.viewModel = self.viewModel.viewModelForCell(at: indexPath)
         return cell
     }
-    
-    
 }
 
 //MARK: - UITableViewDelegate
@@ -103,5 +117,19 @@ extension ChatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.goToChatWithUser(at: indexPath)
+    }
+    
+    func swipeToDeleteCell(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: nil) { [weak self] _, _, completion in
+            self?.showAlertForDeleteChatWithUser(at: indexPath)
+            completion(true)
+        }
+        action.image = Resources.Images.trash
+        return action
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = swipeToDeleteCell(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }

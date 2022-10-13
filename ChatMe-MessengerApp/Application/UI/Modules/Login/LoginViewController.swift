@@ -58,14 +58,14 @@ final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter
     private lazy var authButtonsStack = UIStackView(axis: .vertical, spacing: 10)
     
     private lazy var logInButton: CMRoundedRectButton = {
-        let button = CMRoundedRectButton(title: Resources.Strings.logIn)
+        let button = CMRoundedRectButton(title: Resources.Strings.Login.logIn)
         button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         return button
     }()
     
     private lazy var signUpButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(Resources.Strings.signUp, for: .normal)
+        button.setTitle(Resources.Strings.Login.signUp, for: .normal)
         button.titleLabel?.font = Resources.Fonts.system(size: 17, weight: .medium)
         button.tintColor = .label
         button.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)

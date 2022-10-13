@@ -78,7 +78,7 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
     private lazy var errorLabel = LoginErrorLabel()
     
     private lazy var createAccountButton: CMRoundedRectButton = {
-        let button = CMRoundedRectButton(title: Resources.Strings.createNewAccount)
+        let button = CMRoundedRectButton(title: Resources.Strings.Register.createNewAccount)
         button.addTarget(self, action: #selector(createAccountButtonPressed), for: .touchUpInside)
         return button
     }()

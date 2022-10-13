@@ -7,7 +7,6 @@
 
 import Foundation
 import FirebaseFirestore
-import FirebaseAuth
 
 final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
     
@@ -16,12 +15,12 @@ final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
     var chats: ObservedObject<[RecentChat]> = ObservedObject(value: [])
     
     private let firestore = Firestore.firestore()
-    private let auth = Auth.auth()
+    private lazy var currentUser = UserDefaults.standard.getCurrentUser()
     
     //MARK: - Methods
     
     func fetchRecentChats() {
-        guard let currentUserId = auth.currentUser?.uid else { return }
+        guard let currentUserId = currentUser?.id else { return }
         
         firestore
             .collection(DatabaseCollection.recentChats)
@@ -40,7 +39,7 @@ final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
                     querySnapshot?.documentChanges.forEach { changedDocument in
                         let documentId = changedDocument.document.documentID
                         let data = changedDocument.document.data()
- 
+                        
                         if let recentChat = self.setupRecentChat(with: documentId, from: data) {
                             let index = recentChats.firstIndex(where: { $0.id == documentId })
                             
@@ -60,8 +59,23 @@ final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
                     
                     self.chats.value = recentChats
                 }
-
+                
             })
+    }
+    
+    func deleteChat(withId id: String, recipientId: String) {
+        guard let currentUserId = currentUser?.id else { return }
+                
+        firestore.collection(DatabaseCollection.chats).document(currentUserId).collection(recipientId).getDocuments { querySnapshot, error in
+            if let error {
+                print(error.localizedDescription)
+                return
+            } else {
+                querySnapshot?.documents.forEach { $0.reference.delete() }
+            }
+        }
+        
+        firestore.collection(DatabaseCollection.recentChats).document(currentUserId).collection(DatabaseCollection.recentChat).document(recipientId).delete()
     }
 }
 
