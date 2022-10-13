@@ -60,6 +60,7 @@ final class UserViewModelImpl: UserViewModel {
     func logOut() {
         guard let coordinator = coordinator as? UserCoordinator else { return }
         authService.signOut {
+            UserDefaults.standard.deleteCurrentUser()
             coordinator.finishFlow?()
         }
     }

@@ -6,21 +6,22 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseFirestore
 
 final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
     
     //MARK: Properties
     
-    var chats: ObservedObject<[RecentChat]> = ObservedObject(value: [])
+    var chats: ObservableObject<[RecentChat]> = ObservableObject(value: [])
     
     private let firestore = Firestore.firestore()
-    private lazy var currentUser = UserDefaults.standard.getCurrentUser()
+    private let auth = Auth.auth()
     
     //MARK: - Methods
     
     func fetchRecentChats() {
-        guard let currentUserId = currentUser?.id else { return }
+        guard let currentUserId = auth.currentUser?.uid else { return }
         
         firestore
             .collection(DatabaseCollection.recentChats)
@@ -64,7 +65,7 @@ final class ChatsDatabaseManagerImpl: ChatsDatabaseManager {
     }
     
     func deleteChat(withId id: String, recipientId: String) {
-        guard let currentUserId = currentUser?.id else { return }
+        guard let currentUserId = auth.currentUser?.uid else { return }
                 
         firestore.collection(DatabaseCollection.chats).document(currentUserId).collection(recipientId).getDocuments { querySnapshot, error in
             if let error {

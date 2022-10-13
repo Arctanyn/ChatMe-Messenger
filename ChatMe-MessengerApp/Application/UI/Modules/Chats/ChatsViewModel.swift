@@ -10,7 +10,7 @@ import Foundation
 //MARK: ChatsViewModel
 
 protocol ChatsViewModel {
-    var chats: ObservedObject<[RecentChat]> { get }
+    var chats: ObservableObject<[RecentChat]> { get }
     func getChats()
     func startNewChat()
     func viewModelForCell(at indexPath: IndexPath) -> ChatTableViewCellViewModel
@@ -25,7 +25,7 @@ final class ChatsViewModelImpl: ChatsViewModel {
     
     //MARK: Properties
 
-    var chats: ObservedObject<[RecentChat]> = ObservedObject(value: [])
+    var chats: ObservableObject<[RecentChat]> = ObservableObject(value: [])
 
     private let chatsDatabaseManager: ChatsDatabaseManager
     private let coordinator: Coordinator
@@ -41,6 +41,7 @@ final class ChatsViewModelImpl: ChatsViewModel {
     //MARK: - Methods
     
     func getChats() {
+        chatsDatabaseManager.chats.value.removeAll()
         chatsDatabaseManager.fetchRecentChats()
         
         chatsDatabaseManager.chats.bind { [weak self] chats in

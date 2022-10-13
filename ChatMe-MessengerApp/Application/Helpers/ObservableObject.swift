@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ObservedObject<T> {
+final class ObservableObject<T> {
     
     typealias Listener = VoidClosure
     typealias ValueListener = (T) -> Void

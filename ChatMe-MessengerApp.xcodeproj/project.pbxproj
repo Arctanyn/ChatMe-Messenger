@@ -58,7 +58,7 @@
 		3B8D571328CE4E210004BDAD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D571228CE4E210004BDAD /* LoginViewModel.swift */; };
 		3B8D571528CE55BA0004BDAD /* UIStackView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D571428CE55BA0004BDAD /* UIStackView + Ext.swift */; };
 		3B95952528DA186A006B44EC /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95952428DA186A006B44EC /* UserViewModel.swift */; };
-		3B95952728DA1965006B44EC /* ObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95952628DA1965006B44EC /* ObservedObject.swift */; };
+		3B95952728DA1965006B44EC /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95952628DA1965006B44EC /* ObservableObject.swift */; };
 		3B95952928DA2E24006B44EC /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95952828DA2E24006B44EC /* UserInfoView.swift */; };
 		3BA62D0B28D17D6300741288 /* CMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA62D0A28D17D6300741288 /* CMTabBarController.swift */; };
 		3BA62D0D28D182E400741288 /* UIColor + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA62D0C28D182E400741288 /* UIColor + Ext.swift */; };
@@ -154,7 +154,7 @@
 		3B8D571228CE4E210004BDAD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3B8D571428CE55BA0004BDAD /* UIStackView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Ext.swift"; sourceTree = "<group>"; };
 		3B95952428DA186A006B44EC /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		3B95952628DA1965006B44EC /* ObservedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservedObject.swift; sourceTree = "<group>"; };
+		3B95952628DA1965006B44EC /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		3B95952828DA2E24006B44EC /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		3BA62D0A28D17D6300741288 /* CMTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTabBarController.swift; sourceTree = "<group>"; };
 		3BA62D0C28D182E400741288 /* UIColor + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Ext.swift"; sourceTree = "<group>"; };
@@ -412,7 +412,7 @@
 				3B30432728D23A6C0067E301 /* Typealiases */,
 				3B302E7D28CCAA4300844468 /* Protocols */,
 				3B302E7C28CCAA3400844468 /* Extensions */,
-				3B95952628DA1965006B44EC /* ObservedObject.swift */,
+				3B95952628DA1965006B44EC /* ObservableObject.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -823,7 +823,7 @@
 				3BAC64E328D3737D00A6BE77 /* AccountRegisterCoordinator.swift in Sources */,
 				3B8D570628CE08F80004BDAD /* Resources.swift in Sources */,
 				3BC546A428D99D79002CCBBD /* UsersDatabaseManagerImpl.swift in Sources */,
-				3B95952728DA1965006B44EC /* ObservedObject.swift in Sources */,
+				3B95952728DA1965006B44EC /* ObservableObject.swift in Sources */,
 				3B302E8428CCAB4200844468 /* BaseCoordinator.swift in Sources */,
 				3BA659EA28F1A053001EBB07 /* ChatDataFields.swift in Sources */,
 				3B302E3F28CC8CE700844468 /* AppDelegate.swift in Sources */,
