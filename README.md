@@ -1,9 +1,9 @@
 # ChatMe-Messenger
+Swift IOS Application
 
 ![180](https://user-images.githubusercontent.com/81229461/195981013-40140e3e-128c-459c-b3bd-603636969253.png)
 
 ChatMe is a messenger app where you can chat with other people
-
 ![IMG_2492](https://user-images.githubusercontent.com/81229461/195981118-cf6d5db1-4f2c-4bf9-8954-11f126360544.PNG)
 
 ## Registration and authorization
