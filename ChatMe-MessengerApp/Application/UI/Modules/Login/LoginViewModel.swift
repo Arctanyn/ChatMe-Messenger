@@ -24,14 +24,14 @@ final class LoginViewModelImpl: LoginViewModel {
     var displayError: ((AuthError) -> Void)?
     
     private let authService: AuthService
+    private let usersDatabaseManager: UsersDatabaseManager
     private let coordinator: Coordinator
-    
-    let usersDatabase = UsersDatabaseManagerImpl()
-    
+        
     //MARK: - Initialization
     
-    init(authService: AuthService, coordinator: Coordinator) {
+    init(authService: AuthService, usersDatabaseManager: UsersDatabaseManager, coordinator: Coordinator) {
         self.authService = authService
+        self.usersDatabaseManager = usersDatabaseManager
         self.coordinator = coordinator
     }
     
@@ -43,19 +43,19 @@ final class LoginViewModelImpl: LoginViewModel {
         authService.signIn(withEmail: email, password: password) { [weak self] result in
             switch result {
             case .success(let authResult):
-                self?.usersDatabase.getUser(withID: authResult.user.uid, completion: { result in
+                self?.usersDatabaseManager.getUser(withID: authResult.user.uid) { result in
                     switch result {
                     case .success(let user):
                         UserDefaults.standard.addUser(user)
+                        completion()
                         loginCoordinator.finishFlow?(.signIn)
                     case .failure(let failure):
                         print(failure.localizedDescription)
                     }
-                })
+                }
             case .failure(let authError):
                 self?.displayError?(authError)
             }
-            completion()
         }
     }
     

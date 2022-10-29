@@ -17,7 +17,11 @@ final class AssemblyBuilderImpl: AssemblyBuilder {
 
     func createLoginModule(coordinator: Coordinator) -> UIViewController {
         let view = LoginViewController()
-        view.viewModel = LoginViewModelImpl(authService: di.authService, coordinator: coordinator)
+        view.viewModel = LoginViewModelImpl(
+            authService: di.authService,
+            usersDatabaseManager: di.usersDatabaseManager,
+            coordinator: coordinator
+        )
         return view
     }
     
@@ -60,7 +64,8 @@ final class AssemblyBuilderImpl: AssemblyBuilder {
             chatManager: ChatManagerImpl(
                 sender: currentUser,
                 recipient: otherUser,
-                chatsDatabaseManager: di.chatsDatabaseManager
+                chatsDatabaseManager: di.chatsDatabaseManager,
+                databasePath: di.databasePath
             ),
             coordinator: coordinator
         )

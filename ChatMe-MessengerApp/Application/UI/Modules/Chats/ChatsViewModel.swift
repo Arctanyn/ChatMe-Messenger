@@ -29,7 +29,6 @@ final class ChatsViewModelImpl: ChatsViewModel {
 
     private let chatsDatabaseManager: ChatsDatabaseManager
     private let coordinator: Coordinator
-    let usersDatabase = UsersDatabaseManagerImpl()
     
     //MARK: - Initialization
 

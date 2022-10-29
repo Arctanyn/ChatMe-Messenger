@@ -40,6 +40,13 @@
 		3B31EB2E28F0BE4500F8A39D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B31EB2D28F0BE4500F8A39D /* Message.swift */; };
 		3B31EB3028F0BE5A00F8A39D /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B31EB2F28F0BE5A00F8A39D /* Sender.swift */; };
 		3B31EB3228F0BE6C00F8A39D /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B31EB3128F0BE6C00F8A39D /* Media.swift */; };
+		3B569CB1290D8ABF0013A0DE /* UserDataFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B569CB0290D8ABF0013A0DE /* UserDataFields.swift */; };
+		3B569CB4290D8B2E0013A0DE /* DatabaseDocumentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B569CB3290D8B2E0013A0DE /* DatabaseDocumentData.swift */; };
+		3B569CB6290D940C0013A0DE /* MessageDataFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B569CB5290D940C0013A0DE /* MessageDataFields.swift */; };
+		3B569CB8290D945E0013A0DE /* DatabasePathImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B569CB7290D945E0013A0DE /* DatabasePathImpl.swift */; };
+		3B569CBB290DACF80013A0DE /* DatabasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B569CBA290DACF80013A0DE /* DatabasePath.swift */; };
+		3B569CBE290DC5190013A0DE /* UsersDatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B569CBD290DC5190013A0DE /* UsersDatabaseError.swift */; };
+		3B569CC0290DC5350013A0DE /* ChatDatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B569CBF290DC5350013A0DE /* ChatDatabaseError.swift */; };
 		3B62407C28E19FEE00D04529 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62407B28E19FEE00D04529 /* ChatsViewModel.swift */; };
 		3B62407E28E1D71D00D04529 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62407D28E1D71D00D04529 /* ChatViewController.swift */; };
 		3B62408228E1E6E000D04529 /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62408128E1E6E000D04529 /* NewChatViewController.swift */; };
@@ -136,6 +143,13 @@
 		3B31EB2D28F0BE4500F8A39D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		3B31EB2F28F0BE5A00F8A39D /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		3B31EB3128F0BE6C00F8A39D /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		3B569CB0290D8ABF0013A0DE /* UserDataFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataFields.swift; sourceTree = "<group>"; };
+		3B569CB3290D8B2E0013A0DE /* DatabaseDocumentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDocumentData.swift; sourceTree = "<group>"; };
+		3B569CB5290D940C0013A0DE /* MessageDataFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDataFields.swift; sourceTree = "<group>"; };
+		3B569CB7290D945E0013A0DE /* DatabasePathImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasePathImpl.swift; sourceTree = "<group>"; };
+		3B569CBA290DACF80013A0DE /* DatabasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabasePath.swift; sourceTree = "<group>"; };
+		3B569CBD290DC5190013A0DE /* UsersDatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDatabaseError.swift; sourceTree = "<group>"; };
+		3B569CBF290DC5350013A0DE /* ChatDatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDatabaseError.swift; sourceTree = "<group>"; };
 		3B62407B28E19FEE00D04529 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 		3B62407D28E1D71D00D04529 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3B62408128E1E6E000D04529 /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
@@ -232,10 +246,8 @@
 		3B1330F828D47FDC006C078F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3B569CB9290D97B70013A0DE /* Database */,
 				3B02C85628D6E7950080F1C0 /* AuthServiceImpl.swift */,
-				3BC546A328D99D79002CCBBD /* UsersDatabaseManagerImpl.swift */,
-				3BB1554D28E844AE0061358E /* ChatsDatabaseManagerImpl.swift */,
-				3BBD62C528E982BA00086E0E /* ChatManagerImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -477,8 +489,39 @@
 			isa = PBXGroup;
 			children = (
 				3B30432828D23A7C0067E301 /* Closures.swift */,
+				3B569CB3290D8B2E0013A0DE /* DatabaseDocumentData.swift */,
 			);
 			path = Typealiases;
+			sourceTree = "<group>";
+		};
+		3B569CB2290D8AC70013A0DE /* DatabaseDataFields */ = {
+			isa = PBXGroup;
+			children = (
+				3BA659E928F1A053001EBB07 /* ChatDataFields.swift */,
+				3B569CB0290D8ABF0013A0DE /* UserDataFields.swift */,
+				3B569CB5290D940C0013A0DE /* MessageDataFields.swift */,
+			);
+			path = DatabaseDataFields;
+			sourceTree = "<group>";
+		};
+		3B569CB9290D97B70013A0DE /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				3B569CB7290D945E0013A0DE /* DatabasePathImpl.swift */,
+				3BC546A328D99D79002CCBBD /* UsersDatabaseManagerImpl.swift */,
+				3BB1554D28E844AE0061358E /* ChatsDatabaseManagerImpl.swift */,
+				3BBD62C528E982BA00086E0E /* ChatManagerImpl.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		3B569CBC290DC4FE0013A0DE /* DatabaseError */ = {
+			isa = PBXGroup;
+			children = (
+				3B569CBD290DC5190013A0DE /* UsersDatabaseError.swift */,
+				3B569CBF290DC5350013A0DE /* ChatDatabaseError.swift */,
+			);
+			path = DatabaseError;
 			sourceTree = "<group>";
 		};
 		3B62407F28E1D7E300D04529 /* Chat */ = {
@@ -602,11 +645,12 @@
 		3BA77BEB28CF1046009F1366 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				3B569CB2290D8AC70013A0DE /* DatabaseDataFields */,
+				3B569CBC290DC4FE0013A0DE /* DatabaseError */,
 				3BA77BEC28CF105E009F1366 /* LoginError.swift */,
 				3B02C85828D6E8130080F1C0 /* AuthError.swift */,
 				3BE7E1E428D85685004AB284 /* ActiveStatus.swift */,
 				3BC5469E28D99148002CCBBD /* DatabaseCollection.swift */,
-				3BA659E928F1A053001EBB07 /* ChatDataFields.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -623,6 +667,7 @@
 		3BBD62C928E982D500086E0E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3B569CBA290DACF80013A0DE /* DatabasePath.swift */,
 				3B02C85328D6E5DD0080F1C0 /* AuthService.swift */,
 				3BC546A528D99DD3002CCBBD /* UsersDatabaseManager.swift */,
 				3BB1554F28E844E10061358E /* ChatsDatabaseManager.swift */,
@@ -785,6 +830,7 @@
 				3BA77BEF28CF16CB009F1366 /* AssemblyBuilderImpl.swift in Sources */,
 				3B1330F528D475A3006C078F /* CMRoundedRectButton.swift in Sources */,
 				3B95952528DA186A006B44EC /* UserViewModel.swift in Sources */,
+				3B569CB1290D8ABF0013A0DE /* UserDataFields.swift in Sources */,
 				3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */,
 				3BB1554E28E844AE0061358E /* ChatsDatabaseManagerImpl.swift in Sources */,
 				3B31EB3228F0BE6C00F8A39D /* Media.swift in Sources */,
@@ -794,6 +840,7 @@
 				3B62409028E2161E00D04529 /* UserTableViewCell.swift in Sources */,
 				3B302E9128CCB64500844468 /* AssemblyBuilder.swift in Sources */,
 				3B8D570828CE28E60004BDAD /* AuthorizationField.swift in Sources */,
+				3B569CB8290D945E0013A0DE /* DatabasePathImpl.swift in Sources */,
 				3BA62D1428D1840500741288 /* UserViewController.swift in Sources */,
 				3B1330F728D4772F006C078F /* UIButton + Ext.swift in Sources */,
 				3B8D570A28CE28FD0004BDAD /* CMBaseView.swift in Sources */,
@@ -817,11 +864,13 @@
 				3B02C85D28D6F6B80080F1C0 /* AlertPresenter.swift in Sources */,
 				3BD2B89928D5D621009CF754 /* CMTitleLabel.swift in Sources */,
 				3B302E8D28CCB5CA00844468 /* CoordinatorFactoryImpl.swift in Sources */,
+				3B569CB6290D940C0013A0DE /* MessageDataFields.swift in Sources */,
 				3B62407E28E1D71D00D04529 /* ChatViewController.swift in Sources */,
 				3BBD62C828E982C500086E0E /* ChatManager.swift in Sources */,
 				3B02C85728D6E7950080F1C0 /* AuthServiceImpl.swift in Sources */,
 				3BAC64E328D3737D00A6BE77 /* AccountRegisterCoordinator.swift in Sources */,
 				3B8D570628CE08F80004BDAD /* Resources.swift in Sources */,
+				3B569CC0290DC5350013A0DE /* ChatDatabaseError.swift in Sources */,
 				3BC546A428D99D79002CCBBD /* UsersDatabaseManagerImpl.swift in Sources */,
 				3B95952728DA1965006B44EC /* ObservableObject.swift in Sources */,
 				3B302E8428CCAB4200844468 /* BaseCoordinator.swift in Sources */,
@@ -829,6 +878,7 @@
 				3B302E3F28CC8CE700844468 /* AppDelegate.swift in Sources */,
 				3B62408D28E20F2500D04529 /* UsersSearchResultsViewModel.swift in Sources */,
 				3B302E4128CC8CE700844468 /* SceneDelegate.swift in Sources */,
+				3B569CBE290DC5190013A0DE /* UsersDatabaseError.swift in Sources */,
 				3B62407C28E19FEE00D04529 /* ChatsViewModel.swift in Sources */,
 				3B302E9F28CCCC5D00844468 /* UIViewController + Ext.swift in Sources */,
 				3B62408828E1F16200D04529 /* NewChatCoordinator.swift in Sources */,
@@ -836,7 +886,9 @@
 				3BAE880728E85994006C8A8E /* UserProfile.swift in Sources */,
 				3B8D571528CE55BA0004BDAD /* UIStackView + Ext.swift in Sources */,
 				3B302E8228CCAAF600844468 /* AppFactory.swift in Sources */,
+				3B569CB4290D8B2E0013A0DE /* DatabaseDocumentData.swift in Sources */,
 				3B30432928D23A7C0067E301 /* Closures.swift in Sources */,
+				3B569CBB290DACF80013A0DE /* DatabasePath.swift in Sources */,
 				3BC5469F28D99148002CCBBD /* DatabaseCollection.swift in Sources */,
 				3B302E8F28CCB5FF00844468 /* ApplicationCoordinator.swift in Sources */,
 				3BA62D1128D183BF00741288 /* ChatsViewController.swift in Sources */,

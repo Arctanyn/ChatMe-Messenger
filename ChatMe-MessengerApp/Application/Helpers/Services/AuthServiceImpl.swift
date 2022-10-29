@@ -12,13 +12,7 @@ final class AuthServiceImpl: AuthService {
     
     //MARK: Properties
     
-    private let auth: Auth
-    
-    //MARK: - Initialization
-    
-    init() {
-        self.auth = Auth.auth()
-    }
+    private let auth = Auth.auth()
     
     //MARK: - Methods
     
@@ -44,7 +38,9 @@ final class AuthServiceImpl: AuthService {
         }
     }
     
-    func signUp(withEmail email: String, password: String, completion: @escaping (Result<AuthDataResult, AuthError>) -> Void) {
+    func signUp(withEmail email: String,
+                password: String,
+                completion: @escaping (Result<AuthDataResult, AuthError>) -> Void) {
         auth.createUser(withEmail: email, password: password) { [unowned self] authResult, error in
             checkResult(with: authResult, error: error) { result in
                 switch result {
