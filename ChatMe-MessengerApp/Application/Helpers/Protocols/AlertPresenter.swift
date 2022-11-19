@@ -8,14 +8,9 @@
 import UIKit
 import SPAlert
 
-protocol AlertPresenter: AnyObject {
-     
-}
+protocol AlertPresenter: AnyObject { }
 
 extension AlertPresenter where Self: UIViewController {
-    
-    //MARK: - Methods
-
     func showDoneAlert(withTitle title: String,
                        message: String? = nil,
                        duration: Double,

@@ -1,5 +1,5 @@
 //
-//  ChatsViewController.swift
+//  ChatsListViewController.swift
 //  ChatMe-MessengerApp
 //
 //  Created by Малиль Дугулюбгов on 14.09.2022.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class ChatsViewController: CMBaseController, ViewModelable {
+final class ChatsListViewController: CMBaseController, ViewModelable {
     
-    typealias ViewModel = ChatsViewModel
+    typealias ViewModel = ChatsListViewModel
     
     //MARK: Properties
     
@@ -56,7 +56,7 @@ final class ChatsViewController: CMBaseController, ViewModelable {
 
 //MARK: - Actions
 
-@objc private extension ChatsViewController {
+@objc private extension ChatsListViewController {
     func createNewChat() {
         viewModel.startNewChat()
     }
@@ -64,7 +64,7 @@ final class ChatsViewController: CMBaseController, ViewModelable {
 
 //MARK: - Private methods
 
-private extension ChatsViewController {
+private extension ChatsListViewController {
     func setupNavigationBar() {
         title = Resources.Strings.TabBar.chats
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -95,7 +95,7 @@ private extension ChatsViewController {
 
 //MARK: - UITableViewDataSource
 
-extension ChatsViewController: UITableViewDataSource {
+extension ChatsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.chats.value.count
     }
@@ -113,7 +113,7 @@ extension ChatsViewController: UITableViewDataSource {
 
 //MARK: - UITableViewDelegate
 
-extension ChatsViewController: UITableViewDelegate {
+extension ChatsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.goToChatWithUser(at: indexPath)

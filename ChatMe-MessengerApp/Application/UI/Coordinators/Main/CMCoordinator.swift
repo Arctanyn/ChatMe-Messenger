@@ -63,7 +63,7 @@ private extension CMCoordinator {
 
         switch tab {
         case .chats:
-            let coordinator = coordinatorFactory.createChatsCoordinator(router: router)
+            let coordinator = coordinatorFactory.createChatsListCoordinator(router: router)
             coordinator.finishFlow = { [weak self] in
                 self?.childDidFinish(coordinator)
             }

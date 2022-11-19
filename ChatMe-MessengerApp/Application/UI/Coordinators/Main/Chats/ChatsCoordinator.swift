@@ -28,7 +28,7 @@ final class ChatsCoordinator: BaseCoordinator {
     //MARK: - Methods
     
     override func start() {
-        let module = assemblyBuilder.createChatsModule(coordinator: self)
+        let module = assemblyBuilder.createChatsListModule(coordinator: self)
         router.setRootModule(module)
     }
     

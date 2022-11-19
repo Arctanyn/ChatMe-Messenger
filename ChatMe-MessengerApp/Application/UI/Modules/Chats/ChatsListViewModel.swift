@@ -1,5 +1,5 @@
 //
-//  ChatsViewModel.swift
+//  ChatsListViewModel.swift
 //  ChatMe-MessengerApp
 //
 //  Created by Малиль Дугулюбгов on 26.09.2022.
@@ -9,7 +9,7 @@ import Foundation
 
 //MARK: ChatsViewModel
 
-protocol ChatsViewModel {
+protocol ChatsListViewModel {
     var chats: ObservableObject<[RecentChat]> { get }
     func getChats()
     func startNewChat()
@@ -21,7 +21,7 @@ protocol ChatsViewModel {
 
 //MARK: - ChatsViewModelImpl
 
-final class ChatsViewModelImpl: ChatsViewModel {
+final class ChatsListViewModelImpl: ChatsListViewModel {
     
     //MARK: Properties
 

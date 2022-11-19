@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AccountRegisterViewController: CMBaseController, ViewModelable {
+final class AccountRegisterViewController: CMBaseController, DataEntryPageProtocol, ViewModelable {
     
     typealias ViewModel = AccountRegisterViewModel
     
@@ -16,6 +16,8 @@ final class AccountRegisterViewController: CMBaseController, ViewModelable {
     var viewModel: ViewModel!
     
     //MARK: - Views
+    
+    lazy var errorLabel: UILabel = LoginErrorLabel()
     
     private lazy var titleLabel: CMTitleLabel = {
         let label = CMTitleLabel()
@@ -35,14 +37,16 @@ final class AccountRegisterViewController: CMBaseController, ViewModelable {
         return authField
     }()
     
-    private lazy var passwordField = AuthorizationField(placeholder: "Password",
-                                                       isSecureText: true)
+    private lazy var passwordField = AuthorizationField(
+        placeholder: "Password",
+        isSecureText: true
+    )
     
-    private lazy var repeatPasswordField = AuthorizationField(placeholder: "Repeat password",
-                                                             isSecureText: true)
-    
-    private lazy var errorLabel = LoginErrorLabel()
-    
+    private lazy var repeatPasswordField = AuthorizationField(
+        placeholder: "Repeat password",
+        isSecureText: true
+    )
+
     private lazy var continueButton: CMRoundedRectButton = {
         let button = CMRoundedRectButton(title: "Continue")
         button.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
@@ -88,10 +92,6 @@ final class AccountRegisterViewController: CMBaseController, ViewModelable {
             labelsStack.trailingAnchor.constraint(equalTo: vStack.trailingAnchor),
         ])
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
 }
 
 //MARK: - Actions
@@ -109,8 +109,8 @@ final class AccountRegisterViewController: CMBaseController, ViewModelable {
         if let error = viewModel.checkToValid(email: email,
                                               password: password,
                                               repeatedPassword: repeatedPassword) {
-            errorLabel.text = error.errorDescription
             errorLabel.isHidden = false
+            outputError(error)
         } else {
             viewModel.showProfileRegistrationPage(withEmailAdress: email, password: password)
         }

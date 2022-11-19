@@ -8,7 +8,7 @@
 import UIKit
 import SPAlert
 
-final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter {
+final class LoginViewController: CMBaseController, DataEntryPageProtocol, ViewModelable {
 
     typealias ViewModel = LoginViewModel
     
@@ -33,6 +33,8 @@ final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter
     
     //MARK: - Views
     
+    lazy var errorLabel: UILabel = LoginErrorLabel()
+
     private lazy var loadingAlertView = SPAlertView(title: Resources.Strings.processing, preset: .spinner)
     
     private lazy var titleLabel: UILabel = {
@@ -41,8 +43,6 @@ final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter
         label.font = Resources.Fonts.system(size: 35, weight: .bold)
         return label
     }()
-    
-    private lazy var errorLabel = LoginErrorLabel()
     
     private lazy var emailField: AuthorizationField = {
         let field = AuthorizationField(placeholder: "Email")
@@ -110,8 +110,8 @@ final class LoginViewController: CMBaseController, ViewModelable, AlertPresenter
         let password = passwordField.textField.text ?? ""
         
         if let error = viewModel.checkToValid(email: email, password: password) {
-            errorLabel.text = error.errorDescription
             errorLabel.isHidden = false
+            outputError(error)
         } else {
             loadingAlertView.present()
             changeUIInteraction(to: .inactive)

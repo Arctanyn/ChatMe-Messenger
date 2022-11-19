@@ -13,7 +13,7 @@ protocol CoordinatorFactory {
     func createRegisterCoordinator(router: Router) -> AccountRegisterCoordinator
     func createProfileRegisterCoordinator(user: PiecemealUser, router: Router) -> ProfileRegisterCoordinator
     func createCMCoordinator(router: Router) -> CMCoordinator
-    func createChatsCoordinator(router: Router) -> ChatsCoordinator
+    func createChatsListCoordinator(router: Router) -> ChatsCoordinator
     func createChatCoordinator(user: UserProfile, router: Router) -> ChatCoordinator
     func createNewChatCoordinator(router: Router) -> NewChatCoordinator
     func createUserCoordinator(router: Router) -> UserCoordinator

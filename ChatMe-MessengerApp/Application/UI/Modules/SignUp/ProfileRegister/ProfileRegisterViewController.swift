@@ -8,7 +8,7 @@
 import UIKit
 import SPAlert
 
-final class ProfileRegisterViewController: CMBaseController, ViewModelable, AlertPresenter {
+final class ProfileRegisterViewController: CMBaseController, DataEntryPageProtocol, ViewModelable {
     
     typealias ViewModel = ProfileRegisterViewModel
 
@@ -44,6 +44,8 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
     
     //MARK: - Views
     
+    lazy var errorLabel: UILabel = LoginErrorLabel()
+
     private var profileImage: UIImage? {
         didSet {
             profileImageView.image = profileImage
@@ -74,8 +76,6 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
     
     private lazy var firstNameField = AuthorizationField(placeholder: "First name")
     private lazy var lastNameField = AuthorizationField(placeholder: "Last name (optional)")
-    
-    private lazy var errorLabel = LoginErrorLabel()
     
     private lazy var createAccountButton: CMRoundedRectButton = {
         let button = CMRoundedRectButton(title: Resources.Strings.Register.createNewAccount)
@@ -139,8 +139,8 @@ final class ProfileRegisterViewController: CMBaseController, ViewModelable, Aler
         let lastName = lastNameField.textField.text
         
         if let error = viewModel.checkToValid(firstName: firstName, lastName: lastName) {
-            errorLabel.text = error.errorDescription
             errorLabel.isHidden = false
+            outputError(error)
         } else {
             loadingAlertView.present()
             errorLabel.isHidden = true

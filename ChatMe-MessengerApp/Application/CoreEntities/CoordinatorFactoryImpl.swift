@@ -53,7 +53,7 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
         return NewChatCoordinator(assemblyBuilder: assemblyBuilder, router: router)
     }
     
-    func createChatsCoordinator(router: Router) -> ChatsCoordinator {
+    func createChatsListCoordinator(router: Router) -> ChatsCoordinator {
         return ChatsCoordinator(coordinatorFactory: self, assemblyBuilder: assemblyBuilder, router: router)
     }
 }
