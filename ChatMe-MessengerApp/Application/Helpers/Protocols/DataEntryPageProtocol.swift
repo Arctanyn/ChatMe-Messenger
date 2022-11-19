@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DataEntryPageProtocol: AnyObject, AlertPresenter, UITextFieldDelegate {
+protocol DataEntryPageProtocol: AnyObject, AlertPresenter {
     var errorLabel: UILabel { get }
 }
 
@@ -26,11 +26,5 @@ extension DataEntryPageProtocol where Self: UIViewController {
         animation.fillMode = .forwards
         animation.isAdditive = true
         errorLabel.layer.add(animation, forKey: nil)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        
-        return true
     }
 }
