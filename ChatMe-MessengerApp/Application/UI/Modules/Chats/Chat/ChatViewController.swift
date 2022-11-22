@@ -9,20 +9,6 @@ import UIKit
 import MessageKit
 import InputBarAccessoryView
 
-struct Link: LinkItem {
-    var text: String?
-    
-    var attributedText: NSAttributedString?
-    
-    var url: URL
-    
-    var title: String?
-    
-    var teaser: String
-    
-    var thumbnailImage: UIImage
-}
-
 final class ChatViewController: MessagesViewController, ViewModelable {
 
     typealias ViewModel = ChatViewModel
@@ -176,10 +162,6 @@ extension ChatViewController: MessagesDisplayDelegate {
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         messageInputBar.inputTextView.text = nil
-        
-//        if URL(string: text) != nil {
-//            viewModel.sendMessage(kind: .linkPreview(<#T##LinkItem#>))
-//        }
         viewModel.sendMessage(kind: .text(text.trimmingCharacters(in: .whitespacesAndNewlines)))
     }
 }
