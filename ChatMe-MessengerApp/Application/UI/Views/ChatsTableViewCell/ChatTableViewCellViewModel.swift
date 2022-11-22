@@ -11,6 +11,7 @@ protocol ChatTableViewCellViewModel {
     var userProfileImageData: Data? { get }
     var username: String { get }
     var lastMessage: String { get }
+    var sendingTime: String { get }
 }
 
 final class ChatsTableViewCellViewModelImpl: ChatTableViewCellViewModel {
@@ -23,7 +24,16 @@ final class ChatsTableViewCellViewModelImpl: ChatTableViewCellViewModel {
     }
     
     var lastMessage: String {
-        recentChat.lastMessage
+        switch recentChat.kind {
+        case .text:
+            return recentChat.lastMessage
+        case .photo:
+            return "Photo"
+        }
+    }
+    
+    var sendingTime: String {
+        Date.chatSendingTime(recentChat.date)
     }
     
     private let recentChat: RecentChat

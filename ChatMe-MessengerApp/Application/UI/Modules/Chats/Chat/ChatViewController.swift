@@ -10,11 +10,11 @@ import MessageKit
 import InputBarAccessoryView
 
 final class ChatViewController: MessagesViewController, ViewModelable {
-
+    
     typealias ViewModel = ChatViewModel
     
     //MARK: Properties
-
+    
     var viewModel: ViewModel! {
         didSet {
             viewModel.fetchMessages()
@@ -33,20 +33,34 @@ final class ChatViewController: MessagesViewController, ViewModelable {
         }
     }
     
+    private lazy var imagePickerController: UIImagePickerController = {
+        let imagePicker = UIImagePickerController()
+        return imagePicker
+    }()
+    
     //MARK: - Views
     
     private lazy var chatTitleView = ChatTitleView()
-
+    
+    private lazy var attachButton: InputBarButtonItem = {
+        let button = InputBarButtonItem(type: .system)
+        button.image = Resources.Images.paperclip
+        button.tintColor = Resources.Colors.active
+        button.setSize(CGSize(width: 40, height: 40), animated: false)
+        button.addTarget(self, action: #selector(attachButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     //MARK: - View Controller Lyfecycle
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         viewModel.backToChats()
     }
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePickerController.delegate = self
         setupViews()
     }
     
@@ -56,7 +70,7 @@ final class ChatViewController: MessagesViewController, ViewModelable {
         guard
             collectionView.numberOfSections == messagesCount,
             indexPath.section == 0,
-                !isChatDisplayed
+            !isChatDisplayed
         else { return }
         
         DispatchQueue.main.async { [weak self] in
@@ -71,6 +85,14 @@ final class ChatViewController: MessagesViewController, ViewModelable {
             self?.isChatDisplayed = true
         }
         
+    }
+}
+
+//MARK: - Actions
+
+@objc private extension ChatViewController {
+    func attachButtonTapped() {
+        present(imagePickerController, animated: true)
     }
 }
 
@@ -106,10 +128,28 @@ private extension ChatViewController {
         messageInputBar.sendButton.image = Resources.Images.send
         messageInputBar.sendButton.title = nil
         messageInputBar.sendButton.makeSystem()
+        
+        messageInputBar.setLeftStackViewWidthConstant(to: 40, animated: false)
+        messageInputBar.setStackViewItems([attachButton], forStack: .left, animated: false)
     }
     
     func isCurrentSender(_ sender: SenderType) -> Bool {
         return sender.senderId == currentSender().senderId
+    }
+}
+
+//MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
+
+extension ChatViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        viewModel.sendMessage(kind: .photo(
+            Media(
+                placeholderImage: image,
+                size: image.chatSize
+            )
+        ))
+        picker.dismiss(animated: true)
     }
 }
 
@@ -119,15 +159,15 @@ extension ChatViewController: MessagesDataSource {
     func currentSender() -> MessageKit.SenderType {
         Sender(senderId: viewModel.senderId, displayName: viewModel.senderName)
     }
-
+    
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageKit.MessageType {
         viewModel.messages.value[indexPath.section]
     }
-
+    
     func numberOfSections(in messagesCollectionView: MessageKit.MessagesCollectionView) -> Int {
         viewModel.messages.value.count
     }
-
+    
 }
 
 //MARK: - MessagesLayoutDelegate
@@ -136,8 +176,6 @@ extension ChatViewController: MessagesLayoutDelegate {
     func footerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
         return CGSize(width: messagesCollectionView.bounds.width, height: 10)
     }
-    
-    
 }
 
 //MARK: - MessagesDisplayDelegate
@@ -154,7 +192,6 @@ extension ChatViewController: MessagesDisplayDelegate {
             avatarView.image = UIImage.profileImage(from: viewModel.recipientProfileImageData)
         }
     }
-
 }
 
 //MARK: - InputBarAccessoryViewDelegate

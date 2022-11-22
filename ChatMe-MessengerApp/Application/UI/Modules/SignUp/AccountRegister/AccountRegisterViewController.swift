@@ -132,14 +132,18 @@ private extension AccountRegisterViewController {
     
     func setupVerticalStack() {
         view.addSubview(vStack, useConstraints: true)
-        vStack.addArrangedSubview(authFieldsStack)
-        vStack.addArrangedSubview(continueButton)
+        vStack.addArrangedSubviews([
+            authFieldsStack,
+            continueButton
+        ])
     }
     
     func setupLabelsStack() {
         view.addSubview(labelsStack, useConstraints: true)
-        labelsStack.addArrangedSubview(titleLabel)
-        labelsStack.addArrangedSubview(infoLabel)
+        labelsStack.addArrangedSubviews([
+            titleLabel,
+            infoLabel
+        ])
     }
     
     func setupAuthFieldsStack() {

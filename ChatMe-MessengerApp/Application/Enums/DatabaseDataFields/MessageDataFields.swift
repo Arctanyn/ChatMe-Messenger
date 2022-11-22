@@ -11,4 +11,5 @@ enum MessageDataFields {
     static let senderID = "sender_id"
     static let text = "text"
     static let date = "date"
+    static let kind = "kind"
 }

@@ -13,7 +13,7 @@ final class ChatTableViewCell: UITableViewCell, ViewModelable {
     
     //MARK: Properties
     
-    static let identifier = "ChatCell"
+    static let identifier = "ChatTableViewCell"
     
     var viewModel: ViewModel! {
         didSet {
@@ -37,11 +37,19 @@ final class ChatTableViewCell: UITableViewCell, ViewModelable {
         let label = UILabel()
         label.font = Resources.Fonts.system(size: 15, weight: .medium)
         label.textColor = .lightGray
-        label.numberOfLines = 2
         return label
     }()
     
-    private lazy var labelsStack = UIStackView(axis: .vertical, spacing: 5, distribution: .fillProportionally)
+    private lazy var sendingTimeLabel: UILabel = {
+        let label = UILabel()
+        label.font = Resources.Fonts.system(size: 15, weight: .medium)
+        label.textColor = .lightGray
+        return label
+    }()
+    
+    private lazy var labelsStack = UIStackView(axis: .vertical, spacing: 5)
+    
+    private lazy var messageInfoLabelsStack = UIStackView(axis: .horizontal, spacing: 10)
 
     //MARK: - Initialization
     
@@ -65,6 +73,7 @@ private extension ChatTableViewCell {
         userProfileImageView.image = UIImage.profileImage(from: viewModel.userProfileImageData)
         usernameLabel.text = viewModel.username
         lastMessageLabel.text = viewModel.lastMessage
+        sendingTimeLabel.text = "• \(viewModel.sendingTime)"
     }
 }
 
@@ -78,15 +87,25 @@ extension ChatTableViewCell: BaseViewSetup {
     func setupViews() {
         contentView.addSubview(userProfileImageView, useConstraints: true)
         
+        messageInfoLabelsStack.addArrangedSubviews([
+            lastMessageLabel,
+            sendingTimeLabel
+        ])
+        
         contentView.addSubview(labelsStack, useConstraints: true)
-        labelsStack.addArrangedSubview(usernameLabel)
-        labelsStack.addArrangedSubview(lastMessageLabel)
+        labelsStack.addArrangedSubviews([
+            usernameLabel,
+            messageInfoLabelsStack
+        ])
         
     }
     
     func constraintViews() {
+        sendingTimeLabel.setContentHuggingPriority(.required, for: .horizontal)
+        lastMessageLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        
         NSLayoutConstraint.activate([
-            userProfileImageView.widthAnchor.constraint(equalToConstant: 60),
+            userProfileImageView.widthAnchor.constraint(equalToConstant: 55),
             userProfileImageView.heightAnchor.constraint(equalTo: userProfileImageView.widthAnchor),
             userProfileImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             userProfileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),

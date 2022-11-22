@@ -106,6 +106,9 @@
 		3BFDF5C528D1AA3D00A452F5 /* CMCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C428D1AA3D00A452F5 /* CMCoordinator.swift */; };
 		3BFDF5C728D1B80C00A452F5 /* ChatsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */; };
 		3BFDF5C928D1B96F00A452F5 /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */; };
+		940F1998292D00E900DC97E9 /* MessageKind + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F1997292D00E900DC97E9 /* MessageKind + Ext.swift */; };
+		940F199A292D13A800DC97E9 /* MessageDatabaseKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F1999292D13A800DC97E9 /* MessageDatabaseKind.swift */; };
+		940F19A0292D393900DC97E9 /* Date + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F199F292D393900DC97E9 /* Date + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,6 +214,9 @@
 		3BFDF5C628D1B80C00A452F5 /* ChatsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsCoordinator.swift; sourceTree = "<group>"; };
 		3BFDF5C828D1B96F00A452F5 /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
 		64C4F0F9062FA07783B4E133 /* Pods-ChatMe-MessengerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatMe-MessengerApp.release.xcconfig"; path = "Target Support Files/Pods-ChatMe-MessengerApp/Pods-ChatMe-MessengerApp.release.xcconfig"; sourceTree = "<group>"; };
+		940F1997292D00E900DC97E9 /* MessageKind + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageKind + Ext.swift"; sourceTree = "<group>"; };
+		940F1999292D13A800DC97E9 /* MessageDatabaseKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDatabaseKind.swift; sourceTree = "<group>"; };
+		940F199F292D393900DC97E9 /* Date + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Ext.swift"; sourceTree = "<group>"; };
 		FEF00C9B08AE9D2CC2B3D2B0 /* Pods_ChatMe_MessengerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatMe_MessengerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -436,7 +442,9 @@
 			children = (
 				3B8D570428CE07FC0004BDAD /* UIKit */,
 				3BE7E1E228D84966004AB284 /* String + Ext.swift */,
+				940F199F292D393900DC97E9 /* Date + Ext.swift */,
 				3BF6BB0D28EA28EF0081B158 /* UserDefaults + Ext.swift */,
+				940F1997292D00E900DC97E9 /* MessageKind + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -654,6 +662,7 @@
 				3B02C85828D6E8130080F1C0 /* AuthError.swift */,
 				3BE7E1E428D85685004AB284 /* ActiveStatus.swift */,
 				3BC5469E28D99148002CCBBD /* DatabaseCollection.swift */,
+				940F1999292D13A800DC97E9 /* MessageDatabaseKind.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -838,6 +847,7 @@
 				3B1F740C28D49A3400E4705A /* ProfileRegisterCoordinator.swift in Sources */,
 				3BB1554E28E844AE0061358E /* ChatsDatabaseManagerImpl.swift in Sources */,
 				3B31EB3228F0BE6C00F8A39D /* Media.swift in Sources */,
+				940F1998292D00E900DC97E9 /* MessageKind + Ext.swift in Sources */,
 				3BD2B8A128D5DCA8009CF754 /* PiecemealUser.swift in Sources */,
 				3BA62D0B28D17D6300741288 /* CMTabBarController.swift in Sources */,
 				3BA659EC28F1BA09001EBB07 /* ChatTitleView.swift in Sources */,
@@ -867,6 +877,7 @@
 				3BA659E328F164E3001EBB07 /* RecentChat.swift in Sources */,
 				3B02C85D28D6F6B80080F1C0 /* AlertPresenter.swift in Sources */,
 				3BD2B89928D5D621009CF754 /* CMTitleLabel.swift in Sources */,
+				940F199A292D13A800DC97E9 /* MessageDatabaseKind.swift in Sources */,
 				3B302E8D28CCB5CA00844468 /* CoordinatorFactoryImpl.swift in Sources */,
 				3B569CB6290D940C0013A0DE /* MessageDataFields.swift in Sources */,
 				3B62407E28E1D71D00D04529 /* ChatViewController.swift in Sources */,
@@ -887,6 +898,7 @@
 				3B302E9F28CCCC5D00844468 /* UIViewController + Ext.swift in Sources */,
 				3B62408828E1F16200D04529 /* NewChatCoordinator.swift in Sources */,
 				3B62408B28E20ED100D04529 /* UsersSearchResultsViewController.swift in Sources */,
+				940F19A0292D393900DC97E9 /* Date + Ext.swift in Sources */,
 				3BAE880728E85994006C8A8E /* UserProfile.swift in Sources */,
 				3B8D571528CE55BA0004BDAD /* UIStackView + Ext.swift in Sources */,
 				3B302E8228CCAAF600844468 /* AppFactory.swift in Sources */,

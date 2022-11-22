@@ -75,8 +75,10 @@ extension UserTableViewCell: BaseViewSetup {
         
         contentView.addSubview(vStack, useConstraints: true)
         
-        vStack.addArrangedSubview(nameLabel)
-        vStack.addArrangedSubview(additionalInfoLabel)
+        vStack.addArrangedSubviews([
+            nameLabel,
+            additionalInfoLabel
+        ])
     }
     
     func constraintViews() {

@@ -11,4 +11,5 @@ enum ChatDataFields {
     static let user = "user"
     static let lastMessage = "last_message"
     static let date = "date"
+    static let kind = "kind"
 }

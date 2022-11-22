@@ -18,4 +18,8 @@ extension UIStackView {
         self.distribution = distribution
         self.alignment = alignment
     }
+    
+    func addArrangedSubviews(_ views: [UIView]) {
+        views.forEach { self.addArrangedSubview($0) }
+    }
 }

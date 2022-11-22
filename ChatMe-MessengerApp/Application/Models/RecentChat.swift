@@ -13,6 +13,7 @@ struct RecentChat {
     let user: UserProfile
     let lastMessage: String
     let date: Date
+    let kind: MessageDatabaseKind
     
     init(id: String, data: DatabaseDocumentData, userData: DatabaseDocumentData) {
         self.id = id
@@ -22,5 +23,6 @@ struct RecentChat {
         )
         self.lastMessage = data[ChatDataFields.lastMessage] as? String ?? ""
         self.date = (data[ChatDataFields.date] as? Timestamp)?.dateValue() ?? Date()
+        self.kind = MessageDatabaseKind(rawValue: (data[ChatDataFields.kind] as? String ?? "")) ?? .text
     }
 }

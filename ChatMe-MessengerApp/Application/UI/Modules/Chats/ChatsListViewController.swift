@@ -30,6 +30,11 @@ final class ChatsListViewController: CMBaseController, ViewModelable {
         tableView.backgroundColor = .clear
         return tableView
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        chatsTableView.reloadData()
+    }
 
     //MARK: - Methods
     

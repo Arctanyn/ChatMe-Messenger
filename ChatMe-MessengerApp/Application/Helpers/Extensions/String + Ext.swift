@@ -5,7 +5,7 @@
 //  Created by Малиль Дугулюбгов on 19.09.2022.
 //
 
-import Foundation
+import UIKit
 
 extension String {
     func isValidEmail() -> Bool {
@@ -16,5 +16,12 @@ extension String {
     
     func isBeginWithString(_ str: String) -> Bool {
         return self.lowercased().hasPrefix(str.lowercased())
+    }
+    
+    func toImage() -> UIImage? {
+        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters) {
+            return UIImage(data: data)
+        }
+        return nil
     }
 }

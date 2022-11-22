@@ -5,7 +5,7 @@
 //  Created by Малиль Дугулюбгов on 02.10.2022.
 //
 
-import Foundation
+import UIKit
 import FirebaseFirestore
 import MessageKit
 
@@ -41,17 +41,11 @@ final class ChatManagerImpl: ChatManager {
         let date = Timestamp()
         
         let message = createMessage(kind: kind)
-        let messageData = createMessageData(withMessage: message, date: date)
+        let messageData = createMessageData(withMessage: message, kind: kind, date: date)
         
-        let senderDocument = databasePath.getChatWithRecipientDocument(
-            currentUserId: sender.id,
-            recipientId: recipient.id
-        )
+        let senderDocument = databasePath.getChatWithRecipientDocument(currentUserId: sender.id, recipientId: recipient.id)
         
-        let recipientDocument = databasePath.getChatWithCurrentUserDocument(
-            currentUserId: sender.id,
-            recipientId: recipient.id
-        )
+        let recipientDocument = databasePath.getChatWithCurrentUserDocument(currentUserId: sender.id, recipientId: recipient.id)
         
         setData(messageData, inDocument: senderDocument) { [weak self] error in
             guard error == nil else {
@@ -59,7 +53,7 @@ final class ChatManagerImpl: ChatManager {
                 return
             }
             self?.setData(messageData, inDocument: recipientDocument)
-            self?.persistRecentMessage(with: message, date: date)
+            self?.persistRecentMessage(message, kind: kind, date: date)
             completion(nil)
         }
     }
@@ -78,14 +72,10 @@ final class ChatManagerImpl: ChatManager {
                 return
             }
             
-            guard let self else {
-                completion(.failure(ChatDatabaseError.failledToRecieveMessages))
-                return
-            }
-            
+            guard let self else { return }
             var messages = [Message]()
             
-            querySnapshot?.documents.forEach { document in
+            querySnapshot?.documents.forEach({ document in
                 let messageData = document.data()
                 let senderId = messageData[MessageDataFields.senderID] as? String ?? ""
                 
@@ -94,17 +84,23 @@ final class ChatManagerImpl: ChatManager {
                     displayName: senderId == self.sender.id ? self.sender.fullName : self.recipient.fullName
                 )
                 
-                let message = Message(
-                    sender: sender,
-                    messageId: document.documentID,
-                    sentDate: (document[MessageDataFields.date] as? Timestamp)?.dateValue() ?? Date(),
-                    kind: .text(messageData[MessageDataFields.text] as? String ?? "")
-                )
+                guard
+                    let messageKindString = messageData[MessageDataFields.kind] as? String,
+                    let messageDbKind = MessageDatabaseKind(rawValue: messageKindString),
+                    let messageText = messageData[MessageDataFields.text] as? String
+                else { return }
                 
-                messages.append(message)
-            }
-            
-            completion(.success(messages))
+                self.getMessageKind(message: messageText, databaseKind: messageDbKind) { kind in
+                    messages.append(Message(
+                        sender: sender,
+                        messageId: document.documentID,
+                        sentDate: (document[MessageDataFields.date] as? Timestamp)?.dateValue() ?? Date(),
+                        kind: kind
+                    ))
+                }
+                
+                completion(.success(messages))
+            })
         }
     }
 }
@@ -112,12 +108,29 @@ final class ChatManagerImpl: ChatManager {
 //MARK: - Private methods
 
 private extension ChatManagerImpl {
+    func getMessageKind(message: String, databaseKind: MessageDatabaseKind, completion: @escaping (MessageKind) -> Void) {
+        switch databaseKind {
+        case .text:
+            completion(.text(message))
+        case .photo:
+            let image = message.toImage()!
+            completion(.photo(
+                Media(
+                    placeholderImage: image,
+                    size: image.chatSize
+                )
+            ))
+        }
+    }
+
     func createMessage(kind: MessageKind) -> String {
         var message = String()
         
         switch kind {
         case .text(let string):
             message = string
+        case .photo(let media):
+            message = media.placeholderImage.toJpegString(compressionQuality: 0.1) ?? ""
         default:
             break
         }
@@ -125,42 +138,42 @@ private extension ChatManagerImpl {
         return message
     }
     
-    func createMessageData(withMessage message: String, date: Timestamp) -> DatabaseDocumentData {
-        let messageData: DatabaseDocumentData = [
+    func createMessageData(withMessage message: String, kind: MessageKind, date: Timestamp) -> DatabaseDocumentData {
+        return [
             MessageDataFields.senderID: sender.id,
             MessageDataFields.text: message,
-            MessageDataFields.date: date
+            MessageDataFields.date: date,
+            MessageDataFields.kind: kind.toDatabaseKind.rawValue
         ]
-        return messageData
     }
     
-    func persistRecentMessage(with message: String, date: Timestamp) {
-        persistMessageForSender(message, date: date)
-        persistMessageForRecipient(message, date: date)
+    func persistRecentMessage(_ message: String, kind: MessageKind, date: Timestamp) {
+        persistMessageForSender(message, messageKind: kind, date: date)
+        persistMessageForRecipient(message, kind: kind, date: date)
     }
     
-    func persistMessageForSender(_ message: String, date: Timestamp) {
+    func persistMessageForSender(_ message: String, messageKind: MessageKind, date: Timestamp) {
         let senderDocument = databasePath.getRecentChatWithRecipientDocument(
             currentUserId: sender.id,
             recipientId: recipient.id
         )
         
-        let chatData = setupChatData(withMessage: message, date: date, for: .sender)
+        let chatData = setupRecentChatData(withMessage: message, messageKind: messageKind, date: date, userType: .sender)
         setData(chatData, inDocument: senderDocument)
     }
     
-    func persistMessageForRecipient(_ message: String, date: Timestamp) {
+    func persistMessageForRecipient(_ message: String, kind: MessageKind, date: Timestamp) {
         let recipientDocument = databasePath.getRecentChatWithCurrentUserDocument(
             currentUserId: sender.id,
             recipientId: recipient.id
         )
         
-        let chatData = setupChatData(withMessage: message, date: date, for: .recipient)
+        let chatData = setupRecentChatData(withMessage: message, messageKind: kind, date: date, userType: .recipient)
         setData(chatData, inDocument: recipientDocument)
     }
     
-    func setupChatData(withMessage message: String, date: Timestamp, for userType: ChatUserType) -> DatabaseDocumentData {
-        let data: DatabaseDocumentData = [
+    func setupRecentChatData(withMessage message: String, messageKind: MessageKind, date: Timestamp, userType: ChatUserType) -> DatabaseDocumentData {
+        return [
             ChatDataFields.lastMessage: message,
             ChatDataFields.date: date,
             ChatDataFields.user: [
@@ -169,10 +182,9 @@ private extension ChatManagerImpl {
                 UserDataFields.lastName: userType == .sender ? recipient.lastName as Any : sender.lastName as Any,
                 UserDataFields.email: userType == .sender ? recipient.email : sender.email,
                 UserDataFields.profileImage: userType == .sender ? recipient.profileImageData as Any : sender.profileImageData as Any
-            ]
+            ],
+            ChatDataFields.kind: messageKind.toDatabaseKind.rawValue
         ]
-        
-        return data
     }
     
     func setData(_ data: DatabaseDocumentData, inDocument document: DocumentReference, completion: ((Error?) -> Void)? = nil) {

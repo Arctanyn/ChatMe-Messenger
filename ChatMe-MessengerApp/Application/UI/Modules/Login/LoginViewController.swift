@@ -143,18 +143,20 @@ private extension LoginViewController {
     }
     
     func setupAuthButtonsStack() {
-        [
+        authButtonsStack.addArrangedSubviews([
             logInButton,
             signUpButton
-        ].forEach { authButtonsStack.addArrangedSubview($0) }
+        ])
     }
     
     func setupVerticalStack() {
         view.addSubview(vStack, useConstraints: true)
         
-        vStack.addArrangedSubview(titleLabel)
-        vStack.addArrangedSubview(authFieldsStack)
-        vStack.addArrangedSubview(authButtonsStack)
+        vStack.addArrangedSubviews([
+            titleLabel,
+            authFieldsStack,
+            authButtonsStack
+        ])
     }
 }
 

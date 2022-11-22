@@ -40,13 +40,16 @@ final class UserInfoView: CMBaseView {
     }
     
     override func setupViews() {
-        textLabelsStackView.addArrangedSubview(nameLabel)
-        textLabelsStackView.addArrangedSubview(emailLabel)
+        textLabelsStackView.addArrangedSubviews([
+            nameLabel,
+            emailLabel
+        ])
         
         addSubview(vStack, useConstraints: true)
-        vStack.addArrangedSubview(profileImageView)
-        vStack.addArrangedSubview(textLabelsStackView)
-        
+        vStack.addArrangedSubviews([
+            profileImageView,
+            textLabelsStackView
+        ])
     }
     
     override func constraintViews() {

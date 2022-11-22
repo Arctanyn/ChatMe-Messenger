@@ -165,9 +165,11 @@ final class ProfileRegisterViewController: CMBaseController, DataEntryPageProtoc
 private extension ProfileRegisterViewController {
     func setupVerticalStack() {
         view.addSubview(vStack, useConstraints: true)
-        vStack.addArrangedSubview(profileImageView)
-        vStack.addArrangedSubview(authFieldsStack)
-        vStack.addArrangedSubview(createAccountButton)
+        vStack.addArrangedSubviews([
+            profileImageView,
+            authFieldsStack,
+            createAccountButton
+        ])
     }
     
     func setupAuthFieldsStack() {
@@ -184,8 +186,10 @@ private extension ProfileRegisterViewController {
     
     func setupLabelsStack() {
         view.addSubview(labelsStack, useConstraints: true)
-        labelsStack.addArrangedSubview(titleLabel)
-        labelsStack.addArrangedSubview(infoLabel)
+        labelsStack.addArrangedSubviews([
+            titleLabel,
+            infoLabel
+        ])
     }
 
     func setupProfileImageView() {

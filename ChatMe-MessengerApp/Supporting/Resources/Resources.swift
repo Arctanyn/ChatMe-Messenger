@@ -72,6 +72,10 @@ enum Resources {
             UIImage(systemName: "trash")!
         }
         
+        static var paperclip: UIImage {
+            UIImage(systemName: "paperclip")!
+        }
+        
         //MARK: TabBar
         
         enum TabBar {
