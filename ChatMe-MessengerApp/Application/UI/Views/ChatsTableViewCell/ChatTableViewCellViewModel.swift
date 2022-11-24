@@ -33,7 +33,7 @@ final class ChatsTableViewCellViewModelImpl: ChatTableViewCellViewModel {
     }
     
     var sendingTime: String {
-        Date.chatSendingTime(recentChat.date)
+        recentChat.date.elapsedBeforeCurrentDate()
     }
     
     private let recentChat: RecentChat

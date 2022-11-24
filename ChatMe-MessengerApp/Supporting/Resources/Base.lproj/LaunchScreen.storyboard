@@ -10,45 +10,6 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="La6-PC-jTR">
-            <objects>
-                <viewController id="O7x-Uh-icn" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BG6-ea-gFT">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iR-su-xHL">
-                                <rect key="frame" x="40" y="412" width="310" height="20.333333333333314"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="qaoncoanconaocnacnacnaoncoacknacnoancnaonckoacnaoncaoncaoncoanca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qup-D5-akb">
-                                        <rect key="frame" x="0.0" y="0.0" width="268.66666666666669" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7br-Zm-hBL">
-                                        <rect key="frame" x="268.66666666666669" y="0.0" width="41.333333333333314" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="KbL-Rm-eA1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="KbL-Rm-eA1" firstAttribute="trailing" secondItem="3iR-su-xHL" secondAttribute="trailing" constant="40" id="esb-Z1-8Te"/>
-                            <constraint firstItem="3iR-su-xHL" firstAttribute="leading" secondItem="KbL-Rm-eA1" secondAttribute="leading" constant="40" id="rks-IG-AfY"/>
-                            <constraint firstItem="3iR-su-xHL" firstAttribute="centerY" secondItem="BG6-ea-gFT" secondAttribute="centerY" id="v2Z-rp-ik0"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="38Y-d1-lYz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-629" y="401"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
@@ -79,9 +40,6 @@
     </scenes>
     <resources>
         <image name="app_icon" width="512" height="512"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

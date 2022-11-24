@@ -8,8 +8,8 @@
 import Foundation
 
 extension Date {
-    static func chatSendingTime(_ sendingDate: Date) -> String {
-        let pastTime = Date().timeIntervalSince(sendingDate)
+    func elapsedBeforeCurrentDate() -> String {
+        let pastTime = Date().timeIntervalSince(self)
         
         let secondsInMinute: Double = 60
         let secondsInHour = secondsInMinute * 60
@@ -34,4 +34,6 @@ extension Date {
         
         return "\(Int(sendingTime))\(units)"
     }
+    
+    
 }
